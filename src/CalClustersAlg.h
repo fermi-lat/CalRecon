@@ -7,6 +7,8 @@
 #include "geometry/Vector.h"
 #include "Event/Recon/CalRecon/CalXtalRecData.h"
 #include "Event/Recon/CalRecon/CalCluster.h"
+#include "Cluster.h"
+
 class TMinuit;
 
 /**   
@@ -46,7 +48,7 @@ class TMinuit;
 * \todo Add low energy corrections 
 *
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalClustersAlg.h,v 1.3 2002/06/14 20:27:51 chehtman Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalClustersAlg.h,v 1.4 2002/08/05 12:25:56 berrie Exp $
 */
 
 
@@ -228,6 +230,12 @@ private:
 
     //! pointer to GlasDetSvc
     IGlastDetSvc* detSvc;
+
+    /// name of Tool for finding clusters
+    std::string m_clusterToolName;
+
+    /// pointer to actual tool for finding clusters
+    Cluster* m_clusterTool;
 
 };
 
