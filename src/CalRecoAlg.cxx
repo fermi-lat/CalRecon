@@ -1,4 +1,4 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalRecoAlg.cxx,v 1.9 2001/01/26 16:47:13 burnett Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalRecoAlg.cxx,v 1.10 2001/02/02 01:05:40 igable Exp $
 
 // Include files
 #include "CalRecon/CalRecoAlg.h"
@@ -20,7 +20,7 @@
 #include "GlastEvent/Raw/TdCsIData.h"
 
 #include "gui/DisplayControl.h"
-#include "GuiSvc/GuiSvc.h"
+#include "GuiSvc/IGuiSvc.h"
 #include "gui/GuiMgr.h"
 #define TUPLE 1
 
@@ -65,7 +65,7 @@ StatusCode CalRecoAlg::initialize() {
     m_recon=new CalRecon;
     
     // get the Gui service
-    GuiSvc* guiSvc=0;
+    IGuiSvc* guiSvc=0;
     sc = service("GuiSvc", guiSvc);
 
     if (!sc.isSuccess ()){
