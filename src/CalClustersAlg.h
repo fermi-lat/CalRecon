@@ -50,7 +50,7 @@ class IGlastDetSvc;
 * \todo Add low energy corrections 
 *
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalClustersAlg.h,v 1.7 2003/02/24 16:14:40 richard Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalClustersAlg.h,v 1.8.6.1 2004/12/11 02:54:57 chamont Exp $
 */
 
 
@@ -129,7 +129,7 @@ private:
     /// name of Tool for calling CalVals tool
     StringProperty m_calValsCorrToolName;
 
-    /// pointer to actual tool for last layer energy correlation
+    /// pointer to actual tool for calling CalVals tool
     IEnergyCorr* m_calValsCorrTool;
 };
 

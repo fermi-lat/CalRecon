@@ -15,7 +15,7 @@
 * shower profile.
 *
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/ProfileTool.h,v 1.3 2003/03/02 04:11:20 richard Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/ProfileTool.h,v 1.4.4.1.2.1 2005/01/17 11:54:57 chamont Exp $
 */
 
 
