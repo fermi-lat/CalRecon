@@ -1,5 +1,5 @@
 // File and version Information:
-//   $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalXtalRecAlg.cxx,v 1.8 2002/07/22 22:25:05 chehtman Exp $
+//   $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalXtalRecAlg.cxx,v 1.9 2002/09/14 00:04:33 chehtman Exp $
 //
 // Description:
 //    CalXtalRecAlg is an algorithm to reconstruct calorimeter
@@ -130,7 +130,7 @@ StatusCode CalXtalRecAlg::initialize()
     }
 
     // conversion from GeV to MeV
-    for (int r=0; r<4;r++) m_maxEnergy[r] *= 1000.; 
+//    for (int r=0; r<4;r++) m_maxEnergy[r] *= 1000.; 
 	
 	
 	return sc;
