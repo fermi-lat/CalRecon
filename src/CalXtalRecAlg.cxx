@@ -1,5 +1,5 @@
 // File and version Information:
-//   $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalXtalRecAlg.cxx,v 1.23 2005/02/05 10:04:45 fewtrell Exp $
+//   $Header: /home/cvs/SLAC/CalRecon/src/CalXtalRecAlg.cxx,v 1.24 2005/02/05 12:30:11 fewtrell Exp $
 //
 // Description:
 //    CalXtalRecAlg is an algorithm to reconstruct calorimeter
@@ -17,7 +17,6 @@
 
 static const AlgFactory<CalXtalRecAlg>  Factory;
 const IAlgFactory& CalXtalRecAlgFactory = Factory;
-
 using namespace Event;
 using namespace idents;
 using namespace std;
