@@ -50,7 +50,7 @@ class IGlastDetSvc;
 * \todo Add low energy corrections 
 *
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalClustersAlg.h,v 1.10 2005/01/21 15:02:04 chamont Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalClustersAlg.h,v 1.11 2005/01/25 07:51:08 chamont Exp $
 */
 
 
@@ -90,7 +90,6 @@ private:
     Event::CalXtalRecCol* m_calXtalRecCol;
     //! the clusters list, the output of the reconstruction
     Event::CalClusterCol* m_calClusterCol;
-    //! the minimizer for Profile()
 
     //! this parameter permits to distinguish multiple calls
     //! to calorimeter reconstruction for the same event
