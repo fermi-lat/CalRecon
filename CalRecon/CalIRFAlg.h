@@ -1,18 +1,11 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/CalRecon/CalRecoAlg.h,v 1.4 2001/01/15 07:10:21 igable Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/CalRecon/CalIRFAlg.h,v 1.1 2001/03/23 22:10:56 chehtman Exp $
 #ifndef CalIRFAlg_H
 #define CalIRFAlg_H
 
 // Include files
 #include "Gaudi/Algorithm/Algorithm.h"
-
-#include "reconstruction/SummaryData.h"
-#include "CalRecon/GaudiGlastTuple.h"
-
-// forward declarations
+#include "CalGeometrySvc.h"
 class IGlastDetSvc;
-class CalRecon;
-class GlastTuple;
-namespace xml { class IFile; }
 
 
 /*! \class CalIRFAlg
@@ -33,21 +26,12 @@ public:
   //! mandatory
   StatusCode finalize();
 
-  StatusCode printNewNTuple();
 
 private:
     // the GlastDetSvc used for access to detector info
     IGlastDetSvc*    m_detSvc;
-    // ptr to the CalRecon object used to do the analysis
-    CalRecon*    m_recon;
 
-    // constants from the "instrument.xml" file.
-    xml::IFile * m_ini;
-    
-    // sumamry object from glastsim creates a n-tuple
-//    SummaryData<GlastTuple>* m_summary;
-    SummaryData<GaudiGlastTuple>* m_gsummary;
-
+	CalGeometrySvc* m_CalGeo;
 
 };
 
