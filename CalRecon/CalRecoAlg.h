@@ -1,4 +1,4 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/CalRecon/CalRecoAlg.h,v 1.3 2000/12/11 17:07:54 burnett Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/CalRecon/CalRecoAlg.h,v 1.4 2001/01/15 07:10:21 igable Exp $
 #ifndef CalRecoAlg_H
 #define CalRecoAlg_H
 
@@ -33,7 +33,7 @@ public:
   //! mandatory
   StatusCode finalize();
 
-  StatusCode printNewNTuple();
+  StatusCode printNewNTuple(std::string name);
 
 private:
     // the GlastDetSvc used for access to detector info
