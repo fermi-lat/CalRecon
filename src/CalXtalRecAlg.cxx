@@ -1,5 +1,5 @@
 // File and version Information:
-//   $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalXtalRecAlg.cxx,v 1.20.2.1.2.1 2005/01/17 11:54:57 chamont Exp $
+//   $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalXtalRecAlg.cxx,v 1.21 2005/01/20 15:52:20 chamont Exp $
 //
 // Description:
 //    CalXtalRecAlg is an algorithm to reconstruct calorimeter
@@ -454,7 +454,7 @@ bool CalXtalRecAlg::computeEnergy(CalXtalRecData* recData, const Event::CalDigi*
 
                 // add output object to output collection
                 recData->addRangeRecData(*rangeRec);
-            
+                delete rangeRec;
         }		
 	return !below_thresh;
 }
