@@ -2,12 +2,13 @@
  
  @brief Package CalRecon
  @verbatim
- $Id: release.notes,v 1.48 2005/04/05 14:45:41 chamont Exp $
+ $Id: release.notes,v 1.49 2005/04/05 14:48:15 chamont Exp $
 
 package CalRecon
 
 package manager: Alexandre Chekhtman
 
+  v5r23p? ??-apr-05   Pol Introduction of CalTkrLikelihoodTool.
   v5r23p2 05-apr-05   DC  Energy corrections made optional.
                       DC  Experimental: check the use of algorithm options.
                       DC  Tests independent of TkrRecon.
