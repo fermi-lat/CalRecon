@@ -1,5 +1,5 @@
 // File and version Information:
-//   $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalXtalRecAlg.cxx,v 1.7 2002/06/13 20:40:59 chehtman Exp $
+//   $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalXtalRecAlg.cxx,v 1.8 2002/07/22 22:25:05 chehtman Exp $
 //
 // Description:
 //    CalXtalRecAlg is an algorithm to reconstruct calorimeter
@@ -104,7 +104,7 @@ StatusCode CalXtalRecAlg::initialize()
             return StatusCode::FAILURE;
 
         //  if successful - fill the constant using the pointer from the map
-        } else *((*it).first)=value;
+        } else *((*it).first)= int(value);
     }
         
     // extracting double constants

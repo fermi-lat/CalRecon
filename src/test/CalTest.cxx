@@ -1,4 +1,4 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/test/CalTest.cxx,v 1.7 2001/03/27 01:54:23 igable Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/test/CalTest.cxx,v 1.8 2001/04/25 23:46:51 igable Exp $
 
 // Include files
 #include "GaudiKernel/SmartIF.h"
@@ -27,7 +27,7 @@
 //  Description: Test Main Program
 //
 //------------------------------------------------------------------------------
-int main( int argn, char** argc) {
+int main( int , char** ) {
 
     // get the path to this package from its root environment variable: if not there,
     // assume that we are in the root
