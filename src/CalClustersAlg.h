@@ -50,7 +50,7 @@ class IGlastDetSvc;
 * \todo Add low energy corrections 
 *
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalClustersAlg.h,v 1.12 2005/03/18 15:32:52 chamont Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalClustersAlg.h,v 1.13 2005/03/21 10:09:19 chamont Exp $
 */
 
 
@@ -121,6 +121,12 @@ private:
 
     /// pointer to actual tool for calling CalVals tool
     IEnergyCorr* m_calValsCorrTool;
+
+    /// name of Tool for calling CalTkrLikelihood tool
+    StringProperty m_tkrLikelihoodToolName;
+
+    /// pointer to actual tool for calling CalTkrLikelihood tool
+    IEnergyCorr* m_tkrLikelihoodTool;
 };
 
 #endif
