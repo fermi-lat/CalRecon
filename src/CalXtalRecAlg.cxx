@@ -1,5 +1,5 @@
 // File and version Information:
-//   $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalXtalRecAlg.cxx,v 1.22 2005/01/28 18:14:43 berrie Exp $
+//   $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalXtalRecAlg.cxx,v 1.23 2005/02/05 10:04:45 fewtrell Exp $
 //
 // Description:
 //    CalXtalRecAlg is an algorithm to reconstruct calorimeter
@@ -280,8 +280,8 @@ StatusCode CalXtalRecAlg::computeEnergy(CalXtalRecData* recData, const CalDigi* 
       (CalXtalId::AdcRange)it->getRange(CalXtalId::NEG); 
 
     // get adc values 
-    double adcP = it->getAdc(CalXtalId::POS);   
-    double adcM = it->getAdc(CalXtalId::NEG);   
+    int adcP = it->getAdc(CalXtalId::POS);   
+    int adcM = it->getAdc(CalXtalId::NEG);   
 
     float ene;
 
