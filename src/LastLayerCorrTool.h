@@ -13,7 +13,7 @@
 * the energy in the last CAL layer with the total.  
 *
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/LastLayerCorrTool.h,v 1.3 2003/05/11 19:59:12 burnett Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/LastLayerCorrTool.h,v 1.4 2003/06/07 17:55:12 berrie Exp $
 */
 
 
@@ -106,6 +106,13 @@ public:
 	float m_b0;
 /// bias factor 2     
 	float m_b1;    
+
+/// golp factor 0 
+	float m_k0;
+/// golp factor 1 
+	float m_k1;
+/// golp factor 2     
+	float m_k2;    
 
 };
 
