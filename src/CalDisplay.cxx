@@ -1,4 +1,4 @@
-//$Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalDisplay.cxx,v 1.1 2001/06/06 06:09:41 burnett Exp $
+//$Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalDisplay.cxx,v 1.2 2001/06/11 18:59:17 chehtman Exp $
 
 /// Gaudi specific include files
 #include "GaudiKernel/Algorithm.h"
@@ -161,6 +161,8 @@ StatusCode CalDisplay::initialize()
     IGuiSvc* guiSvc = 0;
     StatusCode sc = service("GuiSvc", guiSvc);
 
+    m_crl = 0;
+    m_cls = 0;
 	
      sc = service("CalGeometrySvc", m_CalGeo);
 	 float logheight = m_CalGeo->logHeight();
