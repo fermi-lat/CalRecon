@@ -4,6 +4,7 @@
 
 #include "GlastSvc/GlastDetSvc/IGlastDetSvc.h"
 #include "EnergyCorr.h"
+#include "GaudiKernel/DataSvc.h"
 
 /**   
 * @class LastLayerCorrTool
@@ -12,7 +13,7 @@
 * the energy in the last CAL layer with the total.  
 *
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/LastLayerCorrTool.h,v 1.2 2003/03/02 04:11:20 richard Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/LastLayerCorrTool.h,v 1.3 2003/05/11 19:59:12 burnett Exp $
 */
 
 
@@ -84,7 +85,27 @@ public:
      StatusCode execute();
 
     
+ private:
+
+        /// input XML file containing parameters for Digitization
+        std::string	m_xmlFile;
+/// pointer to EventSvc
+    IDataProviderSvc* m_eventSvc;
+
+    DataSvc* m_dataSvc;
+/// correlation factor 1 
+	float m_c0;    
+/// correlation factor 2
+	float m_c1;    
+/// correlation factor 3
+	float m_c2;    
+/// correlation factor 4
+	float m_c3;    
     
+/// bias factor 1 
+	float m_b0;
+/// bias factor 2     
+	float m_b1;    
 
 };
 
