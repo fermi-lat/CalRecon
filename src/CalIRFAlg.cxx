@@ -1,4 +1,4 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalIRFAlg.cxx,v 1.3 2001/04/02 23:52:44 chehtman Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalIRFAlg.cxx,v 1.4 2001/04/10 23:22:17 chehtman Exp $
 
 // Include files
 #include "CalRecon/CalIRFAlg.h"
@@ -156,8 +156,8 @@ StatusCode CalIRFAlg::execute() {
 		}
 	}
 
-    crl->writeOut();
-	std::cout << std::endl << " ene = " << ene << std::endl << std::endl;    
+//    crl->writeOut();
+//	std::cout << std::endl << " ene = " << ene << std::endl << std::endl;    
 
     return sc;
 }
