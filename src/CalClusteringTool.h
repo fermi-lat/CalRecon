@@ -1,8 +1,8 @@
 
-#ifndef __ClusteringTool_H
-#define __ClusteringTool_H 1
+#ifndef __CalClusteringTool_H
+#define __CalClusteringTool_H 1
 
-#include "IClusteringTool.h"
+#include "CalIClusteringTool.h"
 #include "GaudiKernel/ToolFactory.h"
 #include "GaudiKernel/AlgTool.h"
 #include "GaudiKernel/SmartDataPtr.h"
@@ -12,7 +12,7 @@
 #include "Event/Recon/CalRecon/CalCluster.h"
 
 /**   
-* @class ClusteringTool
+* @class CalClusteringTool
 *
 * Base class for clustering tools, containing member data and
 * default code for the global algorithm, the preparation of
@@ -22,19 +22,19 @@
 * in a derived class is nextXtalsSet(), which is selecting the
 * crystals to be grouped together.
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/ClusteringTool.h,v 1.7 2003/05/11 20:15:12 burnett Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalClusteringTool.h,v 1.1 2005/01/21 15:02:05 chamont Exp $
 */
 
 
-class ClusteringTool : public IClusteringTool,  public AlgTool {
+class CalClusteringTool : public CalIClusteringTool,  public AlgTool {
 	
   public:
     
-    ClusteringTool
+    CalClusteringTool
      ( const std::string & type, 
        const std::string & name,
        const IInterface * parent ) ;
-    virtual ~ClusteringTool() ;
+    virtual ~CalClusteringTool() ;
     
 	/// @brief Intialization of the tool
     virtual StatusCode initialize();
