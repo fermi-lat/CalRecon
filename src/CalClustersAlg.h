@@ -49,7 +49,7 @@ class TMinuit;
 * \todo Add low energy corrections 
 *
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalClustersAlg.h,v 1.5 2003/02/12 03:28:49 richard Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalClustersAlg.h,v 1.6 2003/02/13 23:44:41 richard Exp $
 */
 
 
@@ -124,6 +124,12 @@ private:
 
     /// pointer to actual tool for last layer energy correlation
     EnergyCorr* m_profileTool;
+
+    /// name of Tool for calling CalVals tool
+    std::string m_calValsCorrToolName;
+
+    /// pointer to actual tool for last layer energy correlation
+    EnergyCorr* m_calValsCorrTool;
 };
 
 #endif
