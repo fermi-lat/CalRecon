@@ -7,11 +7,11 @@
 #include "GlastSvc/GlastDetSvc/IGlastDetSvc.h"
 #include "GaudiKernel/IDataProviderSvc.h"
 #include "GaudiKernel/Service.h"
-#include "CalibData/CalibModel.h"
-#include "CalibData/Cal/CalCalibPed.h"
-#include "CalibData/Cal/CalCalibGain.h"
-#include "CalibData/Cal/CalCalibMuSlope.h"
 
+#include "CalUtil/CalFailureModeSvc.h"
+#include "CalUtil/ICalCalibSvc.h"
+#include "CalUtil/ICalEnergyTool.h"
+#include "CalUtil/ICalPosTool.h"
 
 // Forward declarations
 class IDetDataSvc;
@@ -27,7 +27,7 @@ class IDetDataSvc;
  *
  *  @author           A.Chekhtman
  *
- * $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalXtalRecAlg.h,v 1.5 2003/04/03 20:39:25 chehtman Exp $
+ * $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalXtalRecAlg.h,v 1.6 2003/11/22 15:57:48 chehtman Exp $
  */
 class CalXtalRecAlg : public Algorithm
 {
@@ -58,9 +58,11 @@ private:
     *  \f$ PED \f$ - pedestal, \f$ ADC_{max} \f$ - maximum ADC value.
     *
     * @param recData pointer to CalXtalRecData object to store reconstructed energy
+    * @param adc value for best range POS side required by computePosition
+    * @param adc value for best range NEG side required by computePosition
     * @param digi pointer to CalDigi object with input data
     */
-    bool computeEnergy(Event::CalXtalRecData* recData,
+    bool computeEnergy(Event::CalXtalRecData* recData, int &adcP, int &adcM,
                        const Event::CalDigi* digi);
     
     /** @brief method to calculate longitudinal position in a crystal
@@ -76,10 +78,13 @@ private:
     *   from"near" crystal face in the case when the energy deposition is close
     *   to one end of the crystal.
     *
-    * @param recData pointer to CalXtalRecData object used as a source of input
-    *        information on energy and to store the calculated position
+    * @param recData pointer to CalXtalRecData object used as a source of
+    *        input information on energy and to store the calculated position
+    * @param adc value for best range POS side
+    * @param adc value for best range NEG side
     */
-    void computePosition(Event::CalXtalRecData* recData);
+    void computePosition(Event::CalXtalRecData* recData, 
+                         int adcP, int adcM);
     
 private:
     /// pointer to input data collection in TDS
@@ -101,23 +106,8 @@ private:
     int m_eTowerCAL;
     ///< the value of fTowerObject field, defining calorimeter module 
     int m_eLATTowers; ///< the value of fLATObjects field, defining LAT towers 
-    int m_CALnLayer;  ///< number of CAL layers
-    int m_nCsIPerLayer;  ///< number of Xtals per layer
-
     int m_eXtal;      ///< the value of fCellCmp field defining CsI crystal
     int m_nCsISeg;  ///< number of geometric segments per Xtal
-
-    int m_eDiodeMSmall;
-    ///< the value of fcellCmp field defining small diode at minus face  
-
-    int m_eDiodePSmall;
-    ///< the value of fcellCmp field defining small diode at plus face 
-
-    int m_eDiodeMLarge;
-    ///< the value of fcellCmp field defining large diode at minus face 
-
-    int m_eDiodePLarge;
-    ///< the value of fcellCmp field defining large diode at plus face 
 
     int m_eMeasureX;
     ///< the value of fmeasure field for crystals along X direction
@@ -125,41 +115,10 @@ private:
     int m_eMeasureY;
     ///< the value of fmeasure field for crystals along Y direction
 
-    int m_ePerMeV[2];  ///< gain - electrons/MeV 0=Small, 1=Large
-    int m_noise[2];  ///< noise for diodes 0=Small, 1=Large units=electrons
-    int m_pedestal;  ///< single pedestal
-    int m_maxAdc;  ///< max value for ADC
     int m_thresh;  ///< zero suppression threshold
-    double m_maxEnergy[4];  ///< highest energy for each energy range
-    double m_lightAtt;  ///< light attenuation factor
-    double m_CsILength;  ///< Xtal length
-    double m_CsIWidth;  ///< Xtal width
-    double m_CsIHeight;  ///< Xtal height
-    IGlastDetSvc* detSvc; ///< pointer to the Glast Detector Service
+    IGlastDetSvc* m_detSvc; ///< pointer to the Glast Detector Service
 
-
-    IDataProviderSvc* m_pCalibDataSvc;
-
-    /// Handle to the IDetDataSvc interface of the CalibDataSvc
-    IDetDataSvc* m_detDataSvc;
-
-    /// Absolute time of first event (yyyy-mm-dd_hh:mm, trailing fields
-    /// optional)
-    std::string m_startTimeAsc;
-
-    /// Absolute time of first event (seconds)
-    long m_startTime;
-    
-    /// "flavor" of calibration files
-    std::string m_calibFlavor;
-
-    CalibData::CalCalibPed* pPeds;
-
-    CalibData::CalCalibGain* pGains;
-
-    CalibData::CalCalibMuSlope* pMuSlopes;
-
+    ICalEnergyTool *m_pTestEnergyTool; ///< pointer to testenergytool
+    ICalPosTool *m_pTestPosTool; ///< pointer to testpostool
 };
-
-
 #endif

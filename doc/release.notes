@@ -6,6 +6,7 @@
 package CalRecon
 
 package manager: Alexandre Chekhtman
+  v5r16p3             PA  CalXtalRecAlg now calls on the test CalResponse tools
   v5r16p2             PA  Added bias correction to the Profile tool
   v5r16p1             BG  deleted rangerec to fix memleak
   ..?..               ..	
