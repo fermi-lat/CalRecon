@@ -2,12 +2,14 @@
  
  @brief Package CalRecon
  @verbatim
- $Id: release.notes,v 1.34 2005/01/10 16:18:56 burnett Exp $
+ $Id: release.notes,v 1.35 2005/01/18 03:37:53 burnett Exp $
 
 package CalRecon
 
 package manager: Alexandre Chekhtman
 
+  v5r20p2 27-jan-05   PA  Added bias correctio to profile tool
+  v5r20p1 27-jan-05   .....
   v5r17p3 17-jan-05   THB remove RootPolicy from requirements
   v5r17p2 10-jan-05   THB Accept Tracy's change to CalValsCorrTool to adapt to new Event
   v5r17p1 07-jan-05   THB Change from xml to xmlBase for JRB
