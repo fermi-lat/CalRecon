@@ -6,7 +6,8 @@
 package CalRecon
 
 package manager: Alexandre Chekhtman
-
+  v5r16p1             BG  deleted rangerec to fix memleak
+  ..?..               ..	
   v5r15               BG  Temporarily move Fuzzies to Attic
   v5r14               BG  Tag for Gabriel's clustering
   v5r13p3 25-Jun-2003 BG  Extend LastLayer tool to 26 degrees
