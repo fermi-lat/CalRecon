@@ -1,4 +1,4 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/test/CalTest.cxx,v 1.1.1.1 2000/11/29 21:22:55 burnett Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs//CalRecon/src/test/CalTest.cxx,v 1.2 2000/12/07 18:46:41 burnett Exp $
 
 // Include files
 #include "Gaudi/Kernel/SmartIF.h"
@@ -18,8 +18,9 @@
 //------------------------------------------------------------------------------
 #include <iostream>
 // this needed for instrument.lib??
-//void FATAL(const char* text){std::cerr << text << std::endl;}
-
+#ifndef WIN32
+void FATAL(const char* text){std::cerr << text << std::endl;}
+#endif // WIN32
 
 
 int main( int argn, char** argc) {
