@@ -1,9 +1,9 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/mainpage.h,v 1.5 2003/07/01 08:14:39 musat Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/mainpage.h,v 1.6 2003/07/31 16:10:44 musat Exp $
 // Mainpage for doxygen
 
 /** @mainpage package CalRecon
  *
- * @authors A.Chekhtman, R.Terrier, J.A.Hernando, G. Musat
+ * @authors A.Chekhtman, R.Terrier, J.A.Hernando, G. Musat, B. Giebels
  *
  * @section intro Introduction
  *
