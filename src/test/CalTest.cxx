@@ -1,12 +1,12 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/test/CalTest.cxx,v 1.6 2001/03/03 04:10:27 tlindner Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/test/CalTest.cxx,v 1.7 2001/03/27 01:54:23 igable Exp $
 
 // Include files
-#include "Gaudi/Kernel/SmartIF.h"
-#include "Gaudi/Kernel/Bootstrap.h"
-#include "Gaudi/Interfaces/IAppMgrUI.h"
-#include "Gaudi/Interfaces/IProperty.h"
-#include "Gaudi/JobOptionsSvc/Property.h"
-#include "Gaudi/System/System.h"
+#include "GaudiKernel/SmartIF.h"
+#include "GaudiKernel/Bootstrap.h"
+#include "GaudiKernel/IAppMgrUI.h"
+#include "GaudiKernel/IProperty.h"
+#include "GaudiKernel/Property.h"
+#include "GaudiKernel/System.h"
 
 
 //------------------------------------------------------------------------------

@@ -1,9 +1,9 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/CalRecon/CalIRFAlg.h,v 1.1 2001/03/23 22:10:56 chehtman Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/CalRecon/CalIRFAlg.h,v 1.2 2001/04/02 23:39:48 chehtman Exp $
 #ifndef CalIRFAlg_H
 #define CalIRFAlg_H
 
 // Include files
-#include "Gaudi/Algorithm/Algorithm.h"
+#include "GaudiKernel/Algorithm.h"
 #include "CalGeometrySvc.h"
 class IGlastDetSvc;
 
@@ -31,7 +31,7 @@ private:
     // the GlastDetSvc used for access to detector info
     IGlastDetSvc*    m_detSvc;
 
-	CalGeometrySvc* m_CalGeo;
+	ICalGeometrySvc* m_CalGeo;
 
 };
 
