@@ -22,7 +22,7 @@
 *  It evaluates the barycenter for each layer using the coordinates stored in
 *  the CalXtalRecCol,
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/Cluster.h,v 1.2 2003/02/12 22:24:36 richard Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/Cluster.h,v 1.3 2003/02/16 19:08:16 richard Exp $
 */
 
 
@@ -65,7 +65,7 @@ protected:
     virtual Vector Fit_Direction(std::vector<Vector> pos,
                                      std::vector<Vector> sigma2,
                                      int nlayers) {
-        return (0.,0.,0.);
+        return (Vector)(0.,0.,0.);
     }
 	
 private:
