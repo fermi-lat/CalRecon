@@ -15,16 +15,16 @@
         Do not modify and check in this file without permission!
         Note that the text in the item field cannot have direct ampersands of brackets!
   -->
-<calDigi cvs_Header="$Header: /nfs/slac/g/glast/ground/cvs/CalDigi/xml/CalDigi.xml,v 1.2 2002/08/26 00:49:23 richard Exp $"
-         cvs_Revision="$Revision: 1.2 $">
+<calDigi cvs_Header="$Header: /nfs/slac/g/glast/ground/cvs/CalRecon/xml/CalLayer.xml,v 1.1 2003/06/07 17:46:45 berrie Exp $"
+         cvs_Revision="$Revision: 1.1 $">
 
     <section name="lastlayer">  CAL properties
-	<item name="c0"     value="0.543764"> MeV </item>
-	<item name="c1"     value="1.08021"> MeV </item>
-	<item name="c2"     value="0.481973"> MeV </item>
-	<item name="c3"     value="-2.09624"> MeV </item>
-	<item name="b0"     value="0.808793"> MeV </item>
-	<item name="b1"     value="0.0486306"> MeV </item>
+	<item name="c0"     value="0.378372"> MeV </item>
+	<item name="c1"     value="0.96903"> MeV </item>
+	<item name="c2"     value="-20.3494"> MeV </item>
+	<item name="c3"     value="19.3494"> MeV </item>
+	<item name="b0"     value="0.80154"> MeV </item>
+	<item name="b1"     value="0.0448195"> MeV </item>
 
     </section>
 
