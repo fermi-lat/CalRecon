@@ -1,4 +1,4 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/mainpage.h,v 1.10 2005/01/25 07:56:35 chamont Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/mainpage.h,v 1.11.2.1 2005/03/25 21:58:18 fewtrell Exp $
 // Mainpage for doxygen
 
 /** @mainpage package CalRecon
@@ -21,7 +21,7 @@
  *   as input, calculates the energy and position in each hitted crystal
  *   and stores this data into CalXtalRecCol.  CalXtalResponse package is 
  *   used for the estimation of energy & position from digi info.  See
- *   documentation in that package for details.
+ *   documentation in CalXtalResponse for details.
  *  
  *   CalClustersAlg calculates the energy, position and direction for
  *   calorimeter clusters and applies energy corrections.
@@ -89,6 +89,12 @@
  * @param CalClustersAlg.profileToolName
  *        name of tool performing profile fitting energy correction
  *
+ *
+ * @param CalXtalRecAlg.xtalEneTool
+ *        name of CalXtalResponse/IXtalEneTool based tool performing xtal digi->energy conversion (default is "XtalEneTool")
+ * @param CalXtalRecAlg.xtalPosTool
+ *        name of CalXtalResponse/IXtalPosTool based tool performing xtal digi->position conversion (default is "XtalPosTool")
+ *
  * <hr>
  * @section notes release notes
  * @include release.notes
@@ -96,8 +102,6 @@
  * @verbinclude requirements
  * <hr>
  *  
- * @todo modify CalXtalRecAlg to use real calibration data
- *
  * @todo implement real clustering in CalClustersAlg to determine the 
  *       energies of electron and positron produced
  *       by low energy photon
