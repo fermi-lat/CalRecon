@@ -1,14 +1,14 @@
 package CalRecon
-version v1r5
+version v1r3
 
 branches src mgr doc
 
-use TkrRecon 
+use GlastSvc
 use GuiSvc
-use GlastEvent
 
+use reconstruction 
 
-library CalRecon  *.cxx *.cpp *.h ../CalRecon/*.h  Dll/*.cpp
+library CalRecon  *.cxx ../CalRecon/*.h  Dll/*.cpp
 
 macro CalRecon Dir  "$(CALRECONROOT)/$(DEBUGDIR)"
 
@@ -39,5 +39,5 @@ macro WinJobOptions  "" \
 
 macro_append use_linkopts $(console_linkopts)
 
-application test_CalRecon test/*.cxx ${WinJobOptions}
+application test test/*.cxx ${WinJobOptions}
 
