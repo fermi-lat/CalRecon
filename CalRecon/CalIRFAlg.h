@@ -1,10 +1,10 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/CalRecon/CalIRFAlg.h,v 1.2 2001/04/02 23:39:48 chehtman Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/CalRecon/CalIRFAlg.h,v 1.3 2001/04/25 23:46:50 igable Exp $
 #ifndef CalIRFAlg_H
 #define CalIRFAlg_H
 
 // Include files
 #include "GaudiKernel/Algorithm.h"
-#include "CalGeometrySvc.h"
+#include "ICalGeometrySvc.h"
 class IGlastDetSvc;
 
 

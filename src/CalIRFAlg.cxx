@@ -1,4 +1,4 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalIRFAlg.cxx,v 1.6 2001/04/25 23:46:51 igable Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalIRFAlg.cxx,v 1.7 2001/06/18 23:42:31 chehtman Exp $
 
 // Include files
 #include "CalRecon/CalIRFAlg.h"
@@ -50,8 +50,10 @@ StatusCode CalIRFAlg::initialize() {
 
     //Look for the geometry service
     StatusCode sc = service("CalGeometrySvc", m_CalGeo);
+
     if (!sc.isSuccess ()){
         log << MSG::ERROR << "Couldn't find the CalGeometrySvc!" << endreq;
+        return sc;
     }
     
     // now try to find the GlastDevSvc service
