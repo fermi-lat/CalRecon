@@ -1,4 +1,4 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalRecoAlg.cxx,v 1.10 2001/02/02 01:05:40 igable Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalRecoAlg.cxx,v 1.11 2001/02/06 00:11:12 tlindner Exp $
 
 // Include files
 #include "CalRecon/CalRecoAlg.h"
@@ -17,7 +17,7 @@
 #include "reconstruction/SummaryData.h"
 #include "reconstruction/GlastTuple.h"
 
-#include "GlastEvent/Raw/TdCsIData.h"
+#include "GlastEvent/data/TdCsIData.h"
 
 #include "gui/DisplayControl.h"
 #include "GuiSvc/IGuiSvc.h"
