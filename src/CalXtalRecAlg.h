@@ -27,7 +27,7 @@ class IDetDataSvc;
  *
  *  @author           A.Chekhtman
  *
- * $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalXtalRecAlg.h,v 1.4 2003/01/10 23:26:01 chehtman Exp $
+ * $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalXtalRecAlg.h,v 1.5 2003/04/03 20:39:25 chehtman Exp $
  */
 class CalXtalRecAlg : public Algorithm
 {
@@ -60,7 +60,7 @@ private:
     * @param recData pointer to CalXtalRecData object to store reconstructed energy
     * @param digi pointer to CalDigi object with input data
     */
-    void computeEnergy(Event::CalXtalRecData* recData,
+    bool computeEnergy(Event::CalXtalRecData* recData,
                        const Event::CalDigi* digi);
     
     /** @brief method to calculate longitudinal position in a crystal
