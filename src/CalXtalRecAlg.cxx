@@ -1,5 +1,5 @@
 // File and version Information:
-//   $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalXtalRecAlg.cxx,v 1.17 2003/12/03 20:13:04 chehtman Exp $
+//   $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalXtalRecAlg.cxx,v 1.18 2004/03/15 09:06:02 davezac Exp $
 //
 // Description:
 //    CalXtalRecAlg is an algorithm to reconstruct calorimeter
@@ -419,7 +419,9 @@ bool CalXtalRecAlg::computeEnergy(CalXtalRecData* recData, const Event::CalDigi*
               pedP = pPedP->getAvr();
               pedM = pPedM->getAvr();
 
-              if( pPedM->getCosAngle()!= 2. ){
+              // this is for backward compatibility with pedestal xml files 
+              // without correlations 
+              if( pPedM->getCosAngle()!= 2. ){ 
                 if( rangeM%2==0 ){
                   double cosAngle= pPedM->getCosAngle();
                   CalibData::RangeBase* pRangeM = 
