@@ -2,13 +2,13 @@
  
  @brief Package CalRecon
  @verbatim
- $Id: release.notes,v 1.45.2.2 2005/03/26 03:42:35 fewtrell Exp $
+ $Id: release.notes,v 1.48 2005/04/05 14:45:41 chamont Exp $
 
 package CalRecon
 
 package manager: Alexandre Chekhtman
 
-  v5r23p? ??-apr-05   DC  Energy corrections made optional.
+  v5r23p2 05-apr-05   DC  Energy corrections made optional.
                       DC  Experimental: check the use of algorithm options.
                       DC  Tests independent of TkrRecon.
                       DC  merge v5r22p5em0 and v5r22p5em1 
