@@ -2,12 +2,13 @@
  
  @brief Package CalRecon
  @verbatim
- $Id$
+ $Id: release.notes,v 1.33 2005/01/07 17:19:05 burnett Exp $
 
 package CalRecon
 
 package manager: Alexandre Chekhtman
 
+  v5r17p2 10-jan-05   THB Accept Tracy's change to CalValsCorrTool to adapt to new Event
   v5r17p1 07-jan-05   THB Change from xml to xmlBase for JRB
   v5r17   07-jan-05   THB Tag the previous change
           22-sep-04   THB Modify CalValsCorrTool to invoke a local copy of code from AnalysisNtuple::CalvalsTool
