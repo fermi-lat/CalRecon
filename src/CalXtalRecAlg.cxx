@@ -1,5 +1,5 @@
 // File and version Information:
-//   $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalXtalRecAlg.cxx,v 1.6 2002/06/03 21:30:14 chehtman Exp $
+//   $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalXtalRecAlg.cxx,v 1.7 2002/06/13 20:40:59 chehtman Exp $
 //
 // Description:
 //    CalXtalRecAlg is an algorithm to reconstruct calorimeter
@@ -119,6 +119,8 @@ StatusCode CalXtalRecAlg::initialize()
     dparam[m_maxEnergy+3]=std::string("cal.maxResponse3");
     dparam[&m_lightAtt]=std::string("cal.lightAtt");
     dparam[&m_CsILength]=std::string("CsILength");
+    dparam[&m_CsIWidth]=std::string("CsIWidth");
+    dparam[&m_CsIHeight]=std::string("CsIHeight");
     
     for(DPARAMAP::iterator dit=dparam.begin(); dit!=dparam.end();dit++){
         if(!detSvc->getNumericConstByName((*dit).second,(*dit).first)) {
@@ -378,8 +380,17 @@ void CalXtalRecAlg::computePosition(CalXtalRecData* recData)
         // deviation from crystal center
 	double slope = (1+m_lightAtt)/(1-m_lightAtt);
 
+        // longitudinal position in relative units (this value equal to +1 or -1
+        // at the end of a crystal
+        double relpos = asym*slope;
+
+        // if the calculated position is outside the crystal - set it
+        // to the nearest crystal end
+        if(relpos > 1.0) relpos = 1.0;
+        if(relpos <-1.0) relpos = -1.0;
+        
         // calculate average position of energy deposit in this crystal
-	Point pXtal = pCenter+dirXtal*asym*slope;
+	Point pXtal = pCenter+dirXtal*relpos;
 	
 
         // store calculated position in the reconstructed data

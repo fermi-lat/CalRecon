@@ -20,7 +20,7 @@
  *
  *  @author           A.Chekhtman
  *
- * $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/CalRecon/CalXtalRecAlg.h,v 1.8 2002/06/12 22:39:04 chehtman Exp $
+ * $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalXtalRecAlg.h,v 1.1 2002/06/13 20:40:36 chehtman Exp $
  */
 class CalXtalRecAlg : public Algorithm
 {
@@ -125,6 +125,8 @@ private:
     double m_maxEnergy[4];  ///< highest energy for each energy range
     double m_lightAtt;  ///< light attenuation factor
     double m_CsILength;  ///< Xtal length
+    double m_CsIWidth;  ///< Xtal width
+    double m_CsIHeight;  ///< Xtal height
     IGlastDetSvc* detSvc; ///< pointer to the Glast Detector Service
 
 };
