@@ -7,17 +7,7 @@ use TkrRecon
 use GuiSvc
 use GlastEvent
 
-
-library CalRecon  *.cxx *.cpp ../CalRecon/*.h  Dll/*.cpp
-
 macro CalReconDir  "$(CALRECONROOT)/$(DEBUGDIR)"
-
-macro CalRecon_linkopts   " " 
-macro CalRecon_stamps     
-
-set   CalReconShr           "${CALRECONROOT}/${DEBUGDIR}/libCalRecon"
-
-path_append LD_LIBRARY_PATH "${CALRECONROOT}/${DEBUGDIR}/"
 
 # have a seperate library to export the calorimeter recon data classes 
 library CalReconData -no_share CalLogID.cpp calorimeterGeo.cpp \
@@ -27,9 +17,19 @@ library CalReconData -no_share CalLogID.cpp calorimeterGeo.cpp \
 macro CalRecon_linkopts   "$(CalReconDir)/libCalReconData.a  " \
       VisualC             "$(CalReconDir)/libCalReconData.lib  " 
 
-private
+library CalRecon  *.cxx *.cpp ../CalRecon/*.h  Dll/*.cpp
+
+
+macro CalRecon_stamps     
+
+set   CalReconShr           "${CALRECONROOT}/${DEBUGDIR}/libCalRecon"
+
+path_append LD_LIBRARY_PATH "${CALRECONROOT}/${DEBUGDIR}/"
+
 
 include_path $(CALRECONROOT)
+
+private
 
 # note that the debug versions of the used libraries are inserted below
 
