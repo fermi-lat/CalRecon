@@ -1,4 +1,4 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/mainpage.h,v 1.4 2003/02/19 04:32:03 richard Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/mainpage.h,v 1.5 2003/07/01 08:14:39 musat Exp $
 // Mainpage for doxygen
 
 /** @mainpage package CalRecon
@@ -99,8 +99,9 @@
  *        clusterSetNo is a param of FuzzyClusterTool that specifies
  *        the index of the partition that should be considered; its default
  *        value is zero.
- * @param ApplicationMgr.DLLs += {"FC"};
- *        The FC library should be loaded if one uses FuzzyClusterTool.
+ * @param ApplicationMgr.DLLs += {"FuzzyCluster"};
+ *        The FuzzyCluster library should be loaded if one uses 
+ *        FuzzyClusterTool.
  *
  * @param CalClustersAlg.lastLayerToolName
  *        name of tool performing last layer energy correction
