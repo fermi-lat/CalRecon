@@ -16,7 +16,7 @@
 * Base class for clustering tools, containing member data
 *
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/Cluster.h,v 1.5 2003/03/02 04:11:20 richard Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/Cluster.h,v 1.6 2003/05/11 19:59:12 burnett Exp $
 */
 
 
@@ -58,7 +58,7 @@ protected:
     virtual Vector Fit_Direction(std::vector<Vector> pos,
                                      std::vector<Vector> sigma2,
                                      int nlayers) {
-        return (Vector)(0.,0.,0.);
+        return Vector(0.,0.,0.);
     }
 	
 private:
