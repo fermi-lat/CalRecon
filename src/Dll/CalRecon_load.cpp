@@ -1,4 +1,4 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/Dll/CalRecon_load.cpp,v 1.5 2001/06/06 06:09:41 burnett Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/Dll/CalRecon_load.cpp,v 1.6 2002/04/04 02:04:06 chehtman Exp $
 //====================================================================
 //  GlastSvc_load.cpp
 //--------------------------------------------------------------------
@@ -24,14 +24,15 @@
 //! Load all  services: 
 void CalRecon_load() {
     
-    DLL_DECL_SERVICE( CalGeometrySvc );
+//    DLL_DECL_SERVICE( CalGeometrySvc );
     
-    DLL_DECL_ALGORITHM( CalRecLogsAlg );
-    DLL_DECL_ALGORITHM( CalDigiLogsAlg );
+//    DLL_DECL_ALGORITHM( CalRecLogsAlg );
+//    DLL_DECL_ALGORITHM( CalDigiLogsAlg );
 //     DLL_DECL_ALGORITHM( CalIRFAlg );
+    DLL_DECL_ALGORITHM( CalXtalRecAlg );
     DLL_DECL_ALGORITHM( CalClustersAlg );
-    DLL_DECL_ALGORITHM( CalNtupleAlg );
-    DLL_DECL_ALGORITHM( CalDisplay );
+//    DLL_DECL_ALGORITHM( CalNtupleAlg );
+//    DLL_DECL_ALGORITHM( CalDisplay );
 } 
 
 extern "C" void CalRecon_loadRef()    {
