@@ -11,16 +11,11 @@
 /**   
 * @class ProfileTool
 *
-* Algorithm for reconstruction of energy and direction of incident particle
+* Algorithm for calculating energy leakage by fitting the longitudinal
+* shower profile.
 *
 *
-* Performs high level energy corrections
-*
-* The reconstruction here uses CalXtalRecCol to produce a CalClusterCol.
-*  It evaluates the barycenter for each layer using the coordinates stored in
-*  the CalXtalRecCol,
-*
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/ProfileTool.h,v 1.1 2003/02/13 23:43:42 richard Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/ProfileTool.h,v 1.2 2003/02/15 17:52:43 richard Exp $
 */
 
 
@@ -95,7 +90,9 @@ E_i = E_{tot}(\Gamma_{inc}
 
 protected:
 
+     // function passed to Minuit to minimize
     static void fcn(int & , double *, double &f, double *par, int );
+    // gamma function for shower shape 
     static double gam_prof(double *par, int i);
 
 private:

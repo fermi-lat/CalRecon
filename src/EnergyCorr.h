@@ -12,16 +12,9 @@
 /**   
 * @class EnergyCorr
 *
-* Algorithm for reconstruction of energy and direction of incident particle
+* Base class for energy corrections, containing common member data
 *
-*
-* Performs high level energy corrections
-*
-* The reconstruction here uses CalXtalRecCol to produce a CalEnergyCorrCol.
-*  It evaluates the barycenter for each layer using the coordinates stored in
-*  the CalXtalRecCol,
-*
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorr.h,v 1.1 2003/02/13 23:43:42 richard Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorr.h,v 1.2 2003/02/15 17:52:43 richard Exp $
 */
 
 
@@ -60,6 +53,7 @@ public:
 
     virtual int getNLayers() {return m_nLayers;};
 
+    // sets static version of the slope. Needed for fcn/gam_prof 
     static void setStaticSlope(double slope) {m_static_slope=slope;};
 
 protected:

@@ -10,16 +10,11 @@ class IValsTool;
 /**   
 * @class CalValsCorrTool
 *
-* Algorithm for reconstruction of energy and direction of incident particle
+* Tool to get corrected energy from CalValsTool, which corrects for cracks
+* and leakage.
 *
 *
-* Performs high level energy corrections
-*
-* The reconstruction here uses CalXtalRecCol to produce a CalClusterCol.
-*  It evaluates the barycenter for each layer using the coordinates stored in
-*  the CalXtalRecCol,
-*
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalValsCorrTool.h,v 1.1 2003/02/24 16:14:40 richard Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalValsCorrTool.h,v 1.2 2003/02/24 20:08:16 burnett Exp $
 */
 
 
@@ -34,7 +29,7 @@ public:
      StatusCode initialize();
 
         
-           
+     // worker function to get the corrected energy      
      StatusCode doEnergyCorr(double eTotal, Event::CalCluster* cluster);
 
      StatusCode finalize();
