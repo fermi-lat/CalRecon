@@ -1,4 +1,4 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalRecoAlg.cxx,v 1.1.1.1 2000/11/29 21:22:55 burnett Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalRecoAlg.cxx,v 1.2 2000/12/05 00:46:11 igable Exp $
 
 // Include files
 #include "CalRecon/CalRecoAlg.h"
@@ -11,8 +11,7 @@
 #include "GlastSvc/GlastDetSvc/IGlastDetSvc.h"
 
 
-#include "reconstruction/data/GlastData.h"
-#include "reconstruction/ReconData.h"
+//#include "reconstruction/ReconData.h"
 #include "reconstruction/GlastTuple.h"
 #include "reconstruction/PrintReconData.h"
 #include "GlastEvent/Raw/TdCsIData.h"
@@ -69,7 +68,7 @@ StatusCode CalRecoAlg::execute() {
     
 
     // create a GlastData object
-    GlastData data;
+    //GlastData data;
 
     // fill it from the IRF (FAILS)
     //m_detSvc->accept(data);
@@ -102,12 +101,12 @@ StatusCode CalRecoAlg::execute() {
 
     
     // see what is there
-    data.printOn(std::cout);
+    //data.printOn(std::cout);
 
     // create the recon object from the reconstrution package and pass data to it.
 
     CalRecon recon;
-    recon.reconstruct(data.getCsIData());
+    recon.reconstruct(newData);
 
     // print out the  tuple
     recon.accept(PrintReconData(std::cout));

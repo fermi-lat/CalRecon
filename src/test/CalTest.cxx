@@ -1,4 +1,4 @@
-// $Header:$
+// $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/test/CalTest.cxx,v 1.1.1.1 2000/11/29 21:22:55 burnett Exp $
 
 // Include files
 #include "Gaudi/Kernel/SmartIF.h"
@@ -18,10 +18,8 @@
 //------------------------------------------------------------------------------
 #include <iostream>
 // this needed for instrument.lib??
-void FATAL(const char* text){std::cerr << text << std::endl;}
+//void FATAL(const char* text){std::cerr << text << std::endl;}
 
-// why do we need another copy???
-const IID&  IID_IGlastDetSvc  =  401;   // Unique to GLAST 
 
 
 int main( int argn, char** argc) {
