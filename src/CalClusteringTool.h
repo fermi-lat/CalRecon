@@ -22,7 +22,7 @@
 * in a derived class is nextXtalsSet(), which is selecting the
 * crystals to be grouped together.
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalClusteringTool.h,v 1.1 2005/01/21 15:02:05 chamont Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalClusteringTool.h,v 1.1 2005/01/25 07:51:08 chamont Exp $
 */
 
 
@@ -41,14 +41,15 @@ class CalClusteringTool : public CalIClusteringTool,  public AlgTool {
 
     /// @brief Default cluster finding framework
     virtual StatusCode findClusters(
-        Event::CalXtalRecCol *,
+        const Event::CalXtalRecCol *,
         Event::CalClusterCol *
       ) ;
 
   protected:
     
-    //! useful type
-    typedef  std::vector<Event::CalXtalRecData*> xTalDataVec ;
+    //! useful types
+    typedef  std::vector<Event::CalXtalRecData *> XtalDataVec ;
+    typedef  std::vector<XtalDataVec *> XtalDataVecVec ;
 
 	//! crystal width
     double m_CsIWidth;
@@ -59,11 +60,14 @@ class CalClusteringTool : public CalIClusteringTool,  public AlgTool {
     //! number of layers
     int m_CalnLayers;
 
-    //! This should find the next highest energy cluster from CalXtalRecData pointers
-    virtual xTalDataVec nextXtalsSet( xTalDataVec & xTalVec ) =0 ;
+    //! Collect CalXtalRecData pointers
+    virtual void getXtals( const Event::CalXtalRecCol *, XtalDataVec & xtals ) ;
 
-    //! This makes a CalCluster out of CalXtalRecData pointers
-    virtual void makeCluster( xTalDataVec &, Event::CalClusterCol * ) ;
+    //! Distinguish sets of related xtals
+    virtual void makeSets( const XtalDataVec & xtals, XtalDataVecVec & clusters ) =0 ;
+
+    //! Construct CalClusters from sets of related xtals
+    virtual void setClusters( const XtalDataVecVec &, Event::CalClusterCol * ) ;
 
     // calculate the direction of the shower from the hits
     virtual Vector fitDirection

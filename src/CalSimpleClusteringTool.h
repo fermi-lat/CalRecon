@@ -6,7 +6,7 @@
  * @author Tracy Usher
  *
  * File and Version Information:
- *      $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalSimpleClusteringTool.h,v 1.1 2005/01/21 15:02:05 chamont Exp $
+ *      $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalSimpleClusteringTool.h,v 1.1 2005/01/25 07:51:08 chamont Exp $
  */
 
 #include "GaudiKernel/AlgTool.h"
@@ -30,14 +30,14 @@ class CalSimpleClusteringTool : public CalClusteringTool
     
   protected:
 
-    /// This finds the next highest energy cluster in a vector of CalXtalRecData pointers
-    xTalDataVec            nextXtalsSet(xTalDataVec& xTalVec);
+    //! Distinguish sets of related xtals
+    virtual void makeSets( const XtalDataVec & xtals, XtalDataVecVec & clusters ) ;
 
   private:
   
-    xTalDataVec            getXtalsInLayer(xTalDataVec& xTalVec, Event::CalXtalRecData* xTal);
-    Event::CalXtalRecData* getNearestXtalInSameLayer(xTalDataVec& xTalVec, xTalDataVec& NNvec, Event::CalXtalRecData* xTal);
-    Event::CalXtalRecData* getNearestXtalInDiffLayer(xTalDataVec& xTalVec, Event::CalXtalRecData* xTal, int layer);
+    XtalDataVec            getXtalsInLayer(XtalDataVec& xTalVec, Event::CalXtalRecData* xTal);
+    Event::CalXtalRecData* getNearestXtalInSameLayer(XtalDataVec& xTalVec, XtalDataVec& NNvec, Event::CalXtalRecData* xTal);
+    Event::CalXtalRecData* getNearestXtalInDiffLayer(XtalDataVec& xTalVec, Event::CalXtalRecData* xTal, int layer);
 
  } ;
 

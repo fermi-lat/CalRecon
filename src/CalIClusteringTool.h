@@ -12,7 +12,7 @@
 *
 * Base class for clustering tools
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalIClusteringTool.h,v 1.1 2005/01/21 15:02:05 chamont Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalIClusteringTool.h,v 1.1 2005/01/25 07:51:08 chamont Exp $
 */
 
 static const InterfaceID IID_CalIClusteringTool("CalIClusteringTool",1,0) ;
@@ -30,7 +30,7 @@ class CalIClusteringTool : virtual public IAlgTool {
 
     //! main method
     virtual StatusCode findClusters(
-        Event::CalXtalRecCol *,
+        const Event::CalXtalRecCol *,
         Event::CalClusterCol *
       ) =0 ;
 

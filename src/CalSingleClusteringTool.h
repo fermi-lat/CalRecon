@@ -11,7 +11,7 @@
 * Find single cluster from all CAL hits
 *
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalSingleClusteringTool.h,v 1.1 2005/01/21 15:02:05 chamont Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalSingleClusteringTool.h,v 1.1 2005/01/25 07:51:08 chamont Exp $
 */
 
 
@@ -27,8 +27,8 @@ class CalSingleClusteringTool : public CalClusteringTool
         
   protected:
 
-    // use a single global cluster
-    xTalDataVec nextXtalsSet( xTalDataVec & xTalVec ) ;
+    //! Distinguish sets of related xtals
+    virtual void makeSets( const XtalDataVec & xtals, XtalDataVecVec & clusters ) ;
 
  } ;
 
