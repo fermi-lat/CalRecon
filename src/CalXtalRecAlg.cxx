@@ -1,5 +1,5 @@
 // File and version Information:
-//   $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalXtalRecAlg.cxx,v 1.20 2004/05/11 08:28:07 davezac Exp $
+//   $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalXtalRecAlg.cxx,v 1.20.2.1 2004/08/06 17:24:04 berrie Exp $
 //
 // Description:
 //    CalXtalRecAlg is an algorithm to reconstruct calorimeter
@@ -224,13 +224,14 @@ StatusCode CalXtalRecAlg::execute()
         if(m_calibFlavor != "none") {
 
         // Set the event time
-        facilities::Timestamp time = facilities::Timestamp(m_startTime);
-        log << MSG::DEBUG << "Event time: "
-            << time.getString()
-            << endreq; 
-        CalibData::CalibTime ctime(time);
-        log << MSG::DEBUG << "Event time (hours) " << ctime.hours() << endreq;
-        m_detDataSvc->setEventTime(ctime);
+        // No, don't!  (jrb patch, 13 Jan)
+        // facilities::Timestamp time = facilities::Timestamp(m_startTime);
+        // log << MSG::DEBUG << "Event time: "
+        //    << time.getString()
+        //    << endreq; 
+        // CalibData::CalibTime ctime(time);
+        //  log << MSG::DEBUG << "Event time (hours) " << ctime.hours() << endreq;
+        //  m_detDataSvc->setEventTime(ctime);
 
 
   
