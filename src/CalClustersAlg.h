@@ -50,7 +50,7 @@ class IGlastDetSvc;
 * \todo Add low energy corrections 
 *
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalClustersAlg.h,v 1.11 2005/01/25 07:51:08 chamont Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalClustersAlg.h,v 1.12 2005/03/18 15:32:52 chamont Exp $
 */
 
 
@@ -59,7 +59,7 @@ class CalClustersAlg : public Algorithm
 public:
     
     //! constructor
-    CalClustersAlg(const std::string& name, ISvcLocator* pSvcLocator); 
+    CalClustersAlg( const std::string & name, ISvcLocator * pSvcLocator ) ; 
     //! destructor
     virtual ~CalClustersAlg() {}; 
     
@@ -91,21 +91,12 @@ private:
     //! the clusters list, the output of the reconstruction
     Event::CalClusterCol* m_calClusterCol;
 
+    //! data shared by all clustering actors
+    CalClusteringData * m_data ;
+
     //! this parameter permits to distinguish multiple calls
     //! to calorimeter reconstruction for the same event
     int m_callNumber;
-
-    //! crystal width
-    double m_CsIWidth;
-
-    //! crystal height
-    double m_CsIHeight;
-
-    //! number of layers
-    int m_CalnLayers;
-
-    //! pointer to GlasDetSvc
-    IGlastDetSvc* detSvc;
 
     /// name of Tool for finding clusters
     StringProperty m_clusteringToolName;

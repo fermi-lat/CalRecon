@@ -2,8 +2,8 @@
 #ifndef __LastLayerCorrTool_H
 #define __LastLayerCorrTool_H 1
 
-#include "GlastSvc/GlastDetSvc/IGlastDetSvc.h"
 #include "EnergyCorr.h"
+#include "GlastSvc/GlastDetSvc/IGlastDetSvc.h"
 #include "GaudiKernel/DataSvc.h"
 
 /**   
@@ -13,11 +13,11 @@
 * the energy in the last CAL layer with the total.  
 *
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/LastLayerCorrTool.h,v 1.4 2003/06/07 17:55:12 berrie Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/LastLayerCorrTool.h,v 1.5 2003/06/26 00:00:56 berrie Exp $
 */
 
 
-class LastLayerCorrTool :  public EnergyCorr {
+class LastLayerCorrTool : public EnergyCorr {
 
 public:
     
@@ -78,21 +78,18 @@ public:
 */
            
      // worker function to calculate energy correction 
-     StatusCode doEnergyCorr(double eTotal, Event::CalCluster* cluster);
-
-     StatusCode finalize();
-    
-     StatusCode execute();
+     StatusCode doEnergyCorr( const CalClusteringData *, Event::CalCluster * ) ;
 
     
  private:
 
         /// input XML file containing parameters for Digitization
         std::string	m_xmlFile;
-/// pointer to EventSvc
-    IDataProviderSvc* m_eventSvc;
-
-    DataSvc* m_dataSvc;
+        
+///// pointer to EventSvc
+//    IDataProviderSvc* m_eventSvc;
+//    DataSvc* m_dataSvc;
+    
 /// correlation factor 1 
 	float m_c0;    
 /// correlation factor 2

@@ -5,6 +5,7 @@
 #include "GaudiKernel/IAlgTool.h"
 #include "Event/Recon/CalRecon/CalCluster.h"
 #include "geometry/Vector.h"
+#include "CalClusteringData.h"
 
 /**   
 * @class IEnergyCorr
@@ -12,36 +13,34 @@
 * base class for energy leakage corrections 
 *
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/IEnergyCorr.h,v 1.2 2003/03/02 04:11:20 richard Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/IEnergyCorr.h,v 1.3 2003/05/11 19:59:12 burnett Exp $
 */
 
-static const InterfaceID IID_IEnergyCorr("IEnergyCorr", 1 , 0);
+static const InterfaceID IID_IEnergyCorr("IEnergyCorr", 1 , 0) ;
 
 class IEnergyCorr : virtual public IAlgTool {
 
 public:
-	IEnergyCorr() {;};
+
     // retrieve interface ID
-    static const InterfaceID& interfaceID() { return IID_IEnergyCorr; }
-    //! constructor
-    //! destructor
-    virtual ~IEnergyCorr() {}; 
+    static const InterfaceID & interfaceID() { return IID_IEnergyCorr ; }
     
-    virtual StatusCode initialize()=0;
-    virtual double getEnergyCorr()=0;;
+    //! constructor
+	IEnergyCorr() {}
+    //! destructor
+    virtual ~IEnergyCorr() {}
+    
+    //! Worker function for calculating corrections
+	/*! Performs the reconstruction, creates one CalEnergyCorr object and stores
+     *  there the following results: 
+     *  - Energy per layer is computed and stored in CalEnergyCorr in MeV
+     *  - Barycenter per layer is also computed and stored in CalEnergyCorr
+     */        
+    virtual StatusCode doEnergyCorr( const CalClusteringData *, Event::CalCluster * ) =0 ;
+    
+    virtual double getEnergyCorr() =0 ;
 
-    virtual double getTrackSlope()=0;
-
-    virtual void setTrackSlope(double slope)=0;
-
-
-    // worker function for calculating corrections
-    virtual StatusCode doEnergyCorr(double eTotal, Event::CalCluster* cluster)=0;
-    virtual StatusCode execute()=0;
-
-    virtual StatusCode finalize()=0; 
-
-};
+} ;
 
 #endif
 
