@@ -21,7 +21,7 @@
 *  It evaluates the barycenter for each layer using the coordinates stored in
 *  the CalXtalRecCol,
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorr.h,v 1.2 2003/02/12 22:24:36 richard Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorr.h,v 1.1 2003/02/13 23:43:42 richard Exp $
 */
 
 
@@ -60,10 +60,13 @@ public:
 
     virtual int getNLayers() {return m_nLayers;};
 
+    static void setStaticSlope(double slope) {m_static_slope=slope;};
+
 protected:
 
     virtual void setEnergyCorr(double energy) { m_energyCorr = energy;};
     virtual void setNLayers(int n) { m_nLayers = n;};
+    static double getStaticSlope() {return m_static_slope;};
 	
 private:
 	
@@ -73,7 +76,9 @@ private:
     int m_nLayers;
     // slope of track
     double m_slope;
+    static double m_static_slope; // local static copy of slope for fcn function
 };
+
 #endif
 	
 	
