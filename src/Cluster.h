@@ -7,7 +7,6 @@
 #include "GaudiKernel/AlgTool.h"
 #include "GaudiKernel/SmartDataPtr.h"
 #include "GaudiKernel/ISvcLocator.h"
-#include "geometry/Vector.h"
 #include "Event/Recon/CalRecon/CalXtalRecData.h"
 #include "Event/Recon/CalRecon/CalCluster.h"
 
@@ -23,7 +22,7 @@
 *  It evaluates the barycenter for each layer using the coordinates stored in
 *  the CalXtalRecCol,
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/Cluster.h,v 1.1 2003/02/12 03:28:49 richard Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/Cluster.h,v 1.2 2003/02/12 22:24:36 richard Exp $
 */
 
 
@@ -54,14 +53,20 @@ public:
 	
     virtual StatusCode finalize() {return StatusCode::SUCCESS;};
     
-	virtual Event::CalXtalRecCol* getRecCol() {return m_calXtalRecCol;};
+    virtual Event::CalXtalRecCol* getRecCol() {return m_calXtalRecCol;};
 
-	virtual Event::CalClusterCol* getClusterCol() {return m_calClusterCol;};
+    virtual Event::CalClusterCol* getClusterCol() {return m_calClusterCol;};
 	
-	virtual void setClusterCol(Event::CalClusterCol* calClusterCol)
+    virtual void setClusterCol(Event::CalClusterCol* calClusterCol)
 			{m_calClusterCol = calClusterCol;};
 
-	
+protected:
+    
+    virtual Vector Fit_Direction(std::vector<Vector> pos,
+                                     std::vector<Vector> sigma2,
+                                     int nlayers) {
+        return (0.,0.,0.);
+    }
 	
 private:
 	

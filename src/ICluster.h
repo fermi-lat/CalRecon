@@ -4,6 +4,7 @@
 
 #include "GaudiKernel/IAlgTool.h"
 #include "Event/Recon/CalRecon/CalXtalRecData.h"
+#include "geometry/Vector.h"
 
 /**   
 * @class ICluster
@@ -17,7 +18,7 @@
 *  It evaluates the barycenter for each layer using the coordinates stored in
 *  the CalXtalRecCol,
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/ICluster.h,v 1.4 2002/08/05 12:25:56 berrie Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/ICluster.h,v 1.1 2003/02/12 03:28:49 richard Exp $
 */
 
 static const InterfaceID IID_ICluster("ICluster", 1 , 0);
@@ -47,7 +48,10 @@ public:
 
     virtual StatusCode finalize()=0;
     
-
+protected:
+    virtual Vector Fit_Direction(std::vector<Vector> pos,
+                                     std::vector<Vector> sigma2,
+                                     int nlayers)=0;
     
     
     
