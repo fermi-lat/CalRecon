@@ -1,4 +1,4 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/CalRecon/CalRecoAlg.h,v 1.1.1.1 2000/11/29 21:22:55 burnett Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/CalRecon/CalRecoAlg.h,v 1.2 2000/12/11 16:39:22 burnett Exp $
 #ifndef CalRecoAlg_H
 #define CalRecoAlg_H
 
@@ -11,6 +11,7 @@
 class IGlastDetSvc;
 class CalRecon;
 class GlastTuple;
+namespace xml { class IFile; }
 
 
 /*! \class CalRecoAlg
@@ -37,6 +38,9 @@ private:
     // ptr to the CalRecon object used to do the analysis
     CalRecon*    m_recon;
 
+    // constants from the "instrument.xml" file.
+    xml::IFile * m_ini;
+    
     // sumamry object from glastsim creates a n-tuple
     SummaryData<GlastTuple>* m_summary; 
 };
