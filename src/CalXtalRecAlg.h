@@ -5,11 +5,16 @@
 #include "Event/Digi/CalDigi.h"
 #include "Event/Recon/CalRecon/CalXtalRecData.h"
 #include "GlastSvc/GlastDetSvc/IGlastDetSvc.h"
+#include "GaudiKernel/IDataProviderSvc.h"
+#include "GaudiKernel/Service.h"
+#include "CalibData/CalibModel.h"
+#include "CalibData/Cal/CalCalibPed.h"
+#include "CalibData/Cal/CalCalibGain.h"
+#include "CalibData/Cal/CalCalibMuSlope.h"
 
-#include "CalUtil/CalCalibMap.h"
-#include "CalUtil/CalPedCalib.h"
-#include "CalUtil/CalGainCalib.h"
 
+// Forward declarations
+class IDetDataSvc;
 
 
 /** @class CalXtalRecAlg
@@ -22,17 +27,12 @@
  *
  *  @author           A.Chekhtman
  *
- * $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalXtalRecAlg.h,v 1.3 2003/01/09 16:27:19 chehtman Exp $
+ * $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalXtalRecAlg.h,v 1.4 2003/01/10 23:26:01 chehtman Exp $
  */
 class CalXtalRecAlg : public Algorithm
 {
 public:
 
-//    typedef CalCalibMap<CalPedCalib> CALPEDMAP;
-    typedef CalCalibMap<CalPedCalib,CalPedElement,2> CALPEDMAP;
-    typedef CalXtalCalib<CalPedCalib,CalPedElement,2> XTALPEDCALIB;
-    typedef CalCalibMap<CalGainCalib,CalGainElement,2> CALGAINMAP;
-    typedef CalXtalCalib<CalGainCalib,CalGainElement,2> XTALGAINCALIB;
 
     /// constructor
     CalXtalRecAlg(const std::string& name, ISvcLocator* pSvcLocator);
@@ -137,8 +137,27 @@ private:
     double m_CsIHeight;  ///< Xtal height
     IGlastDetSvc* detSvc; ///< pointer to the Glast Detector Service
 
-    CALPEDMAP* m_pedMap;    
-    CALGAINMAP* m_gainMap;
+
+    IDataProviderSvc* m_pCalibDataSvc;
+
+    /// Handle to the IDetDataSvc interface of the CalibDataSvc
+    IDetDataSvc* m_detDataSvc;
+
+    /// Absolute time of first event (yyyy-mm-dd_hh:mm, trailing fields
+    /// optional)
+    std::string m_startTimeAsc;
+
+    /// Absolute time of first event (seconds)
+    long m_startTime;
+    
+    /// "flavor" of calibration files
+    std::string m_calibFlavor;
+
+    CalibData::CalCalibPed* pPeds;
+
+    CalibData::CalCalibGain* pGains;
+
+    CalibData::CalCalibMuSlope* pMuSlopes;
 
 };
 
