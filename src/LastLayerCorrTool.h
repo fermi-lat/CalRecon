@@ -12,11 +12,11 @@
 * the energy in the last CAL layer with the total.  
 *
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/LastLayerCorrTool.h,v 1.1 2003/02/13 23:43:42 richard Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/LastLayerCorrTool.h,v 1.2 2003/03/02 04:11:20 richard Exp $
 */
 
 
-class LastLayerCorrTool : public AlgTool, public EnergyCorr {
+class LastLayerCorrTool :  public EnergyCorr {
 
 public:
     

@@ -12,7 +12,7 @@
 * base class for energy leakage corrections 
 *
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/IEnergyCorr.h,v 1.1 2003/02/13 23:43:42 richard Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/IEnergyCorr.h,v 1.2 2003/03/02 04:11:20 richard Exp $
 */
 
 static const InterfaceID IID_IEnergyCorr("IEnergyCorr", 1 , 0);
@@ -28,8 +28,13 @@ public:
     virtual ~IEnergyCorr() {}; 
     
     virtual StatusCode initialize()=0;
+    virtual double getEnergyCorr()=0;;
 
-        
+    virtual double getTrackSlope()=0;
+
+    virtual void setTrackSlope(double slope)=0;
+
+
     // worker function for calculating corrections
     virtual StatusCode doEnergyCorr(double eTotal, Event::CalCluster* cluster)=0;
     virtual StatusCode execute()=0;

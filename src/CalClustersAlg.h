@@ -1,21 +1,22 @@
+/** @file CalClustersAlg.h
+    @brief Defintion of CalClustersAlg
+
+*/
 
 #ifndef __CALCLUSTERSALG_H
 #define __CALCLUSTERSALG_H 1
 
 #include "GaudiKernel/Algorithm.h"
-#include "GlastSvc/GlastDetSvc/IGlastDetSvc.h"
-#include "geometry/Vector.h"
-#include "Event/Recon/CalRecon/CalXtalRecData.h"
-#include "Event/Recon/CalRecon/CalCluster.h"
-#include "Cluster.h"
-#include "EnergyCorr.h"
+#include "GaudiKernel/Property.h"
+#include "ICluster.h"
+#include "IEnergyCorr.h"
 
-class TMinuit;
+class IGlastDetSvc;
 
 /**   
 * @class CalClustersAlg
 *
-* Algorithm for reconstruction of energy and direction of incident particle
+* @brief Algorithm for reconstruction of energy and direction of incident particle
 *
 *
 * Performs high level energy corrections
@@ -49,7 +50,7 @@ class TMinuit;
 * \todo Add low energy corrections 
 *
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalClustersAlg.h,v 1.6 2003/02/13 23:44:41 richard Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalClustersAlg.h,v 1.7 2003/02/24 16:14:40 richard Exp $
 */
 
 
@@ -108,28 +109,28 @@ private:
     IGlastDetSvc* detSvc;
 
     /// name of Tool for finding clusters
-    std::string m_clusterToolName;
+    StringProperty m_clusterToolName;
 
     /// pointer to actual tool for finding clusters
-    Cluster* m_clusterTool;
+    ICluster* m_clusterTool;
 
     /// name of Tool for finding last layer energy leakage
-    std::string m_lastLayerToolName;
+    StringProperty m_lastLayerToolName;
 
     /// pointer to actual tool for last layer energy correlation
-    EnergyCorr* m_lastLayerTool;
+    IEnergyCorr* m_lastLayerTool;
 
     /// name of Tool for finding last layer energy leakage
-    std::string m_profileToolName;
+    StringProperty m_profileToolName;
 
     /// pointer to actual tool for last layer energy correlation
-    EnergyCorr* m_profileTool;
+    IEnergyCorr* m_profileTool;
 
     /// name of Tool for calling CalVals tool
-    std::string m_calValsCorrToolName;
+    StringProperty m_calValsCorrToolName;
 
     /// pointer to actual tool for last layer energy correlation
-    EnergyCorr* m_calValsCorrTool;
+    IEnergyCorr* m_calValsCorrTool;
 };
 
 #endif

@@ -14,11 +14,11 @@ class IValsTool;
 * and leakage.
 *
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalValsCorrTool.h,v 1.2 2003/02/24 20:08:16 burnett Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalValsCorrTool.h,v 1.3 2003/03/02 04:11:21 richard Exp $
 */
 
 
-class CalValsCorrTool : public AlgTool, public EnergyCorr {
+class CalValsCorrTool :  public EnergyCorr {
 
 public:
     

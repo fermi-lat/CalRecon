@@ -15,11 +15,11 @@
 * shower profile.
 *
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/ProfileTool.h,v 1.2 2003/02/15 17:52:43 richard Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/ProfileTool.h,v 1.3 2003/03/02 04:11:20 richard Exp $
 */
 
 
-class ProfileTool : public AlgTool, public EnergyCorr {
+class ProfileTool :  public EnergyCorr {
 
 public:
     

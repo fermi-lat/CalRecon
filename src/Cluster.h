@@ -16,17 +16,19 @@
 * Base class for clustering tools, containing member data
 *
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/Cluster.h,v 1.4 2003/02/16 19:24:46 richard Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/Cluster.h,v 1.5 2003/03/02 04:11:20 richard Exp $
 */
 
 
-class Cluster : virtual public ICluster {
+class Cluster : public ICluster,  public AlgTool {
 	
 public:
     
     //! constructor
 	
-    Cluster() {};
+    Cluster(const std::string& type, 
+        const std::string& name, 
+        const IInterface* parent);
     //! destructor
     virtual ~Cluster() {}; 
     
@@ -67,6 +69,14 @@ private:
 		
 	Event::CalClusterCol* m_calClusterCol;
 	};
+
+inline Cluster::Cluster(const std::string& type, 
+                        const std::string& name, 
+                        const IInterface* parent)
+                        : AlgTool( type, name, parent ) { 
+                            declareInterface<ICluster>(this);
+                        }
+
 
 
 #endif

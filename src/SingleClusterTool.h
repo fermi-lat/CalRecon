@@ -11,17 +11,20 @@
 * Find single cluster from all CAL hits
 *
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/SingleClusterTool.h,v 1.2 2003/02/16 19:08:16 richard Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/SingleClusterTool.h,v 1.3 2003/03/02 04:11:20 richard Exp $
 */
 
 
-class SingleClusterTool : public AlgTool, public Cluster {
+class SingleClusterTool : public Cluster {
 
 public:
     
     //! destructor
-    SingleClusterTool( const std::string& type, const std::string& name, const IInterface* parent);
-     ~SingleClusterTool() {}; 
+    SingleClusterTool
+        (const std::string& type, 
+        const std::string& name, 
+        const IInterface* parent);
+    ~SingleClusterTool() {}; 
     
      StatusCode initialize();
 

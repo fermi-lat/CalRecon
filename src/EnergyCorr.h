@@ -14,17 +14,20 @@
 *
 * Base class for energy corrections, containing common member data
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorr.h,v 1.2 2003/02/15 17:52:43 richard Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorr.h,v 1.3 2003/03/02 04:11:20 richard Exp $
 */
 
 
-class EnergyCorr : virtual public IEnergyCorr {
+class EnergyCorr :  public IEnergyCorr, public AlgTool {
 	
 public:
     
     //! constructor
 	
-    EnergyCorr() {};
+    EnergyCorr(const std::string& type, 
+                         const std::string& name, 
+                         const IInterface* parent)
+  : AlgTool( type, name, parent ) { }
     //! destructor
     virtual ~EnergyCorr() {}; 
     
