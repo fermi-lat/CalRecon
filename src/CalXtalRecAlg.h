@@ -19,7 +19,7 @@
  *
  *  @author           A.Chekhtman
  *
- * $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalXtalRecAlg.h,v 1.6 2003/11/22 15:57:48 chehtman Exp $
+ * $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalXtalRecAlg.h,v 1.7 2005/02/05 10:04:45 fewtrell Exp $
  */
 class CalXtalRecAlg : public Algorithm
 {
@@ -32,7 +32,7 @@ class CalXtalRecAlg : public Algorithm
     
   StatusCode initialize();
   StatusCode execute();
-  StatusCode finalize();
+  StatusCode finalize() {return StatusCode::SUCCESS;}
  protected:
   ///  function for setting pointers to the input and output data in Gaudi TDS
   StatusCode retrieve();

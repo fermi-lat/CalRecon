@@ -1,5 +1,5 @@
 // File and version Information:
-//   $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalXtalRecAlg.cxx,v 1.25 2005/02/08 00:51:36 fewtrell Exp $
+//   $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalXtalRecAlg.cxx,v 1.26 2005/02/19 01:42:33 fewtrell Exp $
 //
 // Description:
 //    CalXtalRecAlg is an algorithm to reconstruct calorimeter
@@ -175,15 +175,6 @@ StatusCode CalXtalRecAlg::execute()
 
   return sc;
 }
-
-
-StatusCode CalXtalRecAlg::finalize()
-  // empty function: required by base class (Algorithm)
-{
-  StatusCode sc = StatusCode::SUCCESS;
-  return sc;
-}
-
 
 
 StatusCode CalXtalRecAlg::retrieve()
