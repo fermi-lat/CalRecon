@@ -2,7 +2,7 @@
 /** @file CalValsCorrTool.h
 @brief declaration of the class
 
-$Header$
+$Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalValsCorrTool.h,v 1.5 2004/09/22 16:41:40 burnett Exp $
 
 */
 #ifndef __CalValsCorrTool_H
@@ -24,7 +24,7 @@ class IDataProviderSvc;
 *
 * Copied by THB from AnalysisNtuple::CalValsTool.cxx revision 1.43
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalValsCorrTool.h,v 1.4 2003/05/11 19:59:12 burnett Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalValsCorrTool.h,v 1.5 2004/09/22 16:41:40 burnett Exp $
 */
 
 
@@ -63,7 +63,7 @@ private:
     /// GlastDetSvc used for access to detector info
     IGlastDetSvc*    m_detSvc; 
     /// TkrGeometrySvc used for access to tracker geometry info
-    ITkrGeometrySvc* m_geoSvc;
+    ITkrGeometrySvc* m_tkrGeom;
 
     /// some Geometry
     double m_towerPitch;
