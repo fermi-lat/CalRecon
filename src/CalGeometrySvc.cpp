@@ -13,7 +13,6 @@ CalGeometrySvc::CalGeometrySvc(const std::string& name, ISvcLocator* pSvcLocator
 :Service(name, pSvcLocator) 
 {
 	declareProperty("geometryType", m_geoType = 0);
-	declareProperty("balloonFlight", m_balloonFlight = 0);
 	
 	
 		
@@ -26,11 +25,8 @@ CalGeometrySvc::CalGeometrySvc(const std::string& name, ISvcLocator* pSvcLocator
 		m_nmodx   = 1;
 		m_nmody   = 1;
 
-//   testbeam geometry 
 		m_Z0          = -25.9602; 
-
-
-        m_layerWidth  =   31.05;
+		m_layerWidth  =   31.05;
 		m_layerHeight =    2.614;
 
 		m_logWidth    =  3.05;
@@ -54,9 +50,6 @@ StatusCode CalGeometrySvc::initialize()
     StatusCode sc = StatusCode::SUCCESS;
 	Service::initialize();
 	setProperties();
-    
-    //    balloon flight geometry
-    if (m_geoType == 0 && m_balloonFlight == 1) m_Z0 = -24.346; 
 
 	if (m_geoType == 1)
 	{
