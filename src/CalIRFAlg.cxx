@@ -1,4 +1,4 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalIRFAlg.cxx,v 1.5 2001/04/13 23:43:58 chehtman Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalIRFAlg.cxx,v 1.6 2001/04/25 23:46:51 igable Exp $
 
 // Include files
 #include "CalRecon/CalIRFAlg.h"
@@ -114,6 +114,8 @@ StatusCode CalIRFAlg::execute() {
     // see what is there
 //    csi->printOn(std::cout);
 
+    double latt = m_CalGeo->light_att();
+    double slope = (2-latt)/latt;
 	double ene = 0.0;
 	for (int l=0; l < m_CalGeo->numLayers();l++){
 		for (int v=0; v< m_CalGeo->numViews(); v++){
@@ -148,7 +150,7 @@ StatusCode CalIRFAlg::execute() {
 				Vector dirLog(xdir,ydir,0.); 
 				double asym = recLog->asymmetry();
 //				std::cout << " dirLog = " << dirLog << std::endl;
-				Point pLog = pCenter+dirLog*asym*3.0
+				Point pLog = pCenter+dirLog*asym*slope;
 					;
 
 				recLog->setPosition(pLog);
