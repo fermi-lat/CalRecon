@@ -7,7 +7,7 @@
 #include "geometry/Vector.h"
 #include "Event/Recon/CalRecon/CalXtalRecData.h"
 #include "Event/Recon/CalRecon/CalCluster.h"
-class Midnight;
+class TMinuit;
 
 /**   
 * @class CalClustersAlg
@@ -46,7 +46,7 @@ class Midnight;
 * \todo Add low energy corrections 
 *
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalClustersAlg.h,v 1.2 2002/06/13 21:49:03 chehtman Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalClustersAlg.h,v 1.3 2002/06/14 20:27:51 chehtman Exp $
 */
 
 
@@ -211,7 +211,7 @@ private:
     //! the clusters list, the output of the reconstruction
     Event::CalClusterCol* m_calClusterCol;
     //! the minimizer for Profile()
-    Midnight* minuit;
+    TMinuit* minuit;
 
     //! this parameter permits to distinguish multiple calls
     //! to calorimeter reconstruction for the same event
