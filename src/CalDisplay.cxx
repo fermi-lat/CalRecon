@@ -1,4 +1,4 @@
-//$Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalDisplay.cxx,v 1.11 2002/06/07 21:34:06 chehtman Exp $
+//$Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalDisplay.cxx,v 1.12 2002/06/13 20:40:59 chehtman Exp $
 
 /// Gaudi specific include files
 #include "GaudiKernel/MsgStream.h"
@@ -89,10 +89,6 @@ void CalRep::update()
                     
                     // get the vector of reconstructed position
                     Vector pXtal = recData->getPosition() - p0;
-
-                    // get layer number
-                    int layer = (recData->getPackedId()).getLayer();
-
                     
                     // get reconstructed coordinates
                     double x = pXtal.x();
@@ -254,25 +250,25 @@ StatusCode CalDisplay::initialize()
         log << MSG::ERROR << " constant " << " CALnLayer "
             <<" not defined" << endreq;
         return StatusCode::FAILURE;
-    } else nLayers = value;
+    } else nLayers = int(value);
     if(!detSvc->getNumericConstByName(std::string("eLATTowers"), &value))
     {
         log << MSG::ERROR << " constant " << " eLATTowers "
             <<" not defined" << endreq;
         return StatusCode::FAILURE;
-    } else eLATTowers = value;
+    } else eLATTowers = int(value);
     if(!detSvc->getNumericConstByName(std::string("eTowerCAL"), &value))
     {
         log << MSG::ERROR << " constant " << " eTowerCAL "
             <<" not defined" << endreq;
         return StatusCode::FAILURE;
-    } else eTowerCAL = value;
+    } else eTowerCAL = int(value);
     if(!detSvc->getNumericConstByName(std::string("eXtal"), &value))
     {
         log << MSG::ERROR << " constant " << " eXtal "
             <<" not defined" << endreq;
         return StatusCode::FAILURE;
-    } else eXtal = value;
+    } else eXtal = int(value);
     
     if(!detSvc->getNumericConstByName(std::string("CsIHeight"),&xtalHeight)) 
     {
