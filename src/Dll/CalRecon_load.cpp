@@ -1,4 +1,4 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/Dll/CalRecon_load.cpp,v 1.2 2001/02/28 22:26:37 burnett Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/Dll/CalRecon_load.cpp,v 1.3 2001/04/25 23:46:51 igable Exp $
 //====================================================================
 //  GlastSvc_load.cpp
 //--------------------------------------------------------------------
@@ -29,6 +29,7 @@ void CalRecon_load() {
     DLL_DECL_ALGORITHM( CalRecLogsAlg );
 	DLL_DECL_ALGORITHM( CalIRFAlg );
 	DLL_DECL_ALGORITHM( CalClustersAlg );
+	DLL_DECL_ALGORITHM( CalNtupleAlg );
 } 
 
 extern "C" void CalRecon_loadRef()    {
