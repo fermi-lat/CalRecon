@@ -1,4 +1,4 @@
-//$Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalDisplay.cxx,v 1.5 2001/06/19 17:45:28 chehtman Exp $
+//$Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalDisplay.cxx,v 1.6 2001/07/19 23:25:37 igable Exp $
 
 /// Gaudi specific include files
 #include "GaudiKernel/MsgStream.h"
@@ -137,7 +137,7 @@ public:
             double dirY = (cl->direction()).y();
             double dirZ = (cl->direction()).z();
         
-            if(dirZ != 0.){
+            if(dirZ >= -1. && dirZ != 0.){
 
                 double xTop = x+dirX*(m_calZtop-z)/dirZ;
                 double yTop = y+dirY*(m_calZtop-z)/dirZ;
