@@ -1,4 +1,4 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalRecoAlg.cxx,v 1.8 2001/01/22 15:56:32 burnett Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalRecoAlg.cxx,v 1.9 2001/01/26 16:47:13 burnett Exp $
 
 // Include files
 #include "CalRecon/CalRecoAlg.h"
@@ -22,6 +22,7 @@
 #include "gui/DisplayControl.h"
 #include "GuiSvc/GuiSvc.h"
 #include "gui/GuiMgr.h"
+#define TUPLE 1
 
 static const AlgFactory<CalRecoAlg>  Factory;
 const IAlgFactory& CalRecoAlgFactory = Factory;
