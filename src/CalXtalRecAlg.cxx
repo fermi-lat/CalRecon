@@ -1,5 +1,5 @@
 // File and version Information:
-//   $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalXtalRecAlg.cxx,v 1.29 2005/03/17 07:13:08 fewtrell Exp $
+//   $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalXtalRecAlg.cxx,v 1.29.2.1 2005/03/25 21:58:18 fewtrell Exp $
 
 
 // LOCAL INCLUDES
@@ -134,15 +134,18 @@ StatusCode CalXtalRecAlg::execute()
 
   //get access to TDS data collections
   sc = retrieve(); 
-  if (sc.isFailure()) return sc;
-        
+  // non-fatal error:
+  /// if there's no CalDigiCol then CalXtalRecAlg is not happening, go on w/ other algs
+  if (!m_calDigiCol) return StatusCode::SUCCESS;
+  // fatal error  if (sc.isFailure()) return sc;
+  
   // loop over all calorimeter digis in CalDigiCol
   for (CalDigiCol::const_iterator digiIter = m_calDigiCol->begin(); 
        digiIter != m_calDigiCol->end(); digiIter++) {
 
     // if there is no digi data, then move on w/ out creating
-    // recon TDS data
-    if ((*digiIter)->getReadoutCol().size() < 1) return StatusCode::SUCCESS;
+    // recon TDS data for this xtal
+    if ((*digiIter)->getReadoutCol().size() < 1) continue;
 
     CalXtalId xtalId = (*digiIter)->getPackedId();
 
@@ -183,6 +186,18 @@ StatusCode CalXtalRecAlg::retrieve()
 {
   StatusCode sc = StatusCode::SUCCESS;
 
+  // get a pointer to the input TDS data collection
+  m_calDigiCol = SmartDataPtr<CalDigiCol>(eventSvc(),
+                                          EventModel::Digi::CalDigiCol);
+  if (!m_calDigiCol) {
+    if (msgSvc()->outputLevel(name()) <= MSG::VERBOSE) {
+      // create msglog only when needed for performance
+      MsgStream msglog(msgSvc(), name());
+      msglog << MSG::VERBOSE << "No CalDigi data found"
+             << endreq;
+    }
+  }
+
   m_calXtalRecCol = 0;
 
   //  create output data collection
@@ -207,10 +222,6 @@ StatusCode CalXtalRecAlg::retrieve()
     }
   }
     
-  // get a pointer to the input TDS data collection
-  m_calDigiCol = SmartDataPtr<CalDigiCol>(eventSvc(),
-                                          EventModel::Digi::CalDigiCol); 
-
   //register output data collection as a TDS object
   sc = eventSvc()->registerObject(EventModel::CalRecon::CalXtalRecCol,
                                   m_calXtalRecCol);
