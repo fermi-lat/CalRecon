@@ -1,4 +1,4 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalRecoAlg.cxx,v 1.2 2000/12/05 00:46:11 igable Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalRecoAlg.cxx,v 1.3 2000/12/07 18:46:41 burnett Exp $
 
 // Include files
 #include "CalRecon/CalRecoAlg.h"
@@ -44,17 +44,21 @@ StatusCode CalRecoAlg::initialize() {
     
     // now try to find the GlastDevSvc service
     IGlastDetSvc* detSvc = 0;
-    
+#if 1    
+    const IID&  IID_IGlastDetSvc  =  401; // wired it for now!
     StatusCode sc = serviceLocator()->getService ("GlastDetSvc",
         IID_IGlastDetSvc, reinterpret_cast<IInterface*&>( detSvc ));
     
+    m_detSvc = detSvc;
+
+#else //this is the new way in v6, 
+    StatusCode sc = service("GlastDetSvc", m_detSvc);
+#endif    
+
     if (!sc.isSuccess ()){
         log << MSG::ERROR << "Couldn't find the GlastDetSvc!" << endreq;
         return StatusCode::FAILURE;
     }
-    m_detSvc = detSvc;
-    
-    
     return StatusCode::SUCCESS;
 }
 
