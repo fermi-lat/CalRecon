@@ -4,7 +4,8 @@
 
 #include "GlastSvc/GlastDetSvc/IGlastDetSvc.h"
 #include "EnergyCorr.h"
-#include "AnalysisNtuple/ValBase.h"
+
+class IValsTool;
 
 /**   
 * @class CalValsCorrTool
@@ -18,7 +19,7 @@
 *  It evaluates the barycenter for each layer using the coordinates stored in
 *  the CalXtalRecCol,
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalValsCorrTool.h,v 1.1 2003/02/13 23:43:42 richard Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalValsCorrTool.h,v 1.1 2003/02/24 16:14:40 richard Exp $
 */
 
 
@@ -47,7 +48,7 @@ private:
     std::string m_calValsToolName;
 
     /// pointer to actual tool for last layer energy correlation
-    ValBase* m_calValsTool;
+    IValsTool* m_calValsTool;
 
 
 
