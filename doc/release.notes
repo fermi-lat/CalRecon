@@ -2,12 +2,13 @@
  
  @brief Package CalRecon
  @verbatim
- $Id: release.notes,v 1.35 2005/01/18 03:37:53 burnett Exp $
+ $Id: release.notes,v 1.36 2005/01/27 11:09:33 davezac Exp $
 
 package CalRecon
 
 package manager: Alexandre Chekhtman
 
+  v5r21   05-feb-05   ZF  Now works with CalXtalResponse package
   v5r20p2 27-jan-05   PA  Added bias correctio to profile tool
   v5r20p1 27-jan-05   .....
   v5r17p3 17-jan-05   THB remove RootPolicy from requirements
