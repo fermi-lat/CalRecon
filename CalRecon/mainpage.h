@@ -1,7 +1,7 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/GlastSvc/GlastSvc/mainpage.h,v 1.2 2000/11/01 00:39:01 igable Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/CalRecon/mainpage.h,v 1.1.1.1 2000/11/29 21:22:55 burnett Exp $
 // Mainpage for doxygen
 
-/*! \mainpage package CalREcon
+/*! \mainpage package CalRecon
 
 
   <hr>
