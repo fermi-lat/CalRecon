@@ -1,4 +1,4 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalRecoAlg.cxx,v 1.12 2001/02/14 19:30:25 tlindner Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalIRFAlg.cxx,v 1.1 2001/03/23 22:12:57 chehtman Exp $
 
 // Include files
 #include "CalRecon/CalIRFAlg.h"
@@ -109,8 +109,16 @@ StatusCode CalIRFAlg::execute() {
 
 
     SmartDataPtr<TdGlastData> glastData(eventSvc(),"/Event/TdGlastData");
+    
+    if( 0==glastData) { 
+       log << MSG::ERROR << "could not find \""<< "/Event/TdGlastData" <<"\"" << endreq;
+       return StatusCode::FAILURE;
+    }
+    
 
     const CsIData* csi = glastData->getCsIData();
+
+
     
     // see what is there
 //    csi->printOn(std::cout);

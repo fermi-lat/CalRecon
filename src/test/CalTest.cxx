@@ -1,4 +1,4 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/test/CalTest.cxx,v 1.5 2001/03/01 22:38:24 burnett Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/test/CalTest.cxx,v 1.6 2001/03/03 04:10:27 tlindner Exp $
 
 // Include files
 #include "Gaudi/Kernel/SmartIF.h"
@@ -27,9 +27,7 @@
 //  Description: Test Main Program
 //
 //------------------------------------------------------------------------------
-void CalRecon_load(); 
 int main( int argn, char** argc) {
-    if(0) CalRecon_load();
 
     // get the path to this package from its root environment variable: if not there,
     // assume that we are in the root
