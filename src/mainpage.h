@@ -1,4 +1,4 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/mainpage.h,v 1.8 2005/01/21 15:02:05 chamont Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/mainpage.h,v 1.9 2005/01/25 07:51:09 chamont Exp $
 // Mainpage for doxygen
 
 /** @mainpage package CalRecon
@@ -87,7 +87,7 @@
  *        CalClustersAlg (for example, before and after TkrRecon).
  *        The default value is 0 .
  *
- * @param CalClustersAlg.clusterToolName
+ * @param CalClustersAlg.clusteringToolName
  *        name of tool performing clustering. Default is CalSingleClusteringTool
  *        If set to FuzzyClusteringTool, the following param is mandatory:
  * @param ToolSvc.FuzzyClusterTool.FuzzyCluster.command
