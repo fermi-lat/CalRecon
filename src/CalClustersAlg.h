@@ -8,7 +8,7 @@
 
 #include "GaudiKernel/Algorithm.h"
 #include "GaudiKernel/Property.h"
-#include "ICluster.h"
+#include "IClusteringTool.h"
 #include "IEnergyCorr.h"
 
 class IGlastDetSvc;
@@ -50,7 +50,7 @@ class IGlastDetSvc;
 * \todo Add low energy corrections 
 *
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalClustersAlg.h,v 1.8.6.1 2004/12/11 02:54:57 chamont Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalClustersAlg.h,v 1.9 2005/01/20 15:52:19 chamont Exp $
 */
 
 
@@ -109,10 +109,10 @@ private:
     IGlastDetSvc* detSvc;
 
     /// name of Tool for finding clusters
-    StringProperty m_clusterToolName;
+    StringProperty m_clusteringToolName;
 
     /// pointer to actual tool for finding clusters
-    ICluster* m_clusterTool;
+    IClusteringTool* m_clusteringTool;
 
     /// name of Tool for finding last layer energy leakage
     StringProperty m_lastLayerToolName;
