@@ -6,6 +6,7 @@
 package CalRecon
 
 package manager: Alexandre Chekhtman
+  v5r16p2             PA  Added bias correction to the Profile tool
   v5r16p1             BG  deleted rangerec to fix memleak
   ..?..               ..	
   v5r15               BG  Temporarily move Fuzzies to Attic
