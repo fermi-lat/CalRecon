@@ -1,4 +1,4 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/CalRecon/CalRecoAlg.h,v 1.2 2000/12/11 16:39:22 burnett Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/CalRecon/CalRecoAlg.h,v 1.3 2000/12/11 17:07:54 burnett Exp $
 #ifndef CalRecoAlg_H
 #define CalRecoAlg_H
 
@@ -6,6 +6,7 @@
 #include "Gaudi/Algorithm/Algorithm.h"
 
 #include "reconstruction/SummaryData.h"
+#include "CalRecon/GaudiGlastTuple.h"
 
 // forward declarations
 class IGlastDetSvc;
@@ -32,6 +33,8 @@ public:
   //! mandatory
   StatusCode finalize();
 
+  StatusCode printNewNTuple();
+
 private:
     // the GlastDetSvc used for access to detector info
     IGlastDetSvc*    m_detSvc;
@@ -42,7 +45,10 @@ private:
     xml::IFile * m_ini;
     
     // sumamry object from glastsim creates a n-tuple
-    SummaryData<GlastTuple>* m_summary; 
+//    SummaryData<GlastTuple>* m_summary;
+    SummaryData<GaudiGlastTuple>* m_gsummary;
+
+
 };
 
 
