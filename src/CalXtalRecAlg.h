@@ -20,7 +20,7 @@
  *
  *  @author           A.Chekhtman
  *
- * $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/CalRecon/CalXtalRecAlg.h,v 1.7 2002/06/07 19:42:26 chehtman Exp $
+ * $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/CalRecon/CalXtalRecAlg.h,v 1.8 2002/06/12 22:39:04 chehtman Exp $
  */
 class CalXtalRecAlg : public Algorithm
 {

@@ -46,7 +46,7 @@ class Midnight;
 * \todo Add low energy corrections 
 *
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/CalRecon/CalClustersAlg.h,v 1.10 2002/06/07 19:44:04 chehtman Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/CalRecon/CalClustersAlg.h,v 1.11 2002/06/11 00:42:19 chehtman Exp $
 */
 
 

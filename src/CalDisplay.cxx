@@ -1,4 +1,4 @@
-//$Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalDisplay.cxx,v 1.10 2002/05/20 19:25:54 chehtman Exp $
+//$Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalDisplay.cxx,v 1.11 2002/06/07 21:34:06 chehtman Exp $
 
 /// Gaudi specific include files
 #include "GaudiKernel/MsgStream.h"
@@ -9,7 +9,7 @@
 // gui, display includes
 #include "GuiSvc/IGuiSvc.h"
 #include "gui/GuiMgr.h"
-#include "CalRecon/CalDisplay.h"
+#include "CalDisplay.h"
 #include "Event/TopLevel/EventModel.h"
 #include "Event/Recon/CalRecon/CalXtalRecData.h"
 #include "Event/Recon/CalRecon/CalCluster.h"

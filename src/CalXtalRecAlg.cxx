@@ -1,5 +1,5 @@
 // File and version Information:
-//   $Header$
+//   $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalXtalRecAlg.cxx,v 1.6 2002/06/03 21:30:14 chehtman Exp $
 //
 // Description:
 //    CalXtalRecAlg is an algorithm to reconstruct calorimeter
@@ -9,7 +9,7 @@
 
 
 
-#include "CalRecon/CalXtalRecAlg.h"
+#include "CalXtalRecAlg.h"
 #include "Event/Recon/CalRecon/CalXtalRecData.h"
 #include "GaudiKernel/MsgStream.h"
 #include "GaudiKernel/AlgFactory.h"
