@@ -1,4 +1,4 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalRecoAlg.cxx,v 1.7 2001/01/15 07:10:22 igable Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalRecoAlg.cxx,v 1.8 2001/01/22 15:56:32 burnett Exp $
 
 // Include files
 #include "CalRecon/CalRecoAlg.h"
@@ -68,12 +68,12 @@ StatusCode CalRecoAlg::initialize() {
     sc = service("GuiSvc", guiSvc);
 
     if (!sc.isSuccess ()){
-        log << MSG::ERROR << "Couldn't find the GuiSvc!" << endreq;
-        return sc;
+        log << MSG::WARNING << "Couldn't find the GuiSvc!" << endreq;
+        sc =StatusCode::SUCCESS; 
+    }else
+    {
+       guiSvc->guiMgr()->display().add(m_recon->displayRep(), "Cal reco");
     }
-
-    guiSvc->guiMgr()->display().add(m_recon->displayRep(), "Cal reco");
-
     // define the tuple
     //    m_summary = new  SummaryData<GlastTuple>(*new GlastTuple("test cal tuple")) ;
     //    m_recon->accept(*m_summary);

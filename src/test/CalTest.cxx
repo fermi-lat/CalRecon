@@ -1,4 +1,4 @@
-// $Header: /nfs/slac/g/glast/ground/cvs//CalRecon/src/test/CalTest.cxx,v 1.2 2000/12/07 18:46:41 burnett Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/test/CalTest.cxx,v 1.3 2000/12/18 21:52:31 tlindner Exp $
 
 // Include files
 #include "Gaudi/Kernel/SmartIF.h"
@@ -22,10 +22,15 @@
 void FATAL(const char* text){std::cerr << text << std::endl;}
 #endif // WIN32
 
+//------------------------------------------------------------------------------
+//
+//  Package    : CalRecon
+//
+//  Description: Test Main Program
+//
+//------------------------------------------------------------------------------
 
 int main( int argn, char** argc) {
-    
-
 
     // get the path to this package from its root environment variable: if not there,
     // assume that we are in the root
