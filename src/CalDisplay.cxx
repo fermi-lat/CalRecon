@@ -1,4 +1,4 @@
-//$Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalDisplay.cxx,v 1.6 2001/07/19 23:25:37 igable Exp $
+//$Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalDisplay.cxx,v 1.7 2001/07/24 00:09:39 chehtman Exp $
 
 /// Gaudi specific include files
 #include "GaudiKernel/MsgStream.h"
@@ -96,7 +96,7 @@ public:
 		if(cls){
 			double s=0.1*m_logheight;
 			setColor("blue");
-			CsICluster* cl = cls->Cluster(0);
+			ICsICluster* cl = cls->Cluster(0);
 			double energy_sum = cl->energySum();
 			const std::vector<double>& eneLayer = cl->getEneLayer();
 			const std::vector<Vector>& posLayer = cl->getPosLayer();
