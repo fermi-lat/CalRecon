@@ -2,7 +2,7 @@
 /** @file CalValsCorrTool.h
 @brief declaration of the class
 
-$Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalValsCorrTool.h,v 1.6 2005/02/21 22:40:07 lsrea Exp $
+$Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalValsCorrTool.h,v 1.7 2005/03/21 10:09:19 chamont Exp $
 
 */
 #ifndef __CalValsCorrTool_H
@@ -24,7 +24,7 @@ class IDataProviderSvc;
 *
 * Copied by THB from AnalysisNtuple::CalValsTool.cxx revision 1.43
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalValsCorrTool.h,v 1.6 2005/02/21 22:40:07 lsrea Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalValsCorrTool.h,v 1.7 2005/03/21 10:09:19 chamont Exp $
 */
 
 
@@ -39,16 +39,16 @@ public:
     StatusCode initialize();
 
     // worker function to get the corrected energy      
-    StatusCode doEnergyCorr( const CalClusteringData *, Event::CalCluster * ) ;
+    StatusCode doEnergyCorr( Event::CalCluster * ) ;
 
 private:
 
     /// Bill's calculation here
-    StatusCode calculate( const CalClusteringData * );
+    StatusCode calculate();
     double activeDist(Point pos, int& view) const;
     double containedFraction(Point pos, double gap, 
         double r, double costh, double phi) const;
-    StatusCode aveRadLens(const CalClusteringData * data, Point x0, Vector t0, double radius, int numSamples);
+    StatusCode aveRadLens(const CalReconKernel * data, Point x0, Vector t0, double radius, int numSamples);
 
     /// TkrGeometrySvc used for access to tracker geometry info
     ITkrGeometrySvc* m_tkrGeom;
@@ -89,7 +89,7 @@ private:
     double CAL_EdgeSum_Corr;     
     //double CAL_Total_Corr; 
     double CAL_TotSum_Corr; 
-    double CAL_Energy_LLCorr; 
+// unused !?    double CAL_Energy_LLCorr; 
 
     double CAL_CsI_RLn;
     double CAL_Tot_RLn;

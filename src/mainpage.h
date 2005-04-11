@@ -1,4 +1,4 @@
-// $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/mainpage.h,v 1.12 2005/04/05 14:45:42 chamont Exp $
+// $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/mainpage.h,v 1.13 2005/04/06 12:12:34 davezac Exp $
 // Mainpage for doxygen
 
 /** @mainpage package CalRecon
@@ -85,12 +85,8 @@
  *        The FuzzyCluster library should be loaded if one uses 
  *        FuzzyClusteringTool.
  *
- * @param CalClustersAlg.lastLayerToolName
- *        name of tool performing last layer energy correction
- * @param CalClustersAlg.calTkrLikelihoodToolName
- *        name of tool performing tracker hits energy correction
- * @param CalClustersAlg.profileToolName
- *        name of tool performing profile fitting energy correction
+ * @param CalClustersAlg.corrToolNames
+ *        name of tools performing corrections
  *
  *
  * @param CalXtalRecAlg.xtalEneTool

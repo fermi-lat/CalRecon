@@ -15,7 +15,7 @@
 * shower profile.
 *
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/ProfileTool.h,v 1.6 2005/01/27 11:09:34 davezac Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/ProfileTool.h,v 1.7 2005/03/21 10:09:19 chamont Exp $
 */
 
 
@@ -92,7 +92,7 @@ E_i = E_{tot}(\Gamma_{inc}
 * - 10/17/00    RT    comments added
 * - 05/00       RT    first implementation
 */     
-     StatusCode doEnergyCorr( const CalClusteringData *, Event::CalCluster * ) ;
+     StatusCode doEnergyCorr( Event::CalCluster * ) ;
 
      StatusCode finalize();
     

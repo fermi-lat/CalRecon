@@ -13,7 +13,7 @@
 * the energy in the last CAL layer with the total.  
 *
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/LastLayerCorrTool.h,v 1.5 2003/06/26 00:00:56 berrie Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/LastLayerCorrTool.h,v 1.6 2005/03/21 10:09:19 chamont Exp $
 */
 
 
@@ -78,7 +78,7 @@ public:
 */
            
      // worker function to calculate energy correction 
-     StatusCode doEnergyCorr( const CalClusteringData *, Event::CalCluster * ) ;
+     StatusCode doEnergyCorr( Event::CalCluster * ) ;
 
     
  private:
