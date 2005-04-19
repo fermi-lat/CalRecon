@@ -13,7 +13,7 @@
 * the energy in the last CAL layer with the total.  
 *
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/LastLayerCorrTool.h,v 1.6 2005/03/21 10:09:19 chamont Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/LastLayerCorrTool.h,v 1.7 2005/04/11 13:28:50 chamont Exp $
 */
 
 
@@ -83,13 +83,9 @@ public:
     
  private:
 
-        /// input XML file containing parameters for Digitization
-        std::string	m_xmlFile;
-        
-///// pointer to EventSvc
-//    IDataProviderSvc* m_eventSvc;
-//    DataSvc* m_dataSvc;
-    
+     /// input XML file containing parameters for Digitization
+     std::string m_xmlFile;
+            
 /// correlation factor 1 
 	float m_c0;    
 /// correlation factor 2

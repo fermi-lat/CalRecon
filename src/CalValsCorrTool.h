@@ -2,7 +2,7 @@
 /** @file CalValsCorrTool.h
 @brief declaration of the class
 
-$Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalValsCorrTool.h,v 1.7 2005/03/21 10:09:19 chamont Exp $
+$Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalValsCorrTool.h,v 1.8 2005/04/11 13:28:50 chamont Exp $
 
 */
 #ifndef __CalValsCorrTool_H
@@ -24,7 +24,7 @@ class IDataProviderSvc;
 *
 * Copied by THB from AnalysisNtuple::CalValsTool.cxx revision 1.43
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalValsCorrTool.h,v 1.7 2005/03/21 10:09:19 chamont Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalValsCorrTool.h,v 1.8 2005/04/11 13:28:50 chamont Exp $
 */
 
 
@@ -44,11 +44,13 @@ public:
 private:
 
     /// Bill's calculation here
-    StatusCode calculate();
-    double activeDist(Point pos, int& view) const;
-    double containedFraction(Point pos, double gap, 
-        double r, double costh, double phi) const;
-    StatusCode aveRadLens(const CalReconKernel * data, Point x0, Vector t0, double radius, int numSamples);
+    double activeDist(Point pos, int& view) const ;
+    double containedFraction
+     ( Point pos, double gap, 
+       double r, double costh, double phi ) const ;
+    StatusCode aveRadLens
+     ( const idents::VolumeIdentifier & prefix,
+       Point x0, Vector t0, double radius, int numSamples ) ;
 
     /// TkrGeometrySvc used for access to tracker geometry info
     ITkrGeometrySvc* m_tkrGeom;
