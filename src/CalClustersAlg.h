@@ -7,8 +7,8 @@
 #define __CALCLUSTERSALG_H 1
 
 #include "CalReconActor.h"
-#include "CalIClusteringTool.h"
-#include "IEnergyCorr.h"
+#include "ICalClustering.h"
+#include "ICalEnergyCorr.h"
 #include "GaudiKernel/Algorithm.h"
 #include "GaudiKernel/Property.h"
 
@@ -51,7 +51,7 @@ class IGlastDetSvc;
 * \todo Add low energy corrections 
 *
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalClustersAlg.h,v 1.14 2005/04/06 12:12:34 davezac Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalClustersAlg.h,v 1.15 2005/04/11 13:28:50 chamont Exp $
 */
 
 
@@ -92,13 +92,13 @@ private:
     StringProperty m_clusteringToolName;
 
     /// pointer to actual tool for finding clusters
-    CalIClusteringTool* m_clusteringTool;
+    ICalClustering* m_clusteringTool;
 
     //! correction tool names
     StringArrayProperty m_corrToolNames ;
     
     //! correction tools
-    std::vector<IEnergyCorr*> m_corrTools ;
+    std::vector<ICalEnergyCorr*> m_corrTools ;
     
 } ;
 

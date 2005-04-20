@@ -1,29 +1,29 @@
 
-#ifndef __CalSingleClusteringTool_H
-#define __CalSingleClusteringTool_H 1
+#ifndef __CalSingleClustering_H
+#define __CalSingleClustering_H 1
 
 #include "GlastSvc/GlastDetSvc/IGlastDetSvc.h"
-#include "CalClusteringTool.h"
+#include "CalClustering.h"
 
 /**   
-* @class CalSingleClusteringTool
+* @class CalSingleClustering
 *
 * Find single cluster from all CAL hits
 *
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalSingleClusteringTool.h,v 1.1 2005/01/25 07:51:08 chamont Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalSingleClustering.h,v 1.2 2005/01/25 08:53:26 chamont Exp $
 */
 
 
-class CalSingleClusteringTool : public CalClusteringTool
+class CalSingleClustering : public CalClustering
  {
   public:
     
-    CalSingleClusteringTool
+    CalSingleClustering
      ( const std::string & type, 
        const std::string & name, 
        const IInterface * parent ) ;
-    ~CalSingleClusteringTool() ;
+    ~CalSingleClustering() ;
         
   protected:
 

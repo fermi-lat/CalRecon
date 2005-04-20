@@ -1,14 +1,14 @@
 
-/** @file CalValsCorrTool.h
+/** @file CalValsCorr.h
 @brief declaration of the class
 
-$Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalValsCorrTool.h,v 1.8 2005/04/11 13:28:50 chamont Exp $
+$Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalValsCorr.h,v 1.9 2005/04/19 16:34:08 chamont Exp $
 
 */
-#ifndef __CalValsCorrTool_H
-#define __CalValsCorrTool_H 1
+#ifndef __CalValsCorr_H
+#define __CalValsCorr_H 1
 
-#include "EnergyCorr.h"
+#include "CalEnergyCorr.h"
 #include "GlastSvc/GlastDetSvc/IGlastDetSvc.h"
 
 class IPropagatorSvc;
@@ -17,24 +17,24 @@ class IPropagator;
 class IDataProviderSvc;
 
 /**   
-* @class CalValsCorrTool
+* @class CalValsCorr
 * @author Bill Atwood
 *
 * Tool to corrected energy for cracks and leakage.
 *
 * Copied by THB from AnalysisNtuple::CalValsTool.cxx revision 1.43
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalValsCorrTool.h,v 1.8 2005/04/11 13:28:50 chamont Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalValsCorr.h,v 1.9 2005/04/19 16:34:08 chamont Exp $
 */
 
 
-class CalValsCorrTool : public EnergyCorr {
+class CalValsCorr : public CalEnergyCorr {
 
 public:
 
     //! destructor
-    CalValsCorrTool( const std::string& type, const std::string& name, const IInterface* parent);
-    ~CalValsCorrTool() {}; 
+    CalValsCorr( const std::string& type, const std::string& name, const IInterface* parent);
+    ~CalValsCorr() {}; 
 
     StatusCode initialize();
 

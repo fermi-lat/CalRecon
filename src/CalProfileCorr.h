@@ -1,31 +1,31 @@
 
-#ifndef __ProfileTool_H
-#define __ProfileTool_H 1
+#ifndef __CalProfileCorr_H
+#define __CalProfileCorr_H 1
 
 #include "GlastSvc/GlastDetSvc/IGlastDetSvc.h"
-#include "EnergyCorr.h"
+#include "CalEnergyCorr.h"
 //Gamma function and Minuit
 #include "TMath.h"
 #include "TMinuit.h"
 
 /**   
-* @class ProfileTool
+* @class CalProfileCorr
 *
 * Algorithm for calculating energy leakage by fitting the longitudinal
 * shower profile.
 *
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/ProfileTool.h,v 1.7 2005/03/21 10:09:19 chamont Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalProfileCorr.h,v 1.8 2005/04/11 13:28:50 chamont Exp $
 */
 
 
-class ProfileTool :  public EnergyCorr {
+class CalProfileCorr :  public CalEnergyCorr {
 
 public:
     
     //! destructor
-    ProfileTool( const std::string& type, const std::string& name, const IInterface* parent);
-     ~ProfileTool() {}; 
+    CalProfileCorr( const std::string& type, const std::string& name, const IInterface* parent);
+     ~CalProfileCorr() {}; 
     
      StatusCode initialize();
 

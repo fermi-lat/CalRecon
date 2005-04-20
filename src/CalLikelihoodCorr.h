@@ -1,14 +1,14 @@
-#ifndef __LikelihoodTool_H
-#define __LikelihoodTool_H 1
+#ifndef __CalLikelihoodCorr_H
+#define __CalLikelihoodCorr_H 1
 
-#include "EnergyCorr.h"
+#include "CalEnergyCorr.h"
 
 /**   
-* @class LikelihoodTool
+* @class CalLikelihoodCorr
 *
 * Base class for  energy reconstruction likelihood tools
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorr.h,v 1.6 2005/03/21 10:09:19 chamont Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalLikelihoodCorr.h,v 1.1 2005/04/06 12:12:34 davezac Exp $
 */
 
 class PDF_Axes {
@@ -45,17 +45,17 @@ class PDF_Data {
    bool evaluateParameters(const double*, double*) const;
 };
 
-class LikelihoodTool: public EnergyCorr {
+class CalLikelihoodCorr: public CalEnergyCorr {
   public:
     typedef enum { cutNOTKRREC= -1, cutMINCALENERGY= -2, cutMAXCALENERGY= -3,
                    cutSLOPE= -4, cutVERTEX= -5, cutPOSITION= -6,
                    cutNOPARAMETERS= -7 }
-                 LikelihoodTool_Cuts;
+                 CalLikelihoodCorr_Cuts;
     //! constructor
-    LikelihoodTool( const std::string& type, const std::string& name, 
-             const IInterface* parent): EnergyCorr(type, name, parent){}
+    CalLikelihoodCorr( const std::string& type, const std::string& name, 
+             const IInterface* parent): CalEnergyCorr(type, name, parent){}
     //! destructor
-    ~LikelihoodTool(){}
+    ~CalLikelihoodCorr(){}
     StatusCode finalize();
     
     // basic building brick for any PDF
