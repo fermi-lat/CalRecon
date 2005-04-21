@@ -2,12 +2,13 @@
  
  @brief Package CalRecon
  @verbatim
- $Id: release.notes,v 1.45.2.2 2005/03/26 03:42:35 fewtrell Exp $
+ $Id: release.notes,v 1.45.2.3 2005/04/13 22:23:53 fewtrell Exp $
 
 package CalRecon
 
 package manager: Alexandre Chekhtman
 
+  v5r22p5em3 21-apr-05 ZF moved CalXtalRecAlg to CalXtalResponse as it's development path is tied closer to CalXtalResponse than to the other Algs in CalRecon
   v5r22p5em2 13-apr-05 ZF skip don't die on bad xtal response.  initialize loop var.  works with multi tower.
   v5r22p5em1 25-mar-05 ZF really fixed TKR only bug this time.
   v5r22p5em0 25-mar-05 ZF  fixed bug w/ tkr only data.  updated comments & doc for CalXXtalRecAlg.
