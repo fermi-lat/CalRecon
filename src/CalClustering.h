@@ -3,7 +3,6 @@
 #define __CalClustering_H 1
 
 #include "ICalClustering.h"
-#include "CalReconActor.h"
 #include "GlastSvc/GlastDetSvc/IGlastDetSvc.h"
 #include "Event/Recon/CalRecon/CalXtalRecData.h"
 #include "Event/Recon/CalRecon/CalCluster.h"
@@ -23,11 +22,11 @@
 * in a derived class is nextXtalsSet(), which is selecting the
 * crystals to be grouped together.
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalClustering.h,v 1.3 2005/04/11 13:28:50 chamont Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalClustering.h,v 1.1 2005/04/20 16:41:19 chamont Exp $
 */
 
 
-class CalClustering : public ICalClustering,  public AlgTool, protected CalReconActor {
+class CalClustering : public ICalClustering,  public AlgTool {
 	
   public:
     
@@ -44,6 +43,9 @@ class CalClustering : public ICalClustering,  public AlgTool, protected CalRecon
     virtual StatusCode findClusters() ;
 
   protected:
+    
+    //! package service
+    ICalReconSvc * m_calReconSvc ;
     
     //! useful types
     typedef  std::vector<Event::CalXtalRecData *> XtalDataVec ;
@@ -62,7 +64,7 @@ class CalClustering : public ICalClustering,  public AlgTool, protected CalRecon
     virtual Vector fitDirection
      ( std::vector<Vector> pos,
        std::vector<Vector> sigma2 ) ;
-	
+
  } ;
 
 #endif

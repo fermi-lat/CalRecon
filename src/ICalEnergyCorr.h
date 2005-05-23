@@ -3,9 +3,6 @@
 #define __ICalEnergyCorr_H 1
 
 #include "GaudiKernel/IAlgTool.h"
-#include "Event/Recon/CalRecon/CalCluster.h"
-#include "geometry/Vector.h"
-#include "CalReconKernel.h"
 
 /**   
 * @class ICalEnergyCorr
@@ -13,7 +10,7 @@
 * base class for energy leakage corrections 
 *
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/ICalEnergyCorr.h,v 1.5 2005/04/11 13:28:50 chamont Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/ICalEnergyCorr.h,v 1.1 2005/04/20 16:41:20 chamont Exp $
 */
 
 static const InterfaceID IID_ICalEnergyCorr("ICalEnergyCorr", 1 , 0) ;
