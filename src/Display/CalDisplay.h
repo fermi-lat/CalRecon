@@ -20,7 +20,7 @@
 *
 * @author A.Chekhtman
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalDisplay.h,v 1.1 2002/06/13 20:40:36 chehtman Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalDisplay.h,v 1.2 2005/01/10 16:18:57 burnett Exp $
 */
 class CalDisplay : public Algorithm
 {
