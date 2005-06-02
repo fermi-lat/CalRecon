@@ -11,7 +11,7 @@
 *
 * Base class for clustering tools
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/ICalClusteringTool.h,v 1.3 2005/04/11 13:28:50 chamont Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/Clustering/ICalClusteringTool.h,v 1.1 2005/05/26 21:23:23 usher Exp $
 */
 
 static const InterfaceID IID_ICalClusteringTool("ICalClusteringTool",1,0) ;

@@ -12,7 +12,7 @@
 * base class for energy leakage corrections 
 *
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/ICalEnergyCorr.h,v 0.1 2005/04/11 13:28:50 chamont Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/ICalEnergyCorr.h,v 1.1 2005/05/26 21:23:24 usher Exp $
 */
 
 static const InterfaceID IID_ICalEnergyCorr("ICalEnergyCorr", 1 , 0) ;

@@ -8,7 +8,7 @@
 #include "Event/Recon/CalRecon/CalEventEnergy.h"
 #include "Event/Recon/TkrRecon/TkrVertex.h"
 
-#include "ICalEnergyCorr.h"
+#include <CalRecon/ICalEnergyCorr.h>
 #include "GlastSvc/GlastDetSvc/IGlastDetSvc.h"
 
 // to access an XML containing Profile Bias parameters file
@@ -25,7 +25,7 @@
 * shower profile.
 *
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/ProfileTool.cxx,v 1.1 2005/05/26 21:23:24 usher Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/CalProfileTool.cxx,v 1.1 2005/06/02 11:29:10 chamont Exp $
 */
 
 

@@ -6,7 +6,7 @@
 #include "Event/Recon/CalRecon/CalEventEnergy.h"
 #include "Event/TopLevel/EventModel.h"
 
-#include "EnergyCorrections/ICalEnergyCorr.h"
+#include <CalRecon/ICalEnergyCorr.h>
 
 /**   
 * @class CalEventEnergyAlg
@@ -14,7 +14,7 @@
 * @brief An algorithm for controlling and applying the various energy correction tools
 *        used to determine the final event energy for GLAST
 * 
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalEventEnergyAlg.h,v 0.1 2005/04/11 13:28:50 chamont Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalEventEnergyAlg.cxx,v 1.2 2005/05/26 21:23:22 usher Exp $
 */
 
 

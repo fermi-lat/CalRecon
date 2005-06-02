@@ -1,11 +1,11 @@
 /** @file CalRawEnergyTool.cxx
 @brief implementation of the class CalRawEnergyTool
 
-$Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalRawEnergyTool.cxx,v 0.1 2005/04/12 16:42:37 chamont Exp $
+$Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/CalRawEnergyTool.cxx,v 1.1 2005/05/26 21:23:24 usher Exp $
 
 */
 
-#include "ICalEnergyCorr.h"
+#include <CalRecon/ICalEnergyCorr.h>
 #include "GaudiKernel/AlgTool.h"
 #include "GaudiKernel/IDataProviderSvc.h"
 #include "GaudiKernel/SmartDataPtr.h"
@@ -21,7 +21,7 @@ $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalRawEnergyTool.cxx,v 0.1 20
 *
 * This sets the "raw" energy for an event (after clustering)
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalRawEnergyTool.h,v 0.1 2005/04/11 13:28:50 chamont Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/CalRawEnergyTool.cxx,v 1.1 2005/05/26 21:23:24 usher Exp $
 */
 
 class CalRawEnergyTool : public AlgTool, virtual public ICalEnergyCorr 

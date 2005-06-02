@@ -1,7 +1,7 @@
 /** @file CalValsCorrTool.cxx
 @brief implementation of the class CalValsCorrTool
 
-$Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalValsCorrTool.cxx,v 1.12 2005/04/12 16:42:37 chamont Exp $
+$Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/CalValsCorrTool.cxx,v 1.1 2005/05/26 21:23:24 usher Exp $
 
 */
 
@@ -20,7 +20,7 @@ $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalValsCorrTool.cxx,v 1.12 20
 #include "Event/Recon/CalRecon/CalEventEnergy.h"
 #include "Event/Recon/CalRecon/CalXtalRecData.h"
 
-#include "ICalEnergyCorr.h"
+#include <CalRecon/ICalEnergyCorr.h>
 #include "GlastSvc/Reco/IPropagatorSvc.h"
 #include "GlastSvc/GlastDetSvc/IGlastDetSvc.h"
 
@@ -37,7 +37,7 @@ $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalValsCorrTool.cxx,v 1.12 20
 *
 * Copied by THB from AnalysisNtuple::CalValsTool.cxx revision 1.43
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalValsCorrTool.h,v 1.8 2005/04/11 13:28:50 chamont Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/CalValsCorrTool.cxx,v 1.1 2005/05/26 21:23:24 usher Exp $
 */
 
 class CalValsCorrTool : public AlgTool, virtual public ICalEnergyCorr

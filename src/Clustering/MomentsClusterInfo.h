@@ -4,7 +4,7 @@
 
 #include "Event/Recon/CalRecon/CalXtalRecData.h"
 #include "Event/Recon/CalRecon/CalCluster.h"
-#include "IClusterFiller.h"
+#include <CalRecon/ICalClusterFiller.h>
 #include "Utilities/ICalReconSvc.h"
 
 /**   
@@ -18,15 +18,15 @@
 * in a derived class is nextXtalsSet(), which is selecting the
 * crystals to be grouped together.
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/MomentsClusterInfo.h,v 1.2 2005/05/23 17:55:41 chamont Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/Clustering/MomentsClusterInfo.h,v 1.1 2005/05/26 21:23:23 usher Exp $
 */
 
 
-class MomentsClusterInfo : virtual public IClusterFiller
+class MomentsClusterInfo : virtual public ICalClusterFiller
 {
 public:
     MomentsClusterInfo(const ICalReconSvc* calReconSvc);
-   ~MomentsClusterInfo() {};
+    virtual ~MomentsClusterInfo() {};
     
     Event::CalCluster* fillClusterInfo(const XtalDataVec* xtalVec);
 private:
