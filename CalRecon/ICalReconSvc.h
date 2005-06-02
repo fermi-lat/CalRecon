@@ -18,7 +18,7 @@ static const InterfaceID IID_ICalReconSvc("ICalReconSvc",1,0) ;
 *
 * Interface to data and features shared by all CalRecon actors.
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/ICalReconSvc.h,v 1.1 2005/05/23 17:55:42 chamont Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/Utilities/ICalReconSvc.h,v 1.1 2005/05/26 21:23:24 usher Exp $
 */
 
 class ICalReconSvc : public virtual IInterface

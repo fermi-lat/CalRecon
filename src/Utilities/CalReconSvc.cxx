@@ -1,5 +1,5 @@
 // for class definition
-#include "ICalReconSvc.h"
+#include <CalRecon/ICalReconSvc.h>
 #include "GaudiKernel/Service.h"
 #include "GaudiKernel/GaudiException.h" 
 #include "GaudiKernel/MsgStream.h"
@@ -14,7 +14,7 @@
 *
 * Data and features shared by all CalRecon actors.
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalReconSvc.cxx,v 1.1 2005/05/23 17:55:42 chamont Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/Utilities/CalReconSvc.cxx,v 1.1 2005/05/26 21:23:24 usher Exp $
 */
 
 class CalReconSvc : public Service, public virtual ICalReconSvc

@@ -6,7 +6,7 @@
  * @author Tracy Usher
  *
  * File and Version Information:
- *      $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/Clustering/CalSimpleClusteringTool.cxx,v 1.1 2005/05/26 21:23:23 usher Exp $
+ *      $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/Clustering/CalSimpleClusteringTool.cxx,v 1.2 2005/06/02 12:02:55 chamont Exp $
  */
 
 // Tool and Gaudi related stuff
@@ -18,7 +18,7 @@
 #include "Event/Recon/CalRecon/CalXtalRecData.h"
 #include "Event/Recon/CalRecon/CalCluster.h"
 
-#include "Utilities/ICalReconSvc.h"
+#include <CalRecon/ICalReconSvc.h>
 #include <CalRecon/ICalClusteringTool.h>
 #include "StdClusterInfo.h"
 
