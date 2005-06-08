@@ -1,7 +1,7 @@
 /** @file CalRawEnergyTool.cxx
 @brief implementation of the class CalRawEnergyTool
 
-$Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/CalRawEnergyTool.cxx,v 1.1 2005/05/26 21:23:24 usher Exp $
+$Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/CalRawEnergyTool.cxx,v 1.2 2005/06/02 12:02:56 chamont Exp $
 
 */
 
@@ -21,7 +21,7 @@ $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/CalRawEnerg
 *
 * This sets the "raw" energy for an event (after clustering)
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/CalRawEnergyTool.cxx,v 1.1 2005/05/26 21:23:24 usher Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/CalRawEnergyTool.cxx,v 1.2 2005/06/02 12:02:56 chamont Exp $
 */
 
 class CalRawEnergyTool : public AlgTool, virtual public ICalEnergyCorr 
@@ -143,7 +143,7 @@ Event::CalCorToolResult* CalRawEnergyTool::doEnergyCorr(Event::CalCluster*, Even
 
     // Create a CalParams object to contain the results
     Point  centroid(posSum[0], posSum[1], posSum[2]);
-    Vector axis(axisSum[0], axisSum[1], axisSum[3]);
+    Vector axis(axisSum[0], axisSum[1], axisSum[2]);
     Event::CalParams params(rawEnergy, rawEneError, centroid, posWghtSum, axis, axisWghtSum);
 
     // Create a CalCorToolResult object to hold the information
