@@ -25,7 +25,7 @@
 * shower profile.
 *
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/CalProfileTool.cxx,v 1.2 2005/06/02 12:02:56 chamont Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/CalProfileTool.cxx,v 1.3 2005/06/14 12:45:45 chamont Exp $
 */
 
 
@@ -405,16 +405,14 @@ Event::CalCorToolResult* CalProfileTool::doEnergyCorr(Event::CalCluster * cluste
 
     MsgStream lm(msgSvc(), name());
     
-    const Vector& trackDirection = vertex->getDirection();
-    const Point&  trackPosition  = vertex->getPosition();
-
-    double eTotal = cluster->getCalParams().getEnergy() ;
-    
     if (vertex == 0)
      { m_static_slope = cluster->getCalParams().getAxis().z() ; }
     else
-     { m_static_slope = trackDirection.z() ; }
+     { m_static_slope = vertex->getDirection().trackDirection.z() ; }
 
+
+    double eTotal = cluster->getCalParams().getEnergy() ;
+    
     m_xtalHeight = m_calCsIHeight / 10.;   // crystal height in cm
     m_xtalWidth  = m_calCsIWidth / 10.;    // crystal width in cm
 
