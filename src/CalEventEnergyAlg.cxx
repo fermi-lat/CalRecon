@@ -14,7 +14,7 @@
 * @brief An algorithm for controlling and applying the various energy correction tools
 *        used to determine the final event energy for GLAST
 * 
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalEventEnergyAlg.cxx,v 1.4 2005/06/14 13:56:25 chamont Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalEventEnergyAlg.cxx,v 1.3 2005/06/02 12:02:55 chamont Exp $
 */
 
 
@@ -77,9 +77,9 @@ CalEventEnergyAlg::CalEventEnergyAlg( const std::string & name, ISvcLocator * pS
     // This the default for the second iteration of CalRecon
     else
     {
+		corrToolVec.push_back("CalValsCorrTool");
         corrToolVec.push_back("CalLastLayerTool");
         corrToolVec.push_back("CalProfileTool");
-        corrToolVec.push_back("CalValsCorrTool");
         corrToolVec.push_back("CalTkrLikelihoodTool");
         corrToolVec.push_back("CalTransvOffsetTool");
 
@@ -180,20 +180,21 @@ StatusCode CalEventEnergyAlg::execute()
         if (tkrVertices != 0 && !tkrVertices->empty()) vertex = tkrVertices->front();
 
         // apply corrections according to vector of tools
-        Event::CalClusterCol::const_iterator cluster ;
+        int itool = 0 ;
         std::vector<ICalEnergyCorr *>::const_iterator tool ;
-        for ( tool = m_corrTools.begin(); tool != m_corrTools.end(); ++tool ) 
+        for ( tool = m_corrTools.begin(); tool != m_corrTools.end(); ++tool, ++itool ) 
         {
-            log<<MSG::DEBUG<<(*tool)->name()<<endreq ;
-            for ( cluster = calClusters->begin(); cluster != calClusters->end(); ++cluster )
-            { 
-                Event::CalCorToolResult* corResult = (*tool)->doEnergyCorr(*cluster,vertex) ;
-                if (corResult != 0)
-                {
-                    calEnergy->push_back(corResult);
-                }
+            log<<MSG::DEBUG<<"Correction "<<itool<<endreq ;
+            Event::CalCorToolResult* corResult = (*tool)->doEnergyCorr(calClusters->front(), vertex);
+
+            if (corResult != 0)
+            {
+                calEnergy->push_back(corResult);
             }
         }
+        // Need set the status bit in the CalCluster  
+		Event::CalCluster * cluster = calClusters->front();
+		cluster->setStatusBit(Event::CalCluster::ENERGYCORR);
 
         // Set the pass number bits
         calEnergy->setStatusBit(m_passBits);
