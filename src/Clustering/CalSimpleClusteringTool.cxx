@@ -6,7 +6,7 @@
  * @author Tracy Usher
  *
  * File and Version Information:
- *      $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/Clustering/CalSimpleClusteringTool.cxx,v 1.5 2005/06/15 03:49:21 usher Exp $
+ *      $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/Clustering/CalSimpleClusteringTool.cxx,v 1.6 2005/06/15 16:30:02 usher Exp $
  */
 
 // Tool and Gaudi related stuff
@@ -122,7 +122,7 @@ StatusCode CalSimpleClusteringTool::findClusters(Event::CalClusterCol* calCluste
     }
 
     // Convert the results into CalClusters
-    calClusterCol->clear();   // memory leak?
+    calClusterCol->clear() ;
     for (XtalDataVecVec::iterator xTalClusIter = clusters.begin(); xTalClusIter != clusters.end(); xTalClusIter++)
     {
         XtalDataVec* xTalClus = *xTalClusIter;
