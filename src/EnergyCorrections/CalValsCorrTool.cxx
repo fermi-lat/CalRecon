@@ -1,7 +1,7 @@
 /** @file CalValsCorrTool.cxx
 @brief implementation of the class CalValsCorrTool
 
-$Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/CalValsCorrTool.cxx,v 1.4 2005/06/15 03:49:21 usher Exp $
+$Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/CalValsCorrTool.cxx,v 1.5 2005/06/17 05:12:52 atwood Exp $
 
 */
 
@@ -37,7 +37,7 @@ $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/CalValsCorr
 *
 * Copied by THB from AnalysisNtuple::CalValsTool.cxx revision 1.43
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/CalValsCorrTool.cxx,v 1.4 2005/06/15 03:49:21 usher Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/CalValsCorrTool.cxx,v 1.5 2005/06/17 05:12:52 atwood Exp $
 */
 
 class CalValsCorrTool : public AlgTool, virtual public ICalEnergyCorr
@@ -279,7 +279,8 @@ Event::CalCorToolResult* CalValsCorrTool::doEnergyCorr(Event::CalCluster* cluste
 	Point x0  = m_cal_pos;
 
 	Vector t0 = m_cluster->getDirection();
-	if((m_cluster->getStatusBits()& Event::CalCluster::MOMENTS) == 0) { // Trap NaN condition caused by Moments failure
+	if((m_cluster->getStatusBits()& Event::CalCluster::MOMENTS) == 0 ||
+		m_cluster->getRmsLong() < .1) { // Trap NaN condition caused by Moments failure
 		t0 = Vector(0., 0., 1.);
 	}
 	double tkr_Energy = 0.; 
