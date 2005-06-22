@@ -5,7 +5,7 @@
 #include "Event/Recon/CalRecon/CalCluster.h"
 #include "Event/TopLevel/EventModel.h"
 
-//#include "src/MipFinding/IMipFindingTool.h"
+#include "src/MipFinding/IMipFindingTool.h"
 
 /**   
 * @class CalMipFinderAlg
@@ -13,7 +13,7 @@
 * @brief An algorithm for controlling and applying the various energy correction tools
 *        used to determine the final event energy for GLAST
 * 
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalMipFinderAlg.cxx,v 1.1 2005/06/10 04:20:58 usher Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalMipFinderAlg.cxx,v 1.2 2005/06/14 12:45:05 chamont Exp $
 */
 
 
@@ -38,8 +38,7 @@ private:
     std::string      m_mipFinderName ;
     
     //! correction tools
-// WAITING FOR LACKING FILES IN CVS
-//    IMipFindingTool* m_mipFinder ;
+    IMipFindingTool* m_mipFinder ;
 } ;
 
 #include "GaudiKernel/DeclareFactoryEntries.h"
@@ -74,12 +73,11 @@ StatusCode CalMipFinderAlg::initialize()
     }
     log << endreq;
         
-// WAITING FOR LACKING FILES IN CVS
-//    if ((sc = toolSvc()->retrieveTool(m_mipFinderName, m_mipFinder)).isFailure())
-//    {
-//        log << MSG::ERROR << " Unable to create " << m_mipFinderName << endreq ;
-//        return sc ;
-//    }
+    if ((sc = toolSvc()->retrieveTool(m_mipFinderName, m_mipFinder)).isFailure())
+    {
+        log << MSG::ERROR << " Unable to create " << m_mipFinderName << endreq ;
+        return sc ;
+    }
 
     return sc;
 }
@@ -105,8 +103,7 @@ StatusCode CalMipFinderAlg::execute()
     //Event::TkrVertexCol*   tkrVertices = SmartDataPtr<Event::TkrVertexCol>(eventSvc(),EventModel::TkrRecon::TkrVertexCol);
 
     // find mips
-// WAITING FOR LACKING FILES IN CVS
-//    sc = m_mipFinder->findMIPCandidates();
+    sc = m_mipFinder->findMIPCandidates();
 
     log<<MSG::DEBUG<<"End"<<endreq ;
     return sc;
