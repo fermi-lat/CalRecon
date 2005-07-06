@@ -21,7 +21,7 @@
 * Tool that describes the shower developement in the calorimeter given
 * the length in X0 seen in the tracker and the position of the shower maximum
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/CalPhBProfileTool.cxx,v 1.7 2005/06/17 14:33:24 chamont Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/FullShowerDevelopmentDescriptionManager.cxx,v 1.1 2005/07/06 12:44:31 bruel Exp $
 */
 
 FullShowerDevelopmentDescription::FullShowerDevelopmentDescription(IGlastDetSvc *m_detSvc_input, int type_input, double zstep_input, double radialcontainedfraction_input)
@@ -645,11 +645,11 @@ FullShowerDevelopmentDescriptionManager::FullShowerDevelopmentDescriptionManager
     }
   CurrentFSDD = NULL;
 
-  int nmax = nmax_input;
+  int nxmax = nxmax_input;
   if(nxmax>FSDD_NMAX-1)
     {
       //      printf("FullShowerDevelopmentDescriptionManager nxmax>FSDD_NMAX-1 !!!!!!!!!!!!!!!!\n");
-      nmax = FSDD_NMAX-1;
+      nxmax = FSDD_NMAX-1;
     }
 
   NDevelopment = nxmax;
