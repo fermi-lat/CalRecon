@@ -25,7 +25,7 @@
 * shower profile.
 *
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/CalProfileTool.cxx,v 1.6 2005/06/17 14:10:19 chamont Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/CalProfileTool.cxx,v 1.7 2005/06/17 14:33:24 chamont Exp $
 */
 
 
@@ -556,7 +556,7 @@ Event::CalCorToolResult* CalProfileTool::doEnergyCorr(Event::CalCluster * cluste
         // Ok, fill in the corrected information and exit
         Event::CalParams params = cluster->getCalParams();
 
-        params.setEnergy(1000.*fit_energy);
+        params.setEnergy(1000.*fit_energy_opt);
         params.setEnergyErr(energy_err);
 
         corResult = new Event::CalCorToolResult();
