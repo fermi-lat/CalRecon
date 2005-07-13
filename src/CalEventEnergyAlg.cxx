@@ -17,7 +17,7 @@
 * @brief An algorithm for controlling and applying the various energy correction tools
 *        used to determine the final event energy for GLAST
 * 
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalEventEnergyAlg.cxx,v 1.13 2005/07/11 17:15:23 bruel Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalEventEnergyAlg.cxx,v 1.14 2005/07/13 14:52:17 chamont Exp $
 */
 
 
@@ -51,7 +51,7 @@ private:
     std::string                  m_corrType;
 
     //! Set status bits depending on which iteration of algorithm
-    unsigned int                 m_passBits;
+    Event::CalEventEnergy::StatusBits m_passBits ;
     
     //! package service
     ICalReconSvc *      m_calReconSvc ;
@@ -184,7 +184,7 @@ StatusCode CalEventEnergyAlg::execute()
     // Else reset CalEventEnergy
     } else {
         calEnergy->clear() ;
-        calEnergy->clearStatusBit((Event::CalEventEnergy::StatusBits)calEnergy->getStatusBits()) ;
+        calEnergy->setStatusBits(0) ;
     }
     
     // No clusters no work
