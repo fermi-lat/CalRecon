@@ -17,7 +17,7 @@
 * @brief An algorithm for controlling and applying the various energy correction tools
 *        used to determine the final event energy for GLAST
 * 
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalEventEnergyAlg.cxx,v 1.15 2005/07/13 15:45:22 chamont Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalEventEnergyAlg.cxx,v 1.16 2005/07/24 14:01:21 usher Exp $
 */
 
 
@@ -169,28 +169,34 @@ StatusCode CalEventEnergyAlg::execute()
 
     // Retrieve our TDS objects, we use Clusters to output corrected energy in CalEventEnergy
     Event::CalClusterCol*  calClusters = SmartDataPtr<Event::CalClusterCol>(eventSvc(),EventModel::CalRecon::CalClusterCol);
-    Event::CalEventEnergy* calEnergy   = SmartDataPtr<Event::CalEventEnergy>(eventSvc(),EventModel::CalRecon::CalEventEnergy);
-    Event::TkrVertexCol*   tkrVertices = SmartDataPtr<Event::TkrVertexCol>(eventSvc(),EventModel::TkrRecon::TkrVertexCol);
 
-    // If no CalEnergy object (yet) then create one and register in TDS
-    if (calEnergy == 0) {
-        calEnergy = new Event::CalEventEnergy();
-
-        if ((eventSvc()->registerObject(EventModel::CalRecon::CalEventEnergy, calEnergy)).isFailure())
-        {
-            log<<MSG::ERROR<<"Cannot register CalEventEnergy"<<endreq ;
-            return StatusCode::FAILURE ;
-        }
-    // Else reset CalEventEnergy
-    // NO! Do not reset as we want to keep the original energy sum in the collection
-    } //else {
-    //    calEnergy->clear() ;
-    //    calEnergy->setStatusBits(0) ;
-    //}
-    
-    // No clusters no work
-    if (calClusters->size() > 0)
+    // No clusters no work...
+    if (calClusters != 0 && !calClusters->empty())
     {
+        // Look up the CalEventEnergy collection
+        Event::CalEventEnergy* calEnergy = 
+            SmartDataPtr<Event::CalEventEnergy>(eventSvc(),EventModel::CalRecon::CalEventEnergy);
+
+        // If no CalEnergy object (yet) then create one and register in TDS
+        if (calEnergy == 0) 
+        {
+            calEnergy = new Event::CalEventEnergy();
+
+            if ((eventSvc()->registerObject(EventModel::CalRecon::CalEventEnergy, calEnergy)).isFailure())
+            {
+                log<<MSG::ERROR<<"Cannot register CalEventEnergy"<<endreq ;
+                return StatusCode::FAILURE ;
+            }
+            // Else reset CalEventEnergy
+            // NO! Do not reset as we want to keep the original energy sum in the collection
+        } //else {
+        //    calEnergy->clear() ;
+        //    calEnergy->setStatusBits(0) ;
+        //}
+
+        // Do we have any Tracker Vertices?
+        Event::TkrVertexCol* tkrVertices = SmartDataPtr<Event::TkrVertexCol>(eventSvc(),EventModel::TkrRecon::TkrVertexCol);
+        
         // Set pointer to first vertex if it exists
         Event::TkrVertex* vertex = 0;
 
