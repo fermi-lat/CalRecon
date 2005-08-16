@@ -15,7 +15,7 @@
 #define FSGM_RPROF_R_MAX 1800
 #define FSGM_RPROF_T_MAX 250
 
-#define FSDD_NSTEPS_MAX 1000
+#define FSDD_NSTEPS_MAX 1300
 #define FSDD_NMAX 20
 
 /**   
@@ -25,7 +25,7 @@
 * Tool that describes the shower developement in the calorimeter given
 * the length in X0 seen in the tracker and the position of the shower maximum
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/FullShowerDevelopmentDescriptionManager.h,v 1.2 2005/07/11 17:15:23 bruel Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/FullShowerDevelopmentDescriptionManager.h,v 1.3 2005/07/20 12:22:34 bruel Exp $
 */
 
 class FullShowerGeometryManager{
