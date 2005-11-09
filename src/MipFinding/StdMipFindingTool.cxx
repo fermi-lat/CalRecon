@@ -34,7 +34,7 @@
 /**   
 * @class StdMipFindingTool
 *
-* $Header: /home/cvs/SLAC/CalRecon/src/MipFinding/StdMipFindingTool.cxx,v 1.16 2005/08/16 13:34:10 piron Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/MipFinding/StdMipFindingTool.cxx,v 1.17 2005/11/01 16:31:18 piron Exp $
 */
 
 //-----------------------------------------------------------------------------------------------------------------
@@ -921,10 +921,13 @@ int StdMipFindingTool::propagate(Point xStart, Vector dir)
     else             cosphi=1;
     Vector p(costheta/cosphi, 0., -sintheta);
     p=p.unit();
-    int nRad=5;
+//     int nRad=5;
+//     int nAng1=3;
+//     double deltaRadius=4;
+    int nRad=2;
     int nAng1=3;
-    double deltaRadius=4;
-
+    double deltaRadius=10;
+    
     for (int iRad=1; iRad<=nRad; iRad++)
     {
         double radius = iRad * deltaRadius;
