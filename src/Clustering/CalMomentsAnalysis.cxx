@@ -1,15 +1,15 @@
 /**
  *
  * File and Version Information:
- *      $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/Clustering/CalMomentsAnalysis.cxx,v 1.1 2005/07/05 22:09:42 usher Exp $
+ *      $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/Clustering/CalMomentsAnalysis.cxx,v 1.2 2005/07/26 17:13:15 usher Exp $
  */
 
 #include "src/Clustering/CalMomentsAnalysis.h"
 
 #include <algorithm>
 
-CalMomentsAnalysis::CalMomentsAnalysis() : m_moment(0.,0.,0.), 
-                                           m_centroid(0.,0.,0.), 
+CalMomentsAnalysis::CalMomentsAnalysis() : m_centroid(0.,0.,0.), 
+                                           m_moment(0.,0.,0.), 
                                            m_rmsLong(0.),
                                            m_rmsTrans(0.),
                                            m_rmsLongAsym(0.)

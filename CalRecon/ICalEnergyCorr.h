@@ -12,7 +12,7 @@
 * base class for energy leakage corrections 
 *
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/ICalEnergyCorr.h,v 1.1 2005/05/26 21:23:24 usher Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/CalRecon/ICalEnergyCorr.h,v 1.1 2005/06/02 12:02:54 chamont Exp $
 */
 
 static const InterfaceID IID_ICalEnergyCorr("ICalEnergyCorr", 1 , 0) ;
@@ -35,8 +35,7 @@ public:
      *  - Energy per layer is computed and stored in CalEnergyCorr in MeV
      *  - Barycenter per layer is also computed and stored in CalEnergyCorr
      */        
-    //virtual StatusCode doEnergyCorr(Event::CalCluster*, Event::TkrVertex* ) =0 ;
-    virtual Event::CalCorToolResult* doEnergyCorr(Event::CalCluster*, Event::TkrVertex* ) = 0;
+    virtual Event::CalCorToolResult* doEnergyCorr(Event::CalClusterCol *, Event::TkrVertex* ) = 0;
 
 } ;
 

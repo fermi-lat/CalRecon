@@ -1,7 +1,7 @@
 /** @file CalRawEnergyTool.cxx
 @brief implementation of the class CalRawEnergyTool
 
-$Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/CalRawEnergyTool.cxx,v 1.2 2005/06/02 12:02:56 chamont Exp $
+$Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/CalRawEnergyTool.cxx,v 1.3 2005/06/08 20:53:31 usher Exp $
 
 */
 
@@ -21,7 +21,7 @@ $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/CalRawEnerg
 *
 * This sets the "raw" energy for an event (after clustering)
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/CalRawEnergyTool.cxx,v 1.2 2005/06/02 12:02:56 chamont Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/CalRawEnergyTool.cxx,v 1.3 2005/06/08 20:53:31 usher Exp $
 */
 
 class CalRawEnergyTool : public AlgTool, virtual public ICalEnergyCorr 
@@ -36,7 +36,7 @@ public:
     StatusCode initialize();
 
     // worker function to get the corrected energy      
-    Event::CalCorToolResult* doEnergyCorr(Event::CalCluster*, Event::TkrVertex* );
+    Event::CalCorToolResult* doEnergyCorr(Event::CalClusterCol*, Event::TkrVertex* );
 
 private:
 
@@ -73,7 +73,7 @@ StatusCode CalRawEnergyTool::initialize()
 }
 
 
-Event::CalCorToolResult* CalRawEnergyTool::doEnergyCorr(Event::CalCluster*, Event::TkrVertex* )
+Event::CalCorToolResult* CalRawEnergyTool::doEnergyCorr(Event::CalClusterCol* calClusters, Event::TkrVertex* )
 {
     //Purpose and method:
     //
@@ -86,16 +86,13 @@ Event::CalCorToolResult* CalRawEnergyTool::doEnergyCorr(Event::CalCluster*, Even
     
     MsgStream lm(msgSvc(), name());
 
-    // Recover the collection of all clusters 
-    SmartDataPtr<Event::CalClusterCol> calClusters(m_dataSvc, EventModel::CalRecon::CalClusterCol);
-
     // Set up to loop over all clusters to get total raw energy
     double     rawEnergy   = 0.;
     double     rawEneError = 0.;
     HepVector  posSum(3);
-    HepMatrix  posWghtSum(3,3,0.);
+    HepMatrix  posWghtSum(3,3,0);
     HepVector  axisSum(3);
-    HepMatrix  axisWghtSum(3,3,0.);
+    HepMatrix  axisWghtSum(3,3,0);
 
     // Do the loop and accumulate information
     for(Event::CalClusterCol::iterator clusIter = calClusters->begin(); clusIter != calClusters->end(); clusIter++)
@@ -149,8 +146,8 @@ Event::CalCorToolResult* CalRawEnergyTool::doEnergyCorr(Event::CalCluster*, Even
     // Create a CalCorToolResult object to hold the information
     Event::CalCorToolResult* corResult = new Event::CalCorToolResult();
 
-    const std::string& nm = name();
-    const std::string& ty = type();
+//    const std::string& nm = name();
+//    const std::string& ty = type();
 
     corResult->setStatusBit(Event::CalCorToolResult::VALIDPARAMS);
     corResult->setCorrectionName(type());

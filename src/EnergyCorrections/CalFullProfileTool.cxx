@@ -40,7 +40,7 @@
 * shower profile using a full (= longitudinal AND radial) description of the shower development in the calorimeter.
 *
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/CalFullProfileTool.cxx,v 1.2 2005/07/11 17:15:23 bruel Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/CalFullProfileTool.cxx,v 1.3 2005/07/20 12:22:34 bruel Exp $
 */
 
 
@@ -62,7 +62,7 @@ public:
    * - 07/06/05       Philippe Bruel    first implementation
    */     
   
-  Event::CalCorToolResult* doEnergyCorr(Event::CalCluster*, Event::TkrVertex* );
+  Event::CalCorToolResult* doEnergyCorr(Event::CalClusterCol*, Event::TkrVertex* );
 
   double GetRadiationLengthInTracker(Event::TkrVertex*);
   
@@ -260,7 +260,7 @@ double CalFullProfileTool::GetRadiationLengthInTracker(Event::TkrVertex* vertex)
   return tkr_RLn;
 }
 
-Event::CalCorToolResult* CalFullProfileTool::doEnergyCorr(Event::CalCluster * cluster, Event::TkrVertex* vertex)
+Event::CalCorToolResult* CalFullProfileTool::doEnergyCorr(Event::CalClusterCol * clusters, Event::TkrVertex* vertex)
   //               This function fits the parameters of shower profile using
   //               the Minuit minimization package and stores the fitted
   //               parameters in the CalCluster object
@@ -273,10 +273,17 @@ Event::CalCorToolResult* CalFullProfileTool::doEnergyCorr(Event::CalCluster * cl
   //            stored in CalCluster object using initProfile() method
 {
 
-  Event::CalCorToolResult* corResult = 0;
-  
+  Event::CalCorToolResult* corResult = 0;  
   MsgStream lm(msgSvc(), name());
   
+    if (clusters->empty())
+    {
+        lm << MSG::DEBUG << "Ending doEnergyCorr: No Cluster" 
+            << endreq;
+        return corResult;
+    }
+    Event::CalCluster * cluster = clusters->front() ;
+
   double pp[3];
   double vv[3];
   double tkr_RLn = 0;

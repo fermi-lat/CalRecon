@@ -6,7 +6,7 @@
  * @author Tracy Usher
  *
  * File and Version Information:
- *      $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/Clustering/CalSimpleClusteringTool.cxx,v 1.6 2005/06/15 16:30:02 usher Exp $
+ *      $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/Clustering/CalSimpleClusteringTool.cxx,v 1.7 2005/06/17 12:51:07 chamont Exp $
  */
 
 // Tool and Gaudi related stuff
@@ -128,7 +128,10 @@ StatusCode CalSimpleClusteringTool::findClusters(Event::CalClusterCol* calCluste
         XtalDataVec* xTalClus = *xTalClusIter;
 
         Event::CalCluster* cluster = m_clusterInfo->fillClusterInfo(xTalClus);
-		cluster->setStatusBit(Event::CalCluster::SIMPLECLUSTER);
+        std::string producerName("CalSimpleClusteringTool/") ;
+        producerName += cluster->getProducerName() ;
+        cluster->setProducerName(producerName) ;
+		cluster->clearStatusBit(Event::CalCluster::ALLXTALS);
 
         calClusterCol->push_back(cluster);
 

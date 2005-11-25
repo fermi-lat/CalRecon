@@ -25,7 +25,7 @@
 * shower profile.
 *
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/CalProfileTool.cxx,v 1.8 2005/07/13 14:52:18 chamont Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/CalProfileTool.cxx,v 1.9 2005/07/19 15:35:13 chamont Exp $
 */
 
 
@@ -100,7 +100,7 @@ public:
     * - 05/00       RT    first implementation
     */     
      
-    Event::CalCorToolResult* doEnergyCorr(Event::CalCluster*, Event::TkrVertex* );
+    Event::CalCorToolResult* doEnergyCorr(Event::CalClusterCol*, Event::TkrVertex* );
 
     StatusCode finalize();
     
@@ -389,7 +389,7 @@ StatusCode CalProfileTool::initialize()
 }
 
 
-Event::CalCorToolResult* CalProfileTool::doEnergyCorr(Event::CalCluster * cluster, Event::TkrVertex* vertex)
+Event::CalCorToolResult* CalProfileTool::doEnergyCorr(Event::CalClusterCol * clusters, Event::TkrVertex* vertex)
 //               This function fits the parameters of shower profile using
 //               the Minuit minimization package and stores the fitted
 //               parameters in the CalCluster object
@@ -402,9 +402,16 @@ Event::CalCorToolResult* CalProfileTool::doEnergyCorr(Event::CalCluster * cluste
 //            stored in CalCluster object using initProfile() method
 {
     Event::CalCorToolResult* corResult = 0;
-
     MsgStream lm(msgSvc(), name());
     
+    if (clusters->empty())
+    {
+        lm << MSG::DEBUG << "Ending doEnergyCorr: No Cluster" 
+            << endreq;
+        return corResult;
+    }
+    Event::CalCluster * cluster = clusters->front() ;
+
     if (vertex == 0)
      { m_static_slope = cluster->getCalParams().getAxis().z() ; }
     else
