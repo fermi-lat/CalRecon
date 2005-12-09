@@ -17,7 +17,7 @@
 * @brief An algorithm for controlling and applying the various energy correction tools
 *        used to determine the final event energy for GLAST
 * 
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalEventEnergyAlg.cxx,v 1.18 2005/11/25 16:54:39 chamont Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalEventEnergyAlg.cxx,v 1.19 2005/12/05 20:30:31 chamont Exp $
 */
 
 
@@ -195,10 +195,10 @@ StatusCode CalEventEnergyAlg::execute()
             calEnergy = new Event::CalEventEnergy ;
             calEnergyCol->push_back(calEnergy) ;
         // Else reset CalEventEnergy
+        } else {
+            calEnergy = calEnergyCol->front() ;
 // NO! Do not reset as we want to keep the original energy sum in the collection
-//        } else {
-//            calEnergy = calEnergyCol->front() ;
-//            calEnergy->clear() ;
+            //calEnergy->clear() ;
         }
         
         // Set pointer to first vertex if it exists
