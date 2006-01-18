@@ -9,7 +9,7 @@
  * @author Tracy Usher
  *
  * File and Version Information:
- *      $Header: /nfs/slac/g/glast/ground/cvs/TkrRecon/src/Filter/TkrFilterTool.cxx,v 1.2 2005/06/22 21:39:36 usher Exp $
+ *      $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/Clustering/CalMomentsAnalysis.h,v 1.1 2005/07/05 22:09:42 usher Exp $
  */
 
 #include "geometry/Ray.h"
@@ -81,6 +81,9 @@ public:
     const double getLongitudinalRms()       const {return m_rmsLong;}
     const double getTransverseRms()         const {return m_rmsTrans;}
     const double getLongAsymmetry()         const {return m_rmsLongAsym;}
+    const double getWeightSum()             const {return m_weightSum;}
+    const double getNumIterations()         const {return m_numIterations;}
+    const double getNumDroppedPoints()      const {return m_numDroppedPoints;}
 
 private:
 
@@ -99,5 +102,8 @@ private:
     double m_rmsLongAsym;
     // Sum of weights in moments analysis 
     double m_weightSum;
+    // Statistics on iterations (if done)
+    int    m_numIterations;
+    int    m_numDroppedPoints;
 };
 
