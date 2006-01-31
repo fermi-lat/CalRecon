@@ -1,4 +1,4 @@
-//$Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalDisplay.cxx,v 1.14 2005/01/07 17:19:05 burnett Exp $
+//$Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/Display/CalDisplay.cxx,v 1.1 2005/05/26 21:23:24 usher Exp $
 
 /// Gaudi specific include files
 #include "GaudiKernel/MsgStream.h"
@@ -288,7 +288,7 @@ StatusCode CalDisplay::initialize()
     topLayerId.append(eXtal);
     topLayerId.append(0);
     
-    HepTransform3D transfTop;
+    HepGeom::Transform3D transfTop;
     detSvc->getTransform3DByID(topLayerId,&transfTop);
     Vector vecTop = transfTop.getTranslation();
     
@@ -304,7 +304,7 @@ StatusCode CalDisplay::initialize()
     bottomLayerId.append(eXtal);
     bottomLayerId.append(0);
     
-    HepTransform3D transfBottom;
+    HepGeom::Transform3D transfBottom;
     detSvc->getTransform3DByID(bottomLayerId,&transfBottom);
     Vector vecBottom = transfBottom.getTranslation();
     

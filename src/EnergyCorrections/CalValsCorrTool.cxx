@@ -1,7 +1,7 @@
 /** @file CalValsCorrTool.cxx
 @brief implementation of the class CalValsCorrTool
 
-$Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/CalValsCorrTool.cxx,v 1.8 2005/07/26 17:13:16 usher Exp $
+$Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/CalValsCorrTool.cxx,v 1.9 2005/07/27 16:23:50 usher Exp $
 
 */
 
@@ -27,6 +27,8 @@ $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/CalValsCorr
 #include "TkrUtil/ITkrGeometrySvc.h"
 #include "geometry/Ray.h"
 
+#include "CLHEP/vector/Rotation.h"
+
 #include "TMath.h"
 #include <stdexcept>
 
@@ -38,7 +40,7 @@ $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/CalValsCorr
 *
 * Copied by THB from AnalysisNtuple::CalValsTool.cxx revision 1.43
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/CalValsCorrTool.cxx,v 1.8 2005/07/26 17:13:16 usher Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/CalValsCorrTool.cxx,v 1.9 2005/07/27 16:23:50 usher Exp $
 */
 
 class CalValsCorrTool : public AlgTool, virtual public ICalEnergyCorr
@@ -683,7 +685,7 @@ StatusCode CalValsCorrTool::aveRadLens(Point /* x0 */, Vector t0, double radius,
 		//       samples are rotated by  M_PI/numSamples w.r.t. each other
 		if(is <numInner) {
 			double rotAng = (is-1)*2.*M_PI/numInner; 
-			HepRotation rot(t0, rotAng);
+            CLHEP::HepRotation rot(t0, rotAng);
 			Vector delta = rot*p;
 			Point xI = x0 + .25*radius*delta;
 			double s = (m_cal_top.z() - xI.z())/costheta;
@@ -692,7 +694,7 @@ StatusCode CalValsCorrTool::aveRadLens(Point /* x0 */, Vector t0, double radius,
 		}
 		else {
 			double rotAng = (is-1)*2.*M_PI/numSamples + M_PI/numSamples; 
-			HepRotation rot(t0, rotAng);
+			CLHEP::HepRotation rot(t0, rotAng);
 			Vector delta = rot*p;
 			Point xI = x0 + radius*delta;
 			double s = (m_cal_top.z() - xI.z())/costheta;
