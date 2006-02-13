@@ -20,7 +20,7 @@
 *
 * Data and features shared by all CalRecon actors.
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/Utilities/CalReconSvc.cxx,v 1.3 2005/07/13 14:52:18 chamont Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/Utilities/CalReconSvc.cxx,v 1.4 2005/07/26 23:46:05 usher Exp $
 */
 
 class CalReconSvc
@@ -35,7 +35,7 @@ class CalReconSvc
 
         virtual StatusCode initialize() ;
         virtual StatusCode finalize() ;
-        StatusCode queryInterface( const IID &, void** ) ;
+        StatusCode queryInterface( const InterfaceID &, void** ) ;
         
         //! called when an event begin and end
         void handle( const Incident & ) ;
@@ -94,7 +94,7 @@ class CalReconSvc
 
 DECLARE_SERVICE_FACTORY(CalReconSvc) ;
 
-StatusCode CalReconSvc::queryInterface( const IID & riid, void** ppvIF ) {
+StatusCode CalReconSvc::queryInterface( const InterfaceID & riid, void** ppvIF ) {
 
     if (IID_ICalReconSvc == riid)
     {
