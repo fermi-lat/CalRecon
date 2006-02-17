@@ -1,7 +1,7 @@
 /** @file CalValsCorrTool.cxx
 @brief implementation of the class CalValsCorrTool
 
-$Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/CalValsCorrTool.cxx,v 1.9 2005/07/27 16:23:50 usher Exp $
+$Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/CalValsCorrTool.cxx,v 1.9.2.1 2006/01/31 20:06:00 usher Exp $
 
 */
 
@@ -27,7 +27,7 @@ $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/CalValsCorr
 #include "TkrUtil/ITkrGeometrySvc.h"
 #include "geometry/Ray.h"
 
-#include "CLHEP/vector/Rotation.h"
+#include "CLHEP/Vector/Rotation.h"
 
 #include "TMath.h"
 #include <stdexcept>
@@ -40,7 +40,7 @@ $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/CalValsCorr
 *
 * Copied by THB from AnalysisNtuple::CalValsTool.cxx revision 1.43
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/CalValsCorrTool.cxx,v 1.9 2005/07/27 16:23:50 usher Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/CalValsCorrTool.cxx,v 1.9.2.1 2006/01/31 20:06:00 usher Exp $
 */
 
 class CalValsCorrTool : public AlgTool, virtual public ICalEnergyCorr
