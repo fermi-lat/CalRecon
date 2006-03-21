@@ -34,7 +34,7 @@
 /**   
 * @class StdMipFindingTool
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/MipFinding/StdMipFindingTool.cxx,v 1.17 2005/11/01 16:31:18 piron Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/MipFinding/StdMipFindingTool.cxx,v 1.18 2005/11/09 13:17:13 piron Exp $
 */
 
 //-----------------------------------------------------------------------------------------------------------------
@@ -942,7 +942,7 @@ int StdMipFindingTool::propagate(Point xStart, Vector dir)
                 // Compute new starting point onto of Cal
                 double rotAng=2.*m_pi*(iAng-1)/nAng; 
                 //m_log << MSG::DEBUG << "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ propagate G4prop iRad=" << iRad << " radius=" << radius << " iAng=" << iAng << " rotAng " << rotAng << endreq;
-                HepRotation rot(dir,rotAng);
+                CLHEP::HepRotation rot(dir,rotAng);
                 // get unit vector delta perpendicular to track direction with variable cylindrical phi angle 
                 Vector delta=rot*p;
                 // get starting point on cylinder surface
