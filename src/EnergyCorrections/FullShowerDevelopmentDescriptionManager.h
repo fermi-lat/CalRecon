@@ -25,7 +25,7 @@
 * Tool that describes the shower developement in the calorimeter given
 * the length in X0 seen in the tracker and the position of the shower maximum
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/FullShowerDevelopmentDescriptionManager.h,v 1.3 2005/07/20 12:22:34 bruel Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/FullShowerDevelopmentDescriptionManager.h,v 1.4 2005/08/16 13:45:47 bruel Exp $
 */
 
 class FullShowerGeometryManager{
@@ -38,6 +38,9 @@ class FullShowerGeometryManager{
   bool geom_y_mat[FSGM_XY_MAX][2];
  public:
   // Geometry variables
+  int FSGM_numX;
+  int FSGM_numY;
+  bool FSGM_flight_geom;
   double FSGM_towerPitch;
   double FSGM_calZTop;
   double FSGM_calZBot;
@@ -88,6 +91,8 @@ class FullShowerGeometryManager{
   double RadialProfile(double t, double r);
  public:
   void WhereInCal(double *xyz, int *whereincal);
+  void WhereInCalLT(double *xyz, int *whereincal);
+  void WhereInCalForGeomCU(double *xyz, int *whereincal);
   double GetEffectiveRadius(double z, double radialcontainedfraction);
   double GetRadialProfile(double t, double r);
 };
