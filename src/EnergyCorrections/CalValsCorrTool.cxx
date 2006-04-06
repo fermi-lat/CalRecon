@@ -1,7 +1,7 @@
 /** @file CalValsCorrTool.cxx
 @brief implementation of the class CalValsCorrTool
 
-$Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/CalValsCorrTool.cxx,v 1.10 2005/11/25 16:54:39 chamont Exp $
+$Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/CalValsCorrTool.cxx,v 1.11 2006/03/21 01:40:37 usher Exp $
 
 */
 
@@ -40,7 +40,7 @@ $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/CalValsCorr
 *
 * Copied by THB from AnalysisNtuple::CalValsTool.cxx revision 1.43
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/CalValsCorrTool.cxx,v 1.10 2005/11/25 16:54:39 chamont Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/CalValsCorrTool.cxx,v 1.11 2006/03/21 01:40:37 usher Exp $
 */
 
 class CalValsCorrTool : public AlgTool, virtual public ICalEnergyCorr
@@ -297,7 +297,9 @@ Event::CalCorToolResult* CalValsCorrTool::doEnergyCorr(Event::CalClusterCol* clu
 		x0 = m_vertex->getPosition();
 
 		Vector x_diff = x0 - m_cal_pos;
-        t0            = x_diff.unit(); // Using "event" axis. Alternative: t0 = -m_vertex->direction()
+		t0 = -m_vertex->getDirection();  // Swithed to this after P. Bruel's obs. that this choice minimized
+		                              // the low energy tail
+                                      // "event" axis alternative was: t0 = x_diff.unit();
 		double costh  = fabs(t0.z());
 
 	    // Get the First Track - from vertex - THIS IS BAD - NEED A BETTER WAY HERE
