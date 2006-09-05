@@ -6,7 +6,7 @@
  * @author Tracy Usher
  *
  * File and Version Information:
- *      $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/Clustering/CalSimpleClusteringTool.cxx,v 1.7 2005/06/17 12:51:07 chamont Exp $
+ *      $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/Clustering/CalSimpleClusteringTool.cxx,v 1.8 2005/11/25 16:54:39 chamont Exp $
  */
 
 // Tool and Gaudi related stuff
@@ -21,6 +21,7 @@
 #include <CalRecon/ICalReconSvc.h>
 #include <CalRecon/ICalClusteringTool.h>
 #include "StdClusterInfo.h"
+#include "MomentsClusterInfo.h"
 
 class CalSimpleClusteringTool : public AlgTool, virtual public ICalClusteringTool
 {
@@ -85,7 +86,8 @@ StatusCode CalSimpleClusteringTool::initialize()
 
     // Cluster filling utility
     // -- To be replaced with a generic version soon
-    m_clusterInfo = new StdClusterInfo(m_calReconSvc);
+//    m_clusterInfo = new StdClusterInfo(m_calReconSvc);
+    m_clusterInfo = new MomentsClusterInfo(m_calReconSvc);
 
     return StatusCode::SUCCESS ;
 }
