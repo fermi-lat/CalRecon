@@ -1,7 +1,7 @@
 /** @file CalValsCorrTool.cxx
 @brief implementation of the class CalValsCorrTool
 
-$Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/CalValsCorrTool.cxx,v 1.12 2006/04/06 01:04:40 burnett Exp $
+$Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/CalValsCorrTool.cxx,v 1.13 2006/08/22 14:39:25 bruel Exp $
 
 */
 
@@ -40,7 +40,7 @@ $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/CalValsCorr
 *
 * Copied by THB from AnalysisNtuple::CalValsTool.cxx revision 1.43
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/CalValsCorrTool.cxx,v 1.12 2006/04/06 01:04:40 burnett Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/CalValsCorrTool.cxx,v 1.13 2006/08/22 14:39:25 bruel Exp $
 */
 
 class CalValsCorrTool : public AlgTool, virtual public ICalEnergyCorr
@@ -667,7 +667,7 @@ StatusCode CalValsCorrTool::aveRadLens(Point /* x0 */, Vector t0, double radius,
     double yLo = m_tkrGeom->getLATLimit(1, LOW);
     double yHi = m_tkrGeom->getLATLimit(1, HIGH);
     // Ph. Bruel : hardcoded modification in order to take into account the CU geometry (tower 1 without tracker)
-    if(xLo==0) xLo = m_towerPitch;
+    if(xLo==0) xLo = -m_towerPitch;
 
     // Only do leakage correction for tracks which "hit" the Calorimeter
 	if (m_cal_top.x()<xLo || m_cal_top.x()>xHi || m_cal_top.y()<yLo || m_cal_top.y()>yHi) 
