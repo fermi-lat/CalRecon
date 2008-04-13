@@ -25,7 +25,7 @@
 * Tool that describes the shower developement in the calorimeter given
 * the length in X0 seen in the tracker and the position of the shower maximum
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/FullShowerDevelopmentDescriptionManager.h,v 1.4 2005/08/16 13:45:47 bruel Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/FullShowerDevelopmentDescriptionManager.h,v 1.5 2006/03/30 13:40:12 bruel Exp $
 */
 
 class FullShowerGeometryManager{
@@ -133,8 +133,8 @@ class FullShowerDevelopmentDescription{
  private:
   double wideningfactor;
 
- private:
-
+ public:
+  int OffSatu[16][8][12]; // 0 = on; 1= off or saturated
 
  public:
   FullShowerDevelopmentDescription(FullShowerGeometryManager *fsgm_input, int type_input, double zstep_input, double radialcontainedfraction_input);
@@ -169,6 +169,7 @@ class FullShowerDevelopmentDescriptionManager{
   double maxtotx0cal;
   double meantotx0lay[8];
   double meanposx0lay[8];
+  int OffSatu[16][8][12]; // 0 = on; 1= off or saturated
   FullShowerDevelopmentDescription *FSDDMM[FSDD_NMAX];
   FullShowerDevelopmentDescription *FSDDX0[FSDD_NMAX];
   FullShowerDevelopmentDescription *CurrentFSDD;

@@ -6,6 +6,7 @@
 #include "Event/Recon/CalRecon/CalCluster.h"
 #include "Event/Recon/TkrRecon/TkrVertex.h"
 #include "Event/Recon/TkrRecon/TkrTrack.h"
+#include "Event/Digi/CalDigi.h"
 //#include "geometry/Point.h"
 #include "GlastSvc/GlastDetSvc/IGlastDetSvc.h"
 #include "GaudiKernel/IDataProviderSvc.h"
@@ -19,7 +20,7 @@ static const InterfaceID IID_ICalReconSvc("ICalReconSvc",1,0) ;
 *
 * Interface to data and features shared by all CalRecon actors.
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/CalRecon/ICalReconSvc.h,v 1.1 2005/06/02 12:09:09 chamont Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/CalRecon/ICalReconSvc.h,v 1.2 2005/07/13 14:52:17 chamont Exp $
 */
 
 class ICalReconSvc : public virtual IInterface
@@ -42,9 +43,13 @@ public:
     virtual int                   getCalNLayers()   const = 0 ;
     virtual double                getCalCsIWidth()  const = 0 ;
     virtual double                getCalCsIHeight() const = 0 ;
+    virtual double                getCalCsILength() const = 0 ;
+    virtual double                getCaltowerPitch() const = 0 ;
+    virtual bool                  getCalFlightGeom() const = 0 ;
 
     // cal event data
     virtual Event::CalXtalRecCol* getXtalRecs()           = 0 ;
+    virtual Event::CalDigiCol *getDigis()                 = 0 ;
     virtual Event::CalClusterCol* getClusters()           = 0 ;
 };
 
