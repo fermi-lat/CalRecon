@@ -287,6 +287,9 @@ void FullShowerGeometryManager::WhereInCalLT(double *xyz, int *whereincal)
 {
   whereincal[0] = 0;
   whereincal[1] = 0;
+  // tower and column currently not used so not filled for the LT case
+  whereincal[2] = 0; // tower
+  whereincal[3] = 0; // column
 
   // test if outside z_dimension
   if(xyz[2]>=FSGM_calZTop) return;
@@ -324,8 +327,8 @@ void FullShowerGeometryManager::WhereInCal(double *xyz, int *whereincal)
 {
   if(FSGM_flight_geom)
     {
-      WhereInCalForGeom(xyz,whereincal);
-      //      WhereInCalLT(xyz,whereincal); // not used anymore because of saturation handling
+      //      WhereInCalForGeom(xyz,whereincal); // not needed for saturation handling
+      WhereInCalLT(xyz,whereincal);
     }
   else
     WhereInCalForGeomCU(xyz,whereincal);
@@ -430,7 +433,7 @@ double FullShowerGeometryManager::GetRadialProfile(double t, double r)
 * Tool that describes the shower developement in the calorimeter given
 * the length in X0 seen in the tracker and the position of the shower maximum
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/FullShowerDevelopmentDescriptionManager.cxx,v 1.6 2006/03/30 13:40:11 bruel Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/FullShowerDevelopmentDescriptionManager.cxx,v 1.7 2008/04/13 19:57:34 bruel Exp $
 */
 
 FullShowerDevelopmentDescription::FullShowerDevelopmentDescription(FullShowerGeometryManager *fsgm_input, int type_input, double zstep_input, double radialcontainedfraction_input)
@@ -667,10 +670,6 @@ bool FullShowerDevelopmentDescription::Compute(double *pp, double *vv, double st
 	  if(whereincal[0]==1)
 	    {
 	      layerfraction[whereincal[1]][j] += radialprofile;
-// 	      if(OffSatu[whereincal[2]][whereincal[1]][whereincal[3]]==0)
-// 		{
-// 		  layerfraction[whereincal[1]][j] += radialprofile;
-// 		}
 	    }
 	}
       if(etotdep>0)
