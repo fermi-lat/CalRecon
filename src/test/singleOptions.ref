@@ -17,7 +17,7 @@ ApplicationMgr.EvtMax = 10 ;
 ApplicationMgr.DLLs += { "G4Generator","G4Propagator", "TkrUtil" } ;
 ApplicationMgr.ExtSvc += { "GlastDetSvc", "G4GeometrySvc" } ;
 GlastDetSvc.topVolume = "LAT" ; 
-GlastDetSvc.xmlfile = "$(XMLGEODBSROOT)/xml/flight/flightSegVols.xml" ;
+GlastDetSvc.xmlfile = "$(XMLGEODBSXMLPATH)/flight/flightSegVols.xml" ;
 GlastDetSvc.visitorMode = "recon" ;
 
 // calibration services
@@ -72,7 +72,7 @@ Job options successfully read in from /home/chamont/Glast/CalReconDev/CalRecon/v
 ApplicationMgr      DEBUG Getting my own properties
 ApplicationMgr    SUCCESS 
 ====================================================================================================================================
-                                                   Welcome to ApplicationMgr $Revision: 1.47 $
+                                                   Welcome to ApplicationMgr $Revision: 1.1 $
                                           running on pollindc on Thu Nov 23 11:58:26 2006
 ====================================================================================================================================
 DllClassManager     DEBUG Found factory Algorithm SetSeeds
