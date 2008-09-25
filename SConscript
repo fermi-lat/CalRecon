@@ -1,5 +1,5 @@
 # -*- python -*-
-# $Header$
+# $Header: /nfs/slac/g/glast/ground/cvs/GlastRelease-scons/CalRecon/SConscript,v 1.1 2008/08/15 21:22:40 ecephas Exp $
 # Authors: Alexandre Chekhtman <chehtman@gamma.nrl.navy.mil>, David Chamont <chamont@poly.in2p3.fr
 # Version: CalRecon-06-07-00
 Import('baseEnv')
@@ -34,5 +34,5 @@ if baseEnv['PLATFORM'] != 'win32':
 
 if baseEnv['PLATFORM'] == 'win32':
 	progEnv.Tool('registerObjects', package = 'CalRecon', libraries = [CalRecon], testApps = [test_CalRecon],
-		     includes = listFiles(['src/Display/*.h','src/Clustering/*.h','src/Clustering/*.h',
-					   'src/MipFinding/*.h','src/EnergyCorrections/*.h','src/Utilities/*.h']))
+		     includes = listFiles(['CalRecon/*.h']))
+
