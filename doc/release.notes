@@ -7,6 +7,8 @@ package CalRecon
 
 package manager: David Chamont
 
+  v6r7p0gr1  23-Sep-09 HMK Modified src/CalEventEnergyAlg.cxx to remove tools
+                       Philippe Bruel reminds us are no longer used
   v6r7       15-Jul-08 LSR (for Philippe B.)
                            Modified of the full profile to optimize processing time
                            The old profile is no longer called in CalEventEnergyAlg.cxx
