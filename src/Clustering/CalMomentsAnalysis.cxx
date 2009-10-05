@@ -1,7 +1,7 @@
 /**
  *
  * File and Version Information:
- *      $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/Clustering/CalMomentsAnalysis.cxx,v 1.3 2005/11/25 16:54:39 chamont Exp $
+ *      $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/Clustering/CalMomentsAnalysis.cxx,v 1.4 2006/01/18 00:05:15 usher Exp $
  */
 
 #include "src/Clustering/CalMomentsAnalysis.h"
@@ -130,7 +130,7 @@ double CalMomentsAnalysis::doMomentsAnalysis(CalMomentsDataVec& dataVec, const P
         }
 
         // Scale by number of data points
-        chisq /= dataVec.size();
+        chisq /= weightSum * dataVec.size();
 
         // Final calculations to return moment of principal axis and average of other two
         double longMag1 = fabs(m_moment[0]);

@@ -22,14 +22,14 @@
 * in a derived class is nextXtalsSet(), which is selecting the
 * crystals to be grouped together.
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/Clustering/MomentsClusterInfo.h,v 1.4 2005/07/05 22:09:42 usher Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/Clustering/MomentsClusterInfo.h,v 1.5 2008/04/13 19:57:33 bruel Exp $
 */
 
 
 class MomentsClusterInfo : virtual public ICalClusterFiller
 {
 public:
-    MomentsClusterInfo(ICalReconSvc* calReconSvc, double transScaleFactor = 1.5);
+    MomentsClusterInfo(ICalReconSvc* calReconSvc, double transScaleFactor = 1.0);
     virtual ~MomentsClusterInfo() {};
     
     Event::CalCluster* fillClusterInfo(const XtalDataVec* xtalVec);
@@ -66,8 +66,8 @@ private:
 
     // in order to handle saturation
     float m_saturationadc;
-    int m_Nsaturated;
-    bool m_saturated[16][8][12];
+    int   m_Nsaturated;
+    bool  m_saturated[16][8][12];
 
     // 
     TMinuit* m_minuit;
