@@ -11,14 +11,14 @@
 *
 * Base class for clustering tools
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/Clustering/ICalClusteringTool.h,v 1.1 2005/05/26 21:23:23 usher Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/CalRecon/ICalClusteringTool.h,v 1.1 2005/06/02 12:02:54 chamont Exp $
 */
 
 static const InterfaceID IID_ICalClusteringTool("ICalClusteringTool",1,0) ;
     
-//! Typedefs to define associated Xtal's in cluster analysis (not the best place for this?)
-typedef  std::vector<Event::CalXtalRecData *> XtalDataVec ;
-typedef  std::vector<XtalDataVec *>           XtalDataVecVec ;
+//! Typedefs to define associated Xtal's in cluster analysis
+typedef  std::list<Event::CalXtalRecData *> XtalDataList ;
+typedef  std::vector<XtalDataList *>        XtalDataListVec ;
 
 class ICalClusteringTool : virtual public IAlgTool {
 

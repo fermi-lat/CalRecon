@@ -18,7 +18,7 @@
 * in a derived class is nextXtalsSet(), which is selecting the
 * crystals to be grouped together.
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/Clustering/StdClusterInfo.h,v 1.2 2005/06/02 12:02:55 chamont Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/Clustering/StdClusterInfo.h,v 1.3 2005/06/02 12:09:10 chamont Exp $
 */
 
 
@@ -28,7 +28,7 @@ public:
     StdClusterInfo(const ICalReconSvc* calReconSvc) : m_calReconSvc(calReconSvc) {};
    virtual ~StdClusterInfo() {};
     
-   Event::CalCluster* fillClusterInfo(const XtalDataVec* xtalVec);
+   Event::CalCluster* fillClusterInfo(const XtalDataList* xtalVec);
 private:
 
     // calculate the direction of the shower from the hits
