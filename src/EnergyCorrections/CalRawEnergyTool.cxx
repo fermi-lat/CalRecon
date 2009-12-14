@@ -1,7 +1,7 @@
 /** @file CalRawEnergyTool.cxx
 @brief implementation of the class CalRawEnergyTool
 
-$Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/CalRawEnergyTool.cxx,v 1.4 2005/11/25 16:54:39 chamont Exp $
+$Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/CalRawEnergyTool.cxx,v 1.5 2006/03/21 01:40:37 usher Exp $
 
 */
 
@@ -21,7 +21,7 @@ $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/CalRawEnerg
 *
 * This sets the "raw" energy for an event (after clustering)
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/CalRawEnergyTool.cxx,v 1.4 2005/11/25 16:54:39 chamont Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/CalRawEnergyTool.cxx,v 1.5 2006/03/21 01:40:37 usher Exp $
 */
 
 class CalRawEnergyTool : public AlgTool, virtual public ICalEnergyCorr 
@@ -97,6 +97,10 @@ Event::CalCorToolResult* CalRawEnergyTool::doEnergyCorr(Event::CalClusterCol* ca
     // Do the loop and accumulate information
     for(Event::CalClusterCol::iterator clusIter = calClusters->begin(); clusIter != calClusters->end(); clusIter++)
     {
+        // Note that if we are doing "clustering" (ie multiple clusters) then the first cluster is the "uber" cluster
+        // So... right now, break out if after the first cluster
+        if (clusIter != calClusters->begin()) break;
+
         Event::CalCluster*       cluster = *clusIter;
         const Event::CalParams&  params  = cluster->getCalParams();
 
