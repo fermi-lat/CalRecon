@@ -1,7 +1,7 @@
 /**
  *
  * File and Version Information:
- *      $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/Clustering/CalMomentsAnalysis.cxx,v 1.7 2010/01/25 17:57:39 usher Exp $
+ *      $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/Clustering/CalMomentsAnalysis.cxx,v 1.8 2010/04/22 09:13:52 lbaldini Exp $
  */
 
 #include "src/Clustering/CalMomentsAnalysis.h"
@@ -30,7 +30,7 @@ double CalMomentsAnalysis::doMomentsAnalysis(CalMomentsDataVec& dataVec, const P
     // This version lifted directly from code supplied to Bill Atwood by Toby Burnett
     // TU 5/24/2005
     m_weightSum = 0.;
-
+    m_skewnessLong = -9999.;
     // Check that we have enough points to proceed - need at least three
     double chisq = -1.;
     if (dataVec.size() < 2) return chisq;
