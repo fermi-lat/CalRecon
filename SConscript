@@ -1,5 +1,5 @@
 # -*- python -*-
-# $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/SConscript,v 1.11 2010/01/25 18:16:59 usher Exp $
+# $Header: /nfs/slac/g/glast/ground/cvs/GlastRelease-scons/CalRecon/SConscript,v 1.12 2010/05/16 18:53:29 usher Exp $
 # Authors: Alexandre Chekhtman <chehtman@gamma.nrl.navy.mil>, David Chamont <chamont@poly.in2p3.fr
 # Version: CalRecon-06-11-00
 Import('baseEnv')
@@ -8,7 +8,7 @@ Import('packages')
 progEnv = baseEnv.Clone()
 libEnv = baseEnv.Clone()
 
-libEnv.Tool('CalReconLib', depsOnly = 1)
+libEnv.Tool('addLinkDeps', package='CalRecon', toBuild='component')
 
 CalRecon=libEnv.SharedLibrary('CalRecon',
                               listFiles(['src/*.cxx','src/Dll/*.cpp',
@@ -19,15 +19,13 @@ CalRecon=libEnv.SharedLibrary('CalRecon',
                                          'src/Utilities/*.cxx']))
 
 progEnv.Tool('CalReconLib')
+
 test_CalRecon = progEnv.GaudiProgram('test_CalRecon',
-                                     listFiles(['src/test/*.cxx']), test = 1)
+                                     listFiles(['src/test/*.cxx']),
+                                     test = 1, package='CalRecon')
 
 progEnv.Tool('registerTargets', package = 'CalRecon',
              libraryCxts = [[CalRecon, libEnv]],
              testAppCxts = [[test_CalRecon, progEnv]],
-             includes = listFiles(['CalRecon/*.h']))
-
-
-
-
-
+             includes = listFiles(['CalRecon/*.h']),
+             jo = listFiles(['src/test/*.txt']))
