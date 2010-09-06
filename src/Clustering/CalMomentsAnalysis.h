@@ -9,7 +9,7 @@
  * @author Tracy Usher
  *
  * File and Version Information:
- *      $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/Clustering/CalMomentsAnalysis.h,v 1.2 2006/01/18 00:05:16 usher Exp $
+ *      $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/Clustering/CalMomentsAnalysis.h,v 1.3 2010/04/22 09:13:52 lbaldini Exp $
  */
 
 #include "geometry/Ray.h"
@@ -89,8 +89,8 @@ public:
     const double getLongAsymmetry()         const {return m_rmsLongAsym;}
     const double getWeightSum()             const {return m_weightSum;}
     const double getLongSkewness()          const {return m_skewnessLong;}
-    const double getNumIterations()         const {return m_numIterations;}
-    const double getNumDroppedPoints()      const {return m_numDroppedPoints;}
+    const int    getNumIterations()         const {return m_numIterations;}
+    const int    getNumDroppedPoints()      const {return m_numDroppedPoints;}
 
 private:
 
