@@ -2,6 +2,7 @@
 #include "GaudiKernel/Auditor.h"
 #include "GaudiKernel/MsgStream.h"
 #include "GaudiKernel/Chrono.h"
+#include "GaudiKernel/IChronoStatSvc.h"
 #include "GaudiKernel/IAlgorithm.h"
 #include "GaudiKernel/DeclareFactoryEntries.h"
 #include <map>
@@ -11,7 +12,7 @@
 *
 * Experiment the monitoring of algorithms.
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/Utilities/CalReconSvc.cxx,v 1.5 2006/03/21 01:40:38 usher Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/Utilities/CalReconAuditor.cxx,v 1.1 2006/11/27 18:40:53 chamont Exp $
 */
 
 class CalReconAuditor : virtual public Auditor
