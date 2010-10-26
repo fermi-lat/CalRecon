@@ -1,5 +1,5 @@
 # -*- python -*-
-# $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/SConscript,v 1.15 2010/09/01 18:05:49 jrb Exp $
+# $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/SConscript,v 1.16 2010/09/02 17:59:09 jrb Exp $
 # Authors: Alexandre Chekhtman <chehtman@gamma.nrl.navy.mil>, David Chamont <chamont@poly.in2p3.fr
 # Version: CalRecon-06-11-02
 Import('baseEnv')
@@ -14,6 +14,7 @@ CalRecon=libEnv.SharedLibrary('CalRecon',
                               listFiles(['src/*.cxx','src/Dll/*.cpp',
                                          'src/Display/*.cxx',
                                          'src/Clustering/*.cxx',
+                                         'src/Classify/*.cxx',
                                          'src/MipFinding/*.cxx',
                                          'src/EnergyCorrections/*.cxx',
                                          'src/Utilities/*.cxx']))
