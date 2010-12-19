@@ -1,7 +1,7 @@
 /** @file CalValsCorrTool.cxx
 @brief implementation of the class CalValsCorrTool
 
-$Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/CalValsCorrTool.cxx,v 1.14 2006/09/06 04:38:40 bruel Exp $
+$Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/CalValsCorrTool.cxx,v 1.15 2006/10/11 21:57:13 lsrea Exp $
 
 */
 
@@ -40,7 +40,7 @@ $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/CalValsCorr
 *
 * Copied by THB from AnalysisNtuple::CalValsTool.cxx revision 1.43
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/CalValsCorrTool.cxx,v 1.14 2006/09/06 04:38:40 bruel Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/CalValsCorrTool.cxx,v 1.15 2006/10/11 21:57:13 lsrea Exp $
 */
 
 class CalValsCorrTool : public AlgTool, virtual public ICalEnergyCorr
@@ -365,7 +365,7 @@ void CalValsCorrTool::calculate(Point x0, Vector t0, double t_tracker, double tk
 	m_t                  = 0.;
 	m_t_total            = 0.;
 	m_status_bits        = 0;
-    m_raw_energy   = m_cluster->getCalParams().getEnergy();
+    m_raw_energy   = m_cluster->getMomParams().getEnergy();
     m_corr_energy = m_raw_energy;
 	m_cal_pos  = m_cluster->getPosition();
     m_cal_dir  = m_cluster->getDirection();

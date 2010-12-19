@@ -43,7 +43,7 @@
 * shower profile using a full (= longitudinal AND radial) description of the shower development in the calorimeter.
 *
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/CalFullProfileTool.cxx,v 1.5 2008/04/13 19:57:34 bruel Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/CalFullProfileTool.cxx,v 1.6 2008/07/16 05:07:20 bruel Exp $
 */
 
 
@@ -339,7 +339,7 @@ Event::CalCorToolResult* CalFullProfileTool::doEnergyCorr(Event::CalClusterCol *
 
   int i;
   
-  m_eTotal = cluster->getCalParams().getEnergy()/1000.;
+  m_eTotal = cluster->getMomParams().getEnergy()/1000.;
 
   if( m_eTotal<1.)
     {
@@ -468,14 +468,14 @@ Event::CalCorToolResult* CalFullProfileTool::doEnergyCorr(Event::CalClusterCol *
     }
 
   // Ok, fill in the corrected information and exit
-  Event::CalParams params = cluster->getCalParams();
+  Event::CalMomParams momParams = cluster->getMomParams();
   corResult = new Event::CalCorToolResult();
   corResult->setStatusBit(Event::CalCorToolResult::VALIDPARAMS);
   corResult->setCorrectionName(type());
   // if TKRFIT has failed, TKRFIT_ variables have already been filled with CALFIT results
-  params.setEnergy(TKRFIT_fit_energy);
-  params.setEnergyErr(TKRFIT_energy_err);
-  corResult->setParams(params);
+  momParams.setEnergy(TKRFIT_fit_energy);
+  momParams.setEnergyErr(TKRFIT_energy_err);
+  corResult->setParams(momParams);
   corResult->setChiSquare(TKRFIT_totchisq);
 
   corResult->insert(Event::CalCorEneValuePair("fit_energy", TKRFIT_fit_energy)); // energy (in MeV)

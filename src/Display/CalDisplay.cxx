@@ -1,4 +1,4 @@
-//$Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/Display/CalDisplay.cxx,v 1.1 2005/05/26 21:23:24 usher Exp $
+//$Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/Display/CalDisplay.cxx,v 1.2 2006/03/21 01:40:37 usher Exp $
 
 /// Gaudi specific include files
 #include "GaudiKernel/MsgStream.h"
@@ -144,7 +144,7 @@ void CalRep::update()
         CalCluster* cl = cls->front(); 
 
         // get total energy in the calorimeter
-        double energy_sum = cl->getCalParams().getEnergy();
+        double energy_sum = cl->getMomParams().getEnergy();
 
         // draw only if there is some energy in the calorimeter        
         if(energy_sum > 0){        

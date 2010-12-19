@@ -1,7 +1,7 @@
 /** @file CalRawEnergyTool.cxx
 @brief implementation of the class CalRawEnergyTool
 
-$Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/CalRawEnergyTool.cxx,v 1.5 2006/03/21 01:40:37 usher Exp $
+$Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/CalRawEnergyTool.cxx,v 1.7 2010/01/25 17:57:39 usher Exp $
 
 */
 
@@ -21,7 +21,7 @@ $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/CalRawEnerg
 *
 * This sets the "raw" energy for an event (after clustering)
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/CalRawEnergyTool.cxx,v 1.5 2006/03/21 01:40:37 usher Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/CalRawEnergyTool.cxx,v 1.7 2010/01/25 17:57:39 usher Exp $
 */
 
 class CalRawEnergyTool : public AlgTool, virtual public ICalEnergyCorr 
@@ -102,29 +102,29 @@ Event::CalCorToolResult* CalRawEnergyTool::doEnergyCorr(Event::CalClusterCol* ca
         if (clusIter != calClusters->begin()) break;
 
         Event::CalCluster*       cluster = *clusIter;
-        const Event::CalParams&  params  = cluster->getCalParams();
+        const Event::CalParams&  momParams  = cluster->getMomParams();
 
         CLHEP::HepVector centroid(3);
-        centroid[0] = params.getCentroid().x();
-        centroid[1] = params.getCentroid().y();
-        centroid[2] = params.getCentroid().z();
+        centroid[0] = momParams.getCentroid().x();
+        centroid[1] = momParams.getCentroid().y();
+        centroid[2] = momParams.getCentroid().z();
 
         CLHEP::HepVector axis(3);
-        axis[0] = params.getAxis().x();
-        axis[1] = params.getAxis().y();
-        axis[2] = params.getAxis().z();
+        axis[0] = momParams.getAxis().x();
+        axis[1] = momParams.getAxis().y();
+        axis[2] = momParams.getAxis().z();
 
-        rawEnergy   += params.getEnergy();
-        rawEneError += params.getEnergyErr() * params.getEnergyErr();
+        rawEnergy   += momParams.getEnergy();
+        rawEneError += momParams.getEnergyErr() * momParams.getEnergyErr();
 
-        CLHEP::HepMatrix posCovInv = params.getCentroidErrs();
+        CLHEP::HepMatrix posCovInv = momParams.getCentroidErrs();
         int       matInvErr = 0;
         posCovInv.invert(matInvErr);
         posWghtSum += posCovInv;
         posSum     += posCovInv * centroid;
 
 
-        CLHEP::HepMatrix axisCovInv = params.getAxisErrs();
+        CLHEP::HepMatrix axisCovInv = momParams.getAxisErrs();
         axisCovInv.invert(matInvErr);
         axisWghtSum += axisCovInv;
         axisSum     += axisCovInv * axis;
