@@ -5,6 +5,7 @@
 #include "Event/Recon/CalRecon/CalXtalRecData.h"
 #include "Event/Recon/CalRecon/CalCluster.h"
 #include "Event/Recon/CalRecon/CalMomParams.h"
+#include "Event/Recon/CalRecon/CalNBCClassParams.h"
 #include "CalRecon/ICalClusterFiller.h"
 #include "CalRecon/ICalReconSvc.h"
 #include "CalMomentsAnalysis.h"
@@ -23,7 +24,7 @@
 * in a derived class is nextXtalsSet(), which is selecting the
 * crystals to be grouped together.
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/Clustering/MomentsClusterInfo.h,v 1.8 2010/01/25 17:57:39 usher Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/Clustering/MomentsClusterInfo.h,v 1.9 2010/12/19 17:30:31 lbaldini Exp $
 */
 
 
