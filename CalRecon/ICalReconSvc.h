@@ -20,7 +20,7 @@ static const InterfaceID IID_ICalReconSvc("ICalReconSvc",1,0) ;
 *
 * Interface to data and features shared by all CalRecon actors.
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/CalRecon/ICalReconSvc.h,v 1.3 2008/04/13 19:57:33 bruel Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/CalRecon/ICalReconSvc.h,v 1.4 2010/12/23 14:36:30 lbaldini Exp $
 */
 
 class ICalReconSvc : public virtual IInterface
@@ -48,10 +48,14 @@ public:
     virtual bool                  getCalFlightGeom() const = 0 ;
 
     // MomentsCLusterInfo parameters.
-    virtual double getMciTransScaleFactor()          const = 0 ;
     virtual double getMciZeroSupprEnergy()           const = 0 ;
     virtual double getMciXtalsTruncFrac()            const = 0 ;
     virtual double getMciEneMomTruncFrac()           const = 0 ;
+
+    // Quantities for the moments analysis.
+    virtual double getMaTransScaleFactor()           const = 0 ;
+    virtual double getMaTransScaleFactorBoost()      const = 0 ;
+    virtual double getMaCoreRadius()                 const = 0 ;
 
     // cal event data
     virtual Event::CalXtalRecCol* getXtalRecs()           = 0 ;
