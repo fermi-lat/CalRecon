@@ -9,7 +9,7 @@
  * @author Tracy Usher, Luca Baldini.
  *
  * File and Version Information:
- *      $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/Clustering/CalMomentsAnalysis.h,v 1.4 2010/09/06 12:41:58 bregeon Exp $
+ *      $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/Clustering/CalMomentsAnalysis.h,v 1.5 2010/12/21 17:11:58 lbaldini Exp $
  */
 
 #include "geometry/Ray.h"
@@ -76,7 +76,7 @@ typedef std::vector<CalMomentsData> CalMomentsDataVec;
 class CalMomentsAnalysis
 {
  public:
-  /// No-paremeter constructor
+  /// No-parameter constructor
   CalMomentsAnalysis() { clear(); }
   
   /// Destructor
