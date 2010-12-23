@@ -1,7 +1,7 @@
 /**
  *
  * File and Version Information:
- *      $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/Clustering/CalMomentsAnalysis.cxx,v 1.10 2010/12/21 17:11:57 lbaldini Exp $
+ *      $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/Clustering/CalMomentsAnalysis.cxx,v 1.11 2010/12/23 16:59:53 lbaldini Exp $
  */
 
 #include "src/Clustering/CalMomentsAnalysis.h"
@@ -28,12 +28,8 @@ void CalMomentsAnalysis::clear()
 double CalMomentsAnalysis::doMomentsAnalysis(CalMomentsDataVec& dataVec,
 					     const Point& iniCentroid)
 {
-  // The Moments Analysis done here
-  // This version lifted directly from code supplied to Bill Atwood by Toby Burnett
-  // TU 5/24/2005
-  m_weightSum = 0.;
-
   double chisq = -1.;
+  
   // Check that we have enough points to proceed - need at least three
   if ( dataVec.size() < 2 ) return chisq;
   
