@@ -24,7 +24,7 @@
 * in a derived class is nextXtalsSet(), which is selecting the
 * crystals to be grouped together.
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/Clustering/MomentsClusterInfo.h,v 1.11 2010/12/22 16:32:52 lbaldini Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/Clustering/MomentsClusterInfo.h,v 1.12 2010/12/23 14:36:30 lbaldini Exp $
 */
 
 
@@ -39,6 +39,11 @@ class MomentsClusterInfo : virtual public ICalClusterFiller
   virtual ~MomentsClusterInfo() {};
     
   Event::CalCluster* fillClusterInfo(const XtalDataList* xtalVec);
+
+  /// Return true if the xtal in a given position is saturated.
+  bool xtalSaturated(int tower, int layer, int column) const;
+  /// And a convenience overload to pass a CalMomentsData directly.
+  bool xtalSaturated(const CalMomentsData& momData) const;
 
 private:
   
@@ -68,8 +73,7 @@ private:
   
   Point               m_p0;
   int                 m_calnLayers;
-  CalMomentsDataVec   m_dataVec;
-  Point               m_p1; // centroid using only the transverse position information
+  Point               m_p1;         // centroid using only the transverse position information
     
   /// in order to handle saturation
   float m_saturationadc;
