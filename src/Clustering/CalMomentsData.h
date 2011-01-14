@@ -14,9 +14,11 @@
    
    @author Tracy Usher, Luca Baldini (luca.baldini@pi.infn.it).
    
-   Revision $Revision$, commited on $Date$.
-   $Id$
+   $Revision: 1.2 $
+   $Date: 2011/01/14 10:20:36 $
+   $Id: CalMomentsData.h,v 1.2 2011/01/14 10:20:36 lbaldini Exp $
  */
+
 
 /// Maximum distance to declare the hit position on the xtal edge.
 #define DIST_LONG_POS_INVALID  0.01
