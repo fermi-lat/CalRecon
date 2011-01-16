@@ -5,9 +5,9 @@
 
    @author Luca Baldini (luca.baldini@pi.infn.it).
    
-   $Revision: 1.2 $
-   $Date: 2011/01/14 10:20:36 $
-   $Id: CalMomentsData.cxx,v 1.2 2011/01/14 10:20:36 lbaldini Exp $
+   $Revision: 1.3 $
+   $Date: 2011/01/14 10:23:28 $
+   $Id: CalMomentsData.cxx,v 1.3 2011/01/14 10:23:28 lbaldini Exp $
 */
 
 
@@ -153,6 +153,13 @@ void CalMomentsData::applyFitCorrection(const Event::CalFitParams fitParams,
 void CalMomentsData::enableFitCorrection()  
 {
   if ( checkStatusBit(FIT_POS_AVAILABLE) && !checkStatusBit(FIT_POS_INVALID) ) {
+    setStatusBit(USE_FIT_POS);
+  }
+}
+
+void CalMomentsData::forceFitCorrection()
+{
+  if ( checkStatusBit(FIT_POS_AVAILABLE) ) {
     setStatusBit(USE_FIT_POS);
   }
 }
