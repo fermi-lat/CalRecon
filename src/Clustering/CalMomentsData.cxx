@@ -5,9 +5,9 @@
 
    @author Luca Baldini (luca.baldini@pi.infn.it).
    
-   $Revision: 1.3 $
-   $Date: 2011/01/14 10:23:28 $
-   $Id: CalMomentsData.cxx,v 1.3 2011/01/14 10:23:28 lbaldini Exp $
+   $Revision: 1.4 $
+   $Date: 2011/01/16 07:29:10 $
+   $Id: CalMomentsData.cxx,v 1.4 2011/01/16 07:29:10 lbaldini Exp $
 */
 
 
@@ -17,7 +17,7 @@
 
 
 CalMomentsData::CalMomentsData(const Point& position, const double weight,
-			       int tower, int layer, int column) :
+                               int tower, int layer, int column) :
   m_statusBits(ZERO),
   m_basePosition(position),
   m_corrPosition(Point(-9999., -9999., -9999.)),
@@ -70,7 +70,7 @@ double CalMomentsData::getFitCorrAmount() const
 }
 
 void CalMomentsData::applyFitCorrection(const Event::CalFitParams fitParams,
-					const ICalReconSvc* calReconSvc)
+                                        const ICalReconSvc* calReconSvc)
 {
   Point fitCentroid = fitParams.getCentroid();
   Vector fitAxis = fitParams.getAxis();
