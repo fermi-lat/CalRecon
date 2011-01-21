@@ -9,7 +9,7 @@
  * @author Tracy Usher, Luca Baldini.
  *
  * File and Version Information:
- *      $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/Clustering/CalMomentsAnalysis.h,v 1.9 2010/12/26 15:12:56 lbaldini Exp $
+ *      $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/Clustering/CalMomentsAnalysis.h,v 1.10 2011/01/13 13:44:00 lbaldini Exp $
  */
 
 #include "geometry/Ray.h"
@@ -32,13 +32,13 @@ class CalMomentsAnalysis
   
   /// Perform the moments analysis on the given data around the given point
   double doMomentsAnalysis(CalMomentsDataVec& dataVec, const Point& centroid,
-			   double coreRadius);
+                           double coreRadius);
 
   /// Drives an iterative moments analysis
   /// (note the input data vector is NOT a reference, it is a copy)
   double doIterativeMomentsAnalysis(CalMomentsDataVec dataVec, const Point& centroid,
-				    double transScaleFactor, double transScaleFactorBoost,
-				    double coreRadius);
+                                    double transScaleFactor, double transScaleFactorBoost,
+                                    double coreRadius);
   
   /// Access class members...
   inline const double getWeightSum()        const { return m_weightSum; }

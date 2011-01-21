@@ -17,7 +17,7 @@
 * @brief An algorithm for controlling and applying the various energy correction tools
 *        used to determine the final event energy for GLAST
 * 
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalEventEnergyAlg.cxx,v 1.22 2008/07/16 05:07:20 bruel Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalEventEnergyAlg.cxx,v 1.24 2010/01/25 17:57:38 usher Exp $
 */
 
 
@@ -218,11 +218,11 @@ StatusCode CalEventEnergyAlg::execute()
 
                 log<<MSG::DEBUG<<(*tool)->type()<<endreq ;
     
-                // Loop over clusters 	 
-//                for ( Event::CalClusterCol::const_iterator cluster = calClusters->begin(); 	 
-//                      cluster != calClusters->end(); 	 
-//                      cluster++) { 	 
-                    Event::CalCorToolResult* corResult = (*tool)->doEnergyCorr(calClusters, vertex); 	 
+                // Loop over clusters          
+//                for ( Event::CalClusterCol::const_iterator cluster = calClusters->begin();          
+//                      cluster != calClusters->end();          
+//                      cluster++) {          
+                    Event::CalCorToolResult* corResult = (*tool)->doEnergyCorr(calClusters, vertex);          
                     if (corResult != 0) {
                         calEnergy->push_back(corResult);
 //                        if(m_passBits != Event::CalEventEnergy::PASS_ONE) {

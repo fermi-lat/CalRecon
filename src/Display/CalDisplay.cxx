@@ -1,4 +1,4 @@
-//$Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/Display/CalDisplay.cxx,v 1.2 2006/03/21 01:40:37 usher Exp $
+//$Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/Display/CalDisplay.cxx,v 1.3 2010/12/19 17:30:31 lbaldini Exp $
 
 /// Gaudi specific include files
 #include "GaudiKernel/MsgStream.h"
@@ -173,7 +173,7 @@ void CalRep::update()
             }
             
             
-            // drawing the center of the cluster		
+            // drawing the center of the cluster                
             setColor("green");
             double x = (cl->getPosition()).x();
             double y = (cl->getPosition()).y();
@@ -191,7 +191,7 @@ void CalRep::update()
             lineTo(Point(x, y, z+s));
             lineTo(Point(x, y+s, z));
             lineTo(Point(x, y, z-s));
-            lineTo(Point(x, y-s, z));		
+            lineTo(Point(x, y-s, z));                
             
 
             // drawing the reconstructed shower direction

@@ -8,7 +8,7 @@
 /**   
 * @class ICalClusterFiller
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/CalRecon/ICalClusterFiller.h,v 1.1 2005/06/02 12:02:54 chamont Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/CalRecon/ICalClusterFiller.h,v 1.3 2010/01/25 17:57:38 usher Exp $
 */
 
 
@@ -20,6 +20,6 @@ public:
 };
 
 #endif
-	
-	
-	
+        
+        
+        

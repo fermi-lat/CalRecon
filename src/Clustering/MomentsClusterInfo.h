@@ -27,9 +27,9 @@
 
    @author Tracy Usher, Philippe Bruel, Luca Baldini (luca.baldini@pi.infn.it)
 
-   $Revision$
-   $Date:$
-   $Header$
+   $Revision: 1.14 $
+   $Date: 2011/01/14 17:37:46 $
+   $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/Clustering/MomentsClusterInfo.h,v 1.14 2011/01/14 17:37:46 lbaldini Exp $
 */
 
 
@@ -107,6 +107,6 @@ private:
 };
 
 #endif
-	
-	
-	
+        
+        
+        

@@ -18,7 +18,7 @@
 * in a derived class is nextXtalsSet(), which is selecting the
 * crystals to be grouped together.
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/Clustering/StdClusterInfo.h,v 1.3 2005/06/02 12:09:10 chamont Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/Clustering/StdClusterInfo.h,v 1.5 2010/01/25 17:57:39 usher Exp $
 */
 
 
@@ -39,6 +39,6 @@ private:
 };
 
 #endif
-	
-	
-	
+        
+        
+        
