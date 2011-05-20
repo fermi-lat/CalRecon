@@ -11,6 +11,8 @@
 #include "idents/TowerId.h"
 #include "idents/VolumeIdentifier.h"
 #include "CLHEP/Geometry/Point3D.h"
+#include "CLHEP/Geometry/Transform3D.h"
+
 
 #include "TMath.h"
 
@@ -64,7 +66,7 @@ void FullShowerGeometryManager::Initialize()
   topLayerId.append(0);  // layer
   topLayerId.append(0);  // x view
   StatusCode sc;
-  HepTransform3D transfTop;
+  HepGeom::Transform3D transfTop;
   int count;
   for (count=0;count<3;++count) {
     topLayerId.append(0);
@@ -433,7 +435,7 @@ double FullShowerGeometryManager::GetRadialProfile(double t, double r)
 * Tool that describes the shower developement in the calorimeter given
 * the length in X0 seen in the tracker and the position of the shower maximum
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/FullShowerDevelopmentDescriptionManager.cxx,v 1.8 2008/07/16 05:07:20 bruel Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/FullShowerDevelopmentDescriptionManager.cxx,v 1.9 2011/01/21 14:02:50 lbaldini Exp $
 */
 
 FullShowerDevelopmentDescription::FullShowerDevelopmentDescription(FullShowerGeometryManager *fsgm_input, int type_input, double zstep_input, double radialcontainedfraction_input)
