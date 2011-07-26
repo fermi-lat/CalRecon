@@ -1,7 +1,7 @@
 # -*- python -*-
-# $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/SConscript,v 1.34 2011/06/03 14:21:38 pesce Exp $
+# $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/SConscript,v 1.35 2011/06/04 08:49:23 kadrlica Exp $
 # Authors: Alexandre Chekhtman <chehtman@gamma.nrl.navy.mil>, David Chamont <chamont@poly.in2p3.fr
-# Version: CalRecon-06-14-07
+# Version: CalRecon-06-14-08
 Import('baseEnv')
 Import('listFiles')
 Import('packages')
