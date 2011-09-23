@@ -1,7 +1,7 @@
 # -*- python -*-
-# $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/SConscript,v 1.8.14.1 2011/07/26 14:05:16 heather Exp $
+# $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/SConscript,v 1.8.14.2 2011/09/23 13:58:09 heather Exp $
 # Authors: Alexandre Chekhtman <chehtman@gamma.nrl.navy.mil>, David Chamont <chamont@poly.in2p3.fr
-# Version: CalRecon-06-08-02-gr02
+# Version: CalRecon-06-08-02-gr03
 Import('baseEnv')
 Import('listFiles')
 Import('packages')
@@ -29,4 +29,4 @@ progEnv.Tool('registerTargets', package = 'CalRecon',
              testAppCxts = [[test_CalRecon, progEnv]],
              includes = listFiles(['CalRecon/*.h']),
              xml = listFiles(['xml/*.data', 'xml/*.xml']),
-             jo = listFiles(['src/test/*.txt']))
+             jo = listFiles(['src/test/*.txt', 'src/test/*.root']))
