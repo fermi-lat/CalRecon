@@ -6,7 +6,7 @@
 #include "Event/TopLevel/EventModel.h"
 #include "Event/Recon/CalRecon/CalCluster.h"
 #include "Event/Recon/CalRecon/CalEventEnergy.h"
-#include "Event/Recon/TkrRecon/TkrVertex.h"
+#include "Event/Recon/TkrRecon/TkrTree.h"
 
 #include <CalRecon/ICalEnergyCorr.h>
 #include "GlastSvc/GlastDetSvc/IGlastDetSvc.h"
@@ -25,7 +25,7 @@
 * shower profile.
 *
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/CalProfileTool.cxx,v 1.11 2008/07/21 15:17:26 glastrm Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/CalProfileTool.cxx,v 1.12 2010/12/19 17:30:32 lbaldini Exp $
 */
 
 
@@ -100,7 +100,7 @@ public:
     * - 05/00       RT    first implementation
     */     
      
-    Event::CalCorToolResult* doEnergyCorr(Event::CalClusterCol*, Event::TkrVertex* );
+    Event::CalCorToolResult* doEnergyCorr(Event::CalCluster*, Event::TkrTree* );
 
     StatusCode finalize();
     
@@ -389,7 +389,7 @@ StatusCode CalProfileTool::initialize()
 }
 
 
-Event::CalCorToolResult* CalProfileTool::doEnergyCorr(Event::CalClusterCol * clusters, Event::TkrVertex* vertex)
+Event::CalCorToolResult* CalProfileTool::doEnergyCorr(Event::CalCluster* cluster, Event::TkrTree* tree)
 //               This function fits the parameters of shower profile using
 //               the Minuit minimization package and stores the fitted
 //               parameters in the CalCluster object
@@ -404,19 +404,17 @@ Event::CalCorToolResult* CalProfileTool::doEnergyCorr(Event::CalClusterCol * clu
     Event::CalCorToolResult* corResult = 0;
     MsgStream lm(msgSvc(), name());
     
-    if (clusters->empty())
+    if (!cluster)
     {
         lm << MSG::DEBUG << "Ending doEnergyCorr: No Cluster" 
             << endreq;
         return corResult;
     }
-    Event::CalCluster * cluster = clusters->front() ;
 
-    if (vertex == 0)
-     { m_static_slope = cluster->getMomParams().getAxis().z() ; }
+    if (!tree)
+    { m_static_slope = cluster->getMomParams().getAxis().z() ; }
     else
-     { m_static_slope = vertex->getDirection().z() ; }
-
+    { m_static_slope = fabs(tree->getAxisParams()->getEventAxis().z());}
 
     double eTotal = cluster->getMomParams().getEnergy() ;
     
