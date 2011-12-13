@@ -34,7 +34,7 @@
 /**   
 * @class StdMipFindingTool
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/MipFinding/StdMipFindingTool.cxx,v 1.18 2005/11/09 13:17:13 piron Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/GlastRelease-scons/CalRecon/src/MipFinding/StdMipFindingTool.cxx,v 1.19.654.1 2010/10/08 15:38:43 heather Exp $
 */
 
 //-----------------------------------------------------------------------------------------------------------------
@@ -128,8 +128,9 @@ private:
 } ;
 
 //-----------------------------------------------------------------------------------------------------------------
-static ToolFactory<StdMipFindingTool> s_factory;
-const IToolFactory& StdMipFindingToolFactory = s_factory;
+//static ToolFactory<StdMipFindingTool> s_factory;
+//const IToolFactory& StdMipFindingToolFactory = s_factory;
+DECLARE_TOOL_FACTORY(StdMipFindingTool);
 
 //-----------------------------------------------------------------------------------------------------------------
 StdMipFindingTool::StdMipFindingTool(const std::string & type, 

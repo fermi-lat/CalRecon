@@ -7,7 +7,7 @@
  *
  * @author The Tracking Software Group
  *
- * $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/CalEnergyClassificationTool.cxx,v 1.1 2011/11/16 22:49:33 usher Exp $
+ * $Header: /nfs/slac/g/glast/ground/cvs/GlastRelease-scons/CalRecon/src/EnergyCorrections/CalEnergyClassificationTool.cxx,v 1.2 2011/11/18 01:23:08 usher Exp $
  */
 
 #include "GaudiKernel/AlgTool.h"
@@ -168,8 +168,9 @@ private:
     //int    m_nCsI;
 };
 
-static ToolFactory<CalEnergyClassificationTool> s_factory;
-const IToolFactory& CalEnergyClassificationToolFactory = s_factory;
+//static ToolFactory<CalEnergyClassificationTool> s_factory;
+//const IToolFactory& CalEnergyClassificationToolFactory = s_factory;
+DECLARE_TOOL_FACTORY(CalEnergyClassificationTool);
 
 //
 // Feeds Combo pattern recognition tracks to Kalman Filter

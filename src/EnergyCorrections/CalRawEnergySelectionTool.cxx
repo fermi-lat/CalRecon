@@ -7,7 +7,7 @@
  *
  * @author The Tracking Software Group
  *
- * $Header: /nfs/slac/g/glast/ground/cvs/TkrRecon/src/Track/CalRawEnergySelectionTool.cxx,v 1.6 2011/08/20 23:08:51 usher Exp $
+ * $Header: /nfs/slac/g/glast/ground/cvs/GlastRelease-scons/CalRecon/src/EnergyCorrections/CalRawEnergySelectionTool.cxx,v 1.1 2011/11/16 22:49:33 usher Exp $
  */
 
 #include "GaudiKernel/AlgTool.h"
@@ -51,8 +51,9 @@ private:
                           Event::CalCluster* calCluster);
 };
 
-static ToolFactory<CalRawEnergySelectionTool> s_factory;
-const IToolFactory& CalRawEnergySelectionToolFactory = s_factory;
+//static ToolFactory<CalRawEnergySelectionTool> s_factory;
+//const IToolFactory& CalRawEnergySelectionToolFactory = s_factory;
+DECLARE_TOOL_FACTORY(CalRawEnergySelectionTool);
 
 //
 // Feeds Combo pattern recognition tracks to Kalman Filter

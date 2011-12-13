@@ -1,4 +1,4 @@
-//$Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/Display/CalDisplay.cxx,v 1.3 2010/12/19 17:30:31 lbaldini Exp $
+//$Header: /nfs/slac/g/glast/ground/cvs/GlastRelease-scons/CalRecon/src/Display/CalDisplay.cxx,v 1.4 2011/01/21 14:02:50 lbaldini Exp $
 
 /// Gaudi specific include files
 #include "GaudiKernel/MsgStream.h"
@@ -18,8 +18,9 @@
 
 using namespace Event;
 
-static const AlgFactory<CalDisplay>  Factory;
-const IAlgFactory& CalDisplayFactory = Factory;
+//static const AlgFactory<CalDisplay>  Factory;
+//const IAlgFactory& CalDisplayFactory = Factory;
+DECLARE_ALGORITHM_FACTORY(CalDisplay);
 
 CalDisplay::CalDisplay(const std::string& name, ISvcLocator* pSvcLocator) :
 Algorithm(name, pSvcLocator) {}
