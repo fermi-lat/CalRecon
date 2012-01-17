@@ -11,7 +11,7 @@
  *
  * @author Michael Kuss
  *
- * $Header: /nfs/slac/g/glast/ground/cvs/AnalysisNtuple/src/UBinterpolate.cxx,v 1.1 2009/02/20 13:04:26 kuss Exp $
+ * $Header: /nfs/slac/g/glast/ground/cvs/GlastRelease-scons/CalRecon/src/EnergyCorrections/UBinterpolate.cxx,v 1.1 2011/11/16 22:49:33 usher Exp $
  */
 
 #include "UBinterpolate.h"
@@ -20,6 +20,7 @@
 
 #include <fstream>
 #include <sstream>
+#include <cstdlib>
 
 UBinterpolate::UBinterpolate(std::string calibFileName) : m_calibFileName(calibFileName) {
     facilities::Util::expandEnvVar(&m_calibFileName);
