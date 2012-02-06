@@ -9,6 +9,7 @@
 #include "NewFullShowerProfileParamsManager.h"
 
 #include "TMath.h"
+#include <math.h>
 
 /**   
 * @class NewFullShowerProfileParamsManager
@@ -16,7 +17,7 @@
 *
 * Class handling the energy parameterization of the shower profile parameters alpha and tmax;
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/NewFullShowerProfileParamsManager.cxx,v 1.1 2012/02/03 14:38:40 bruel Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/NewFullShowerProfileParamsManager.cxx,v 1.1.2.2 2012/02/03 16:52:47 usher Exp $
 */
 
 double mypol21(double x, Double_t *par)
@@ -158,7 +159,7 @@ void NewFullShowerProfileParamsManager::Reset()
 bool NewFullShowerProfileParamsManager::Fill(double *par)
 {
   logenergy = par[2];
-  if(fabs(par[2])>307) {Reset(); return false;}
+  if(fabs(par[2])>307.) {Reset(); return false;}
 
   energy = exp(log(10.)*logenergy);
 

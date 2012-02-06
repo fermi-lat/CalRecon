@@ -20,7 +20,7 @@
 * @brief An algorithm for controlling and applying the various energy correction tools
 *        used to determine the final event energy for GLAST
 * 
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalEventEnergyAlg.cxx,v 1.28 2011/11/16 22:50:16 usher Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalEventEnergyAlg.cxx,v 1.28.4.1 2012/02/03 16:52:47 usher Exp $
 */
 
 
@@ -79,7 +79,7 @@ CalEventEnergyAlg::CalEventEnergyAlg( const std::string & name, ISvcLocator * pS
     // algorithm name "RawEnergy" assigned to it, the second (or subsequent) name
     // doesn't matter for initialization.
     // This branch if first pass
-    if (name == m_firstPassName)
+    if (name == m_firstPassName || name == "CalEventEnergyAlg")
     {
         corrToolVec.push_back("CalRawEnergyTool");
     }
