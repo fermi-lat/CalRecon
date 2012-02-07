@@ -6,6 +6,7 @@ package CalRecon
 package manager: David Chamont
 
   * EOH *
+ CalRecon-06-15-02-gr03  7-Feb-2012 TU Include Philippe's fix to reduce static memory usage
  CalRecon-06-15-02-gr02  6-Feb-2012 TU fix windows issues with Philippe's stuff, fix cal recon test job crash
  CalRecon-06-15-02-gr01  3-Feb-2012 TU Tag Philippe's new profile energy on the GR v19r4p1 branch
  CalRecon-06-15-02 24-Nov-2011 kadrlica Implemented a place holder for the cluster covariance matrix
