@@ -11,13 +11,13 @@
 #include "GlastSvc/GlastDetSvc/IGlastDetSvc.h"
 
 #define FSGM_XY_MAX 149800
-#define FSGM_NPOINTS_MAX 2000
+#define FSGM_NPOINTS_MAX 1100
 #define FSGM_NPOINTS_NRING 6
 #define FSGM_NPOINTS_IN_RING 10
 #define FSGM_RPROF_R_MAX 5000
 #define FSGM_RPROF_T_MAX 750
 
-#define FSDD_NSTEPS_MAX 13000
+#define FSDD_NSTEPS_MAX 1300
 #define FSDD_NMAX 20
 
 #define FSDD_XTAL_NMAX 200
@@ -29,7 +29,7 @@
 * Tool that describes the shower developement in the calorimeter given
 * the length in X0 seen in the tracker and the position of the shower maximum
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/NewFullShowerDevelopmentDescriptionManager.h,v 1.6 2008/04/13 19:57:34 bruel Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/NewFullShowerDevelopmentDescriptionManager.h,v 1.1 2012/02/03 14:38:40 bruel Exp $
 */
 
 class NewFullShowerGeometryManager{
