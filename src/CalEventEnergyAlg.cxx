@@ -20,7 +20,7 @@
 * @brief An algorithm for controlling and applying the various energy correction tools
 *        used to determine the final event energy for GLAST
 * 
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalEventEnergyAlg.cxx,v 1.28.4.1 2012/02/03 16:52:47 usher Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalEventEnergyAlg.cxx,v 1.28.4.2 2012/02/06 23:35:30 usher Exp $
 */
 
 
@@ -264,6 +264,7 @@ StatusCode CalEventEnergyAlg::execute()
 
             if (bestCorResult != 0) 
             {
+                calEnergy->setBestCorName(bestCorResult->getCorrectionName());
                 calEnergy->setParams(bestCorResult->getParams()) ;
                 calEnergy->setStatusBits(Event::CalEventEnergy::VALIDPARAMS) ;
             }    
