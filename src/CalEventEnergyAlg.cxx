@@ -264,7 +264,8 @@ StatusCode CalEventEnergyAlg::execute()
 
             if (bestCorResult != 0) 
             {
-                calEnergy->setBestCorName(bestCorResult->getCorrectionName());
+                /// Remove for now (TU 2/14/12)
+                ///calEnergy->setBestCorName(bestCorResult->getCorrectionName());
                 calEnergy->setParams(bestCorResult->getParams()) ;
                 calEnergy->setStatusBits(Event::CalEventEnergy::VALIDPARAMS) ;
             }    
