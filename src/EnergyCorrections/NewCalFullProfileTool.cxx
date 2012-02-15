@@ -46,7 +46,7 @@
 * shower profile using a full (= longitudinal AND radial) description of the shower development in the calorimeter.
 *
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/NewCalFullProfileTool.cxx,v 1.1 2012/02/03 14:38:40 bruel Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/NewCalFullProfileTool.cxx,v 1.2 2012/02/14 17:09:04 bruel Exp $
 */
 
 
@@ -1243,6 +1243,7 @@ double NewCalFullProfileTool::GetChi2Dist(double *pptraj, double *vvtraj, double
       if(icount>-1)
         {
           xtalfitenergy = nm_extal_fit[icount];
+          if(icount<nm_nxtal_sat && xtalfitenergy>xtaldatenergy) xtalfitenergy = xtaldatenergy;
           xtalused[icount] = 1;
         }
       lambda = 0;
