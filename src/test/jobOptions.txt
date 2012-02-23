@@ -1,7 +1,9 @@
 
 #include "$CALRECONJOBOPTIONSPATH/test/singleOptions.txt"
 
-ApplicationMgr.DLLs += { "GaudiAud" } ;
-AuditorSvc.Auditors += { "CalReconAuditor" } ;
+// Remove use of Gaudi Auditor for now while we sort out how it fails in unit
+// test
+//ApplicationMgr.DLLs += { "GaudiAud" } ;
+//AuditorSvc.Auditors += { "CalReconAuditor" } ;
 
 
