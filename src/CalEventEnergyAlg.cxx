@@ -20,7 +20,7 @@
 * @brief An algorithm for controlling and applying the various energy correction tools
 *        used to determine the final event energy for GLAST
 * 
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalEventEnergyAlg.cxx,v 1.28.4.2 2012/02/06 23:35:30 usher Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalEventEnergyAlg.cxx,v 1.28.4.4 2012/02/14 19:06:17 usher Exp $
 */
 
 
@@ -195,9 +195,13 @@ StatusCode CalEventEnergyAlg::execute()
     Event::ClusterToRelationMap* clusterToRelationMap = 
         SmartDataPtr<Event::ClusterToRelationMap>(eventSvc(), EventModel::Recon::ClusterToRelationMap);
 
+    int iclu = 0;
+
     // there could be no clusters collection, if there was no hits
     if (calClusterCol && !calClusterCol->empty()) 
     {
+      int num_clusters  = calClusterCol->size();
+
         // Loop over all clusters in the list (including the uber cluster)
         for(Event::CalClusterCol::iterator clusItr = calClusterCol->begin(); clusItr != calClusterCol->end(); clusItr++)
         {
@@ -235,6 +239,7 @@ StatusCode CalEventEnergyAlg::execute()
             std::vector<ICalEnergyCorr *>::const_iterator tool ;
             for ( tool = m_corrTools.begin(); tool != m_corrTools.end(); ++tool ) 
             {
+              if(iclu>0 && (((*tool)->type()).compare("CalFullProfileTool")==0 || ((*tool)->type()).compare("NewCalFullProfileTool")==0)) continue;
                 try 
                 {
                     log<<MSG::DEBUG<<(*tool)->type()<<endreq ;
