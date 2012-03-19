@@ -178,14 +178,17 @@ StatusCode CalClassifyAlg::execute()
         rotate(calClusterCol->begin(), cluMaxGProbIt, cluMaxGProbIt+1 ); }
     }
     else {
-      log << MSG::DEBUG << "Clusters sorting: by energy." << endreq;          
+      log << MSG::DEBUG << "Clusters sorting: by energy." << endreq;
     }
 
-    int numClusters = calClusterCol->size();
+    int numClusters = 0;
+    if(calClusterCol) numClusters = calClusterCol->size();
+    log << MSG::DEBUG << "There are " << numClusters << " clusters." << endreq;
 
     // new cluster uber2 = uber w/o 2nd cluster
     if(numClusters>1)
       {
+      log << MSG::DEBUG << "More than one cluster : creating the Uber2 cluster." << endreq;
         // First get the cluster id for each xtal
         int myxtal2clus[16][8][12];
         int i,j,k;
@@ -196,6 +199,7 @@ StatusCode CalClassifyAlg::execute()
         
         Event::CalClusterCol::iterator clusIter = calClusterCol->begin();
         int iclu = 0;
+        int nxtal2 = 0;
         while(clusIter != calClusterCol->end())
           {
             if(iclu>0 && iclu==numClusters-1) break;
@@ -217,13 +221,17 @@ StatusCode CalClassifyAlg::execute()
                         int ilay=recData->getPackedId().getLayer();
                         int icol=recData->getPackedId().getColumn();
                         myxtal2clus[itow][ilay][icol] = iclu;
+                        if(iclu==1) ++nxtal2;
                       }
                   }
               }
             ++iclu;
           }
+        log << MSG::DEBUG << "There are " << nxtal2 << " xtals in the second cluster." << endreq;
         //
+        int nxtaluber2 = 0;
         // Get xtal list of xtals not in second cluster
+        log << MSG::DEBUG << "Creating the list of xtals not in the second cluster." << endreq;
         Event::CalCluster* myuber2cluster = NULL;
         XtalDataList *xTalClus = new XtalDataList();
         if(calXtalRecCol)
@@ -236,19 +244,27 @@ StatusCode CalClassifyAlg::execute()
                 int icol=xTalData->getPackedId().getColumn();
                 if(myxtal2clus[itow][ilay][icol]==1) continue;
                 xTalClus->push_back(xTalData);
+                ++nxtaluber2;
               }
           }
-        // create and fill the cluster - from Tracy
-        myuber2cluster = m_clusterInfo->fillClusterInfo(xTalClus);
-        
-        std::string producerName("CalMSTClusteringTool/") ;
-        producerName += myuber2cluster->getProducerName() ;
-        myuber2cluster->setProducerName(producerName) ;
-        myuber2cluster->clearStatusBit(Event::CalCluster::ALLXTALS);
-        // Add cluster into the collection
-        calClusterCol->push_back(myuber2cluster);
-        // reorder such that the last cluster is the uber cluster (and cluster uber2 is the next to last)
-        rotate(calClusterCol->end()-2,calClusterCol->end()-1,calClusterCol->end());
+        log << MSG::DEBUG << "There are " << nxtaluber2 << " xtals not in the second cluster." << endreq;
+        if(!xTalClus->empty())
+          {
+            // create and fill the cluster - from Tracy
+            log << MSG::DEBUG << "Creating the Uber2 cluster with " << nxtaluber2 << " xtals." << endreq;
+            myuber2cluster = m_clusterInfo->fillClusterInfo(xTalClus);
+            
+            std::string producerName("CalMSTClusteringTool/") ;
+            producerName += myuber2cluster->getProducerName() ;
+            myuber2cluster->setProducerName(producerName) ;
+            myuber2cluster->clearStatusBit(Event::CalCluster::ALLXTALS);
+            // Add cluster into the collection
+            log << MSG::DEBUG << "Adding the Uber2 cluster into the collection." << endreq;
+            calClusterCol->push_back(myuber2cluster);
+            // reorder such that the last cluster is the uber cluster (and cluster uber2 is the next to last)
+            log << MSG::DEBUG << "Reordering such that the last cluster is the uber cluster (and cluster uber2 is the next to last)." << endreq;
+            rotate(calClusterCol->end()-2,calClusterCol->end()-1,calClusterCol->end());
+          }
       }
 
     // For debug
