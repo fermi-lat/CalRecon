@@ -6,6 +6,8 @@ package CalRecon
 package manager: David Chamont
 
   * EOH *
+ CalRecon-06-15-02-gr08 19-Mar-2012 bruel tagging Philippe's patch to possibly
+     avoid accessing empty vectors
  CalRecon-06-15-02-gr07 16-Mar-2012 kadrlica 
     NewCalFullProfile = Neutral direction with centroid position correction - 
     CalEventEnergyAlg = profile fit runs on only the first cluster - 
