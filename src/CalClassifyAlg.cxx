@@ -265,6 +265,7 @@ StatusCode CalClassifyAlg::execute()
             log << MSG::DEBUG << "Reordering such that the last cluster is the uber cluster (and cluster uber2 is the next to last)." << endreq;
             rotate(calClusterCol->end()-2,calClusterCol->end()-1,calClusterCol->end());
           }
+	if(xTalClus) delete xTalClus;
       }
 
     // For debug
@@ -278,6 +279,8 @@ StatusCode CalClassifyAlg::execute()
         clusterId ++;
       }
 
+  if(xTal2ClusTab) delete xTal2ClusTab;
+
   // Catch any exceptions here
   }
   catch( CalException & e ) {
@@ -289,6 +292,7 @@ StatusCode CalClassifyAlg::execute()
   catch(...) {
     sc = m_calReconSvc->handleError(name(),"unknown exception");
   }
+
     
   log << MSG::DEBUG << "Done with CalClassifyAlg::execute()." << endreq;
   return sc;
