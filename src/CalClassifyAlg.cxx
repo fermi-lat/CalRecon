@@ -151,25 +151,29 @@ StatusCode CalClassifyAlg::execute()
     if ( m_classifierTool->classifyClusters(calClusterCol).isFailure() ) {
       sc = m_calReconSvc->handleError(name(),"classifier tool failure");
     }
-       
+
     // Cluster sorting (after classification). Put the Uber cluster at the end though
     // Only if energy of any clusters is smaller than some value.
     int   nCluEgtThr  = 0;
     float cluMaxGProb = 0.;
-    Event::CalClusterCol::iterator cluMaxGProbIt ;
-    for ( Event::CalClusterCol::iterator cluster = calClusterCol->begin();          
+    int cluMaxGProbId = -1;
+    for ( Event::CalClusterCol::const_iterator cluster = calClusterCol->begin();          
           cluster != calClusterCol->end()-1;          
           cluster++) {  
       if ((*cluster)->getMomParams().getEnergy()> m_maxEtoSortByClassification) {nCluEgtThr+=1;}
       if ((*cluster)->getClassParams().getGamProb()  > cluMaxGProb) {
         cluMaxGProb = (*cluster)->getClassParams().getGamProb();
-        cluMaxGProbIt = cluster;
+        cluMaxGProbId = std::find(calClusterCol->begin(), calClusterCol->end(), *cluster) - calClusterCol->begin();   
       }
     }
-
+    
+    // iterator to be used in the rotate method below.
+    Event::CalClusterCol::iterator cluMaxGProbIt ;
+    cluMaxGProbIt = calClusterCol->begin();
+    std::advance(cluMaxGProbIt, cluMaxGProbId);
 
     if (nCluEgtThr==0){
-      //std::cout << "\t Rotating: MaxGProb first "  << std::endl;
+
       if (m_fullSortByClassification){
         log << MSG::DEBUG << "Clusters sorting: by gam probability." << endreq;
         sort (calClusterCol->begin(), calClusterCol->end()-1, SortByGamProb); }
@@ -178,7 +182,7 @@ StatusCode CalClassifyAlg::execute()
         rotate(calClusterCol->begin(), cluMaxGProbIt, cluMaxGProbIt+1 ); }
     }
     else {
-      log << MSG::DEBUG << "Clusters sorting: by energy." << endreq;
+      log << MSG::DEBUG << "Clusters sorting: by energy." << endreq;          
     }
 
     int numClusters = 0;
@@ -265,7 +269,7 @@ StatusCode CalClassifyAlg::execute()
             log << MSG::DEBUG << "Reordering such that the last cluster is the uber cluster (and cluster uber2 is the next to last)." << endreq;
             rotate(calClusterCol->end()-2,calClusterCol->end()-1,calClusterCol->end());
           }
-	if(xTalClus) delete xTalClus;
+        if(xTalClus) delete xTalClus;
       }
 
     // For debug
