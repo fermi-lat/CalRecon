@@ -12,7 +12,7 @@
 *
 * Class handling the energy parameterization of the shower profile parameters alpha and tmax;
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/NewFullShowerProfileParamsManager.h,v 1.1 2005/07/06 12:44:31 bruel Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/NewFullShowerProfileParamsManager.h,v 1.1.2.2 2012/02/03 16:52:47 usher Exp $
 */
 
 class NewFullShowerProfileParamsManager{

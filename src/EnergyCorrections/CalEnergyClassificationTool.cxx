@@ -7,7 +7,7 @@
  *
  * @author The Tracking Software Group
  *
- * $Header: /nfs/slac/g/glast/ground/cvs/GlastRelease-scons/CalRecon/src/EnergyCorrections/CalEnergyClassificationTool.cxx,v 1.2 2011/11/18 01:23:08 usher Exp $
+ * $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/CalEnergyClassificationTool.cxx,v 1.3 2011/12/13 02:23:59 heather Exp $
  */
 
 #include "GaudiKernel/AlgTool.h"
@@ -369,7 +369,7 @@ const Event::CalCorToolResult* CalEnergyClassificationTool::selectBestEnergy(Eve
         }
     
         // The default value, in case nothing happens, is to return the "raw" energy
-        calResult = calEnergy->findLast("CalRawEnergyTool");
+        if (!calResult) calResult = calEnergy->findLast("CalRawEnergyTool");
     }
 
     return calResult;

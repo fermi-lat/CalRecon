@@ -709,7 +709,7 @@ double NewFullShowerGeometryManager::GetZCrack(double *xyz, double *pp, double *
 * Tool that describes the shower developement in the calorimeter given
 * the length in X0 seen in the tracker and the position of the shower maximum
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/NewFullShowerDevelopmentDescriptionManager.cxx,v 1.8 2008/07/16 05:07:20 bruel Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/NewFullShowerDevelopmentDescriptionManager.cxx,v 1.1.2.2 2012/02/03 16:52:47 usher Exp $
 */
 
 NewFullShowerDevelopmentDescription::NewFullShowerDevelopmentDescription(NewFullShowerGeometryManager *fsgm_input, int type_input, double zstep_input, double radialcontainedfraction_input)
