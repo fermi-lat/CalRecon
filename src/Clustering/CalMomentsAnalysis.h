@@ -9,7 +9,7 @@
  * @author Tracy Usher, Luca Baldini.
  *
  * File and Version Information:
- *      $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/Clustering/CalMomentsAnalysis.h,v 1.11 2011/01/21 14:02:50 lbaldini Exp $
+ *      $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/Clustering/CalMomentsAnalysis.h,v 1.12 2011/11/24 18:36:49 kadrlica Exp $
  */
 
 #include "geometry/Ray.h"
@@ -42,7 +42,8 @@ class CalMomentsAnalysis
 
   /// ADW: Sept. 7, 2011
   /// Calculate the covariance on the axis direction
-  CLHEP::HepMatrix calcCovariance(Vector momAxis);
+  //CLHEP::HepMatrix calcCovariance(Vector momAxis);
+  CLHEP::HepMatrix calcCovariance(CalMomentsDataVec& dataVec, const Point& centroid);
 
   /// Access class members...
   inline const double getWeightSum()        const { return m_weightSum; }
