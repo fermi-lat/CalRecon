@@ -1,7 +1,7 @@
 /** @file CalValsCorrTool.cxx
 @brief implementation of the class CalValsCorrTool
 
-$Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/CalValsCorrTool.cxx,v 1.18 2011/10/05 19:17:43 usher Exp $
+$Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/CalValsCorrTool.cxx,v 1.19 2012/05/11 16:28:26 usher Exp $
 
 */
 
@@ -40,7 +40,7 @@ $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/CalValsCorr
 *
 * Copied by THB from AnalysisNtuple::CalValsTool.cxx revision 1.43
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/CalValsCorrTool.cxx,v 1.18 2011/10/05 19:17:43 usher Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/CalValsCorrTool.cxx,v 1.19 2012/05/11 16:28:26 usher Exp $
 */
 
 class CalValsCorrTool : public AlgTool, virtual public ICalEnergyCorr
@@ -590,6 +590,9 @@ void CalValsCorrTool::calculate(Point x0, Vector t0, double t_tracker, double tk
     // Apply final correction 
     m_corr_energy = m_corr_energy * ad_hoc_factor;
     m_total_correction = m_corr_energy/m_raw_energy;
+
+	// NOTE:  BIG Change:  leaving out the leakage correction.  It cause too much dispersion below 1 GeV
+	m_corr_energy *= m_leakage_correction; 
     
         return;
 }
