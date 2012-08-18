@@ -1,6 +1,9 @@
-#$Header: /nfs/slac/g/glast/ground/cvs/GlastRelease-scons/CalRecon/CalReconLib.py,v 1.3 2009/11/13 00:46:49 jrb Exp $
+#$Header: /nfs/slac/g/glast/ground/cvs/GlastRelease-scons/CalRecon/CalReconLib.py,v 1.4 2012/01/23 19:50:50 jrb Exp $
 def generate(env, **kw):
-    #if not kw.get('depsOnly', 0):
+    if not kw.get('depsOnly', 0):
+        if env['PLATFORM']=='win32' and env.get('CONTAINERNAME','')=='GlastRelease':
+	    env.Tool('findPkgPath', package = 'CalRecon') 
+
     #    env.Tool('addLibrary', library = ['CalRecon'])
     env.Tool('CalXtalResponseLib')
     env.Tool('TkrUtilLib')
