@@ -28,9 +28,9 @@
 
    @author Tracy Usher, Philippe Bruel, Luca Baldini (luca.baldini@pi.infn.it)
 
-   $Revision: 1.15 $
-   $Date: 2011/01/21 14:02:50 $
-   $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/Clustering/MomentsClusterInfo.h,v 1.15 2011/01/21 14:02:50 lbaldini Exp $
+   $Revision: 1.16 $
+   $Date: 2011/01/27 10:59:57 $
+   $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/Clustering/MomentsClusterInfo.h,v 1.16 2011/01/27 10:59:57 lbaldini Exp $
 */
 
 
@@ -45,13 +45,6 @@ class MomentsClusterInfo : virtual public ICalClusterFiller
   virtual ~MomentsClusterInfo() {};
     
   Event::CalCluster* fillClusterInfo(const XtalDataList* xtalVec);
-
-  /// Return true if the xtal in a given position is saturated.
-  bool xtalSaturated(int tower, int layer, int column) const;
-  /// And a convenience overload to pass a CalMomentsData object directly.
-  bool xtalSaturated(const CalMomentsData& momData) const;
-  /// One more convenience overload to pass an Event::CalXtalRecData object.
-  bool xtalSaturated(Event::CalXtalRecData* recData) const;
 
 private:
   
@@ -71,18 +64,6 @@ private:
   /// (Philippe Bruel : using minuit).
   int fitDirectionCentroid(const XtalDataList* xtalVec) ;
   
-  /// Correct the longitudinal position using output of fitDirectionCentroid.
-  /// (Philippe Bruel : used for saturated crystals).
-  Point GetCorrectedPosition(Point pcrystal, int itower, int ilayer,
-                             int icolumn);
-  
-  /// Look for saturated crystals : fill m_saturated[][][] (Philippe Bruel)
-  ///
-  /// This is the wrong place to do it. It should be moved upstream the 
-  /// clustering and done just once per event.
-  /// Luca Baldini, Jan 27 2010.
-  int DetectSaturation();
-  
   /// package service
   ICalReconSvc* m_calReconSvc;
   
@@ -90,14 +71,6 @@ private:
   int                 m_calnLayers;
   // centroid using only the transverse position information
   Point               m_p1;
-    
-  /// in order to handle saturation
-  /// Look at the comments a few lines above: this should be moved
-  /// upstream the clustering!
-  /// Luca Baldini, Jan 27 2010.
-  float m_saturationadc;
-  int   m_Nsaturated;
-  bool  m_saturated[16][8][12];
   
   TMinuit* m_minuit;
   int m_fit_nlayers;
