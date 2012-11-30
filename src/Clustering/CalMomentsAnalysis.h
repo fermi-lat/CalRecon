@@ -10,7 +10,7 @@
  *
  *
  * File and Version Information:
- *      $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/Clustering/CalMomentsAnalysis.h,v 1.12 2011/11/24 18:36:49 kadrlica Exp $
+ *      $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/Clustering/CalMomentsAnalysis.h,v 1.14 2012/07/02 18:34:48 usher Exp $
  */
 
 #include "geometry/Ray.h"
@@ -43,7 +43,10 @@ class CalMomentsAnalysis
 
   /// ADW: Sept. 7, 2011
   /// Calculate the covariance on the axis direction
-  CLHEP::HepMatrix calcCovariance(Vector momAxis);
+  /// CS: Nov 2012, update to an implementation that uses xtal errors
+  void calcCovarianceAxisSimple(Vector momAxis);
+  void calcCovarianceCentroidSimple(CalMomentsDataVec& dataVec, Vector momAxis, const Point& centroid);
+  void calcCovariance(CalMomentsDataVec& dataVec, const Point& centroid);
 
   /// Access class members...
   inline const double getWeightSum()        const { return m_weightSum; }
