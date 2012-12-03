@@ -10,6 +10,8 @@
 #include "CalRecon/ICalReconSvc.h"
 #include "CalMomentsAnalysis.h"
 
+#include "CalXtalResponse/ICalCalibSvc.h"
+
 #include "TMath.h"
 #include "TMinuit.h"
 
@@ -28,9 +30,9 @@
 
    @author Tracy Usher, Philippe Bruel, Luca Baldini (luca.baldini@pi.infn.it)
 
-   $Revision: 1.16 $
-   $Date: 2011/01/27 10:59:57 $
-   $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/Clustering/MomentsClusterInfo.h,v 1.16 2011/01/27 10:59:57 lbaldini Exp $
+   $Revision: 1.17 $
+   $Date: 2012/11/27 14:29:37 $
+   $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/Clustering/MomentsClusterInfo.h,v 1.17 2012/11/27 14:29:37 lbaldini Exp $
 */
 
 
@@ -39,7 +41,7 @@ class MomentsClusterInfo : virtual public ICalClusterFiller
  public:
   
   /// Constructor.
-  MomentsClusterInfo(ICalReconSvc* calReconSvc);
+  MomentsClusterInfo(ICalReconSvc* calReconSvc, ICalCalibSvc *calCalibSvc=NULL);
 
   /// Destructor.
   virtual ~MomentsClusterInfo() {};
@@ -64,9 +66,18 @@ private:
   /// (Philippe Bruel : using minuit).
   int fitDirectionCentroid(const XtalDataList* xtalVec) ;
   
+  int CorrectSaturatedXtalLongPositionAndEnergy(const XtalDataList* xtalVec);
+
+  double SetXtalLongPositionFromFitAxis(Event::CalXtalRecData* recData, Point fitCentroid, Vector fitAxis);
+
+  double SetXtalEnergyFromPosition(Event::CalXtalRecData* recData, double xtalposition);
+
   /// package service
   ICalReconSvc* m_calReconSvc;
   
+  /// pointer to CalCalibSvc object.
+  ICalCalibSvc *m_calCalibSvc;  
+
   Point               m_p0;
   int                 m_calnLayers;
   // centroid using only the transverse position information
