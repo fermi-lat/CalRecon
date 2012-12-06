@@ -10,7 +10,7 @@
  *
  *
  * File and Version Information:
- *      $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/Clustering/CalMomentsAnalysis.h,v 1.14 2012/07/02 18:34:48 usher Exp $
+ *      $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/Clustering/CalMomentsAnalysis.h,v 1.15 2012/11/30 11:08:07 carmelo Exp $
  */
 
 #include "geometry/Ray.h"
@@ -46,7 +46,7 @@ class CalMomentsAnalysis
   /// CS: Nov 2012, update to an implementation that uses xtal errors
   void calcCovarianceAxisSimple(Vector momAxis);
   void calcCovarianceCentroidSimple(CalMomentsDataVec& dataVec, Vector momAxis, const Point& centroid);
-  void calcCovariance(CalMomentsDataVec& dataVec, const Point& centroid);
+  int calcCovariance(CalMomentsDataVec& dataVec, const Point& centroid);
 
   /// Access class members...
   inline const double getWeightSum()        const { return m_weightSum; }
