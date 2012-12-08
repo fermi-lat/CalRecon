@@ -48,7 +48,7 @@
 * shower profile using a full (= longitudinal AND radial) description of the shower development in the calorimeter.
 *
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/NewCalFullProfileTool.cxx,v 1.8 2012/12/03 18:19:54 bruel Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/NewCalFullProfileTool.cxx,v 1.9 2012/12/04 13:40:38 bruel Exp $
 */
 
 
@@ -1050,6 +1050,11 @@ int NewCalFullProfileTool::DetectSaturation(Event::CalCluster* cluster)
   m_calClusterHitTool->fillRecDataVec(cluster);
   std::vector<Event::CalXtalRecData*> xtalList = m_calClusterHitTool->getRecDataVec();
   std::vector<Event::CalXtalRecData*>::const_iterator xtalData;
+
+  for(i=0;i<16;++i)
+    for(j=0;j<8;++j)
+      for(k=0;k<12;++k)
+        nm_saturated[i][j][k] = false;
 
   for (xtalData = xtalList.begin(); xtalData != xtalList.end(); xtalData++) {
     int tower  = (*xtalData)->getTower();
