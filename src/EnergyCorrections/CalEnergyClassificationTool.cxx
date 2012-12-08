@@ -7,7 +7,7 @@
  *
  * @author The Tracking Software Group
  *
- * $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/CalEnergyClassificationTool.cxx,v 1.4 2012/04/25 04:57:39 heather Exp $
+ * $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/CalEnergyClassificationTool.cxx,v 1.5 2012/09/26 15:50:50 carmelo Exp $
  */
 
 #include "GaudiKernel/AlgTool.h"
@@ -359,6 +359,15 @@ const Event::CalCorToolResult* CalEnergyClassificationTool::selectBestEnergy(Eve
 
     // Define a pointer to the "corrected" energy result
     const Event::CalCorToolResult* calResult = 0;
+
+    // Ph.Bruel: bypass the classification selection because there is no sense choosing between CalEnergyCorr (only cal energy) and CalFullProfile (event energy)
+    // Just returning CalEnergyCorr
+    if(calEnergy)
+      {
+        calResult = calEnergy->findLast("CalValsCorrTool");
+        if(!calResult) calResult = calEnergy->findLast("CalRawEnergyTool");
+      }
+    return calResult;
 
     // Check that we have some objects in place...
     if (calEnergy && treeClusRel)
