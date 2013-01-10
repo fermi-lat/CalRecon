@@ -1,7 +1,7 @@
 /** @file CalValsCorrTool.cxx
 @brief implementation of the class CalValsCorrTool
 
-$Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/CalValsCorrTool.cxx,v 1.21 2012/10/03 14:12:57 bruel Exp $
+$Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/CalValsCorrTool.cxx,v 1.22 2012/12/08 10:44:53 bruel Exp $
 
 */
 
@@ -40,7 +40,7 @@ $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/CalValsCorr
 *
 * Copied by THB from AnalysisNtuple::CalValsTool.cxx revision 1.43
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/CalValsCorrTool.cxx,v 1.21 2012/10/03 14:12:57 bruel Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/CalValsCorrTool.cxx,v 1.22 2012/12/08 10:44:53 bruel Exp $
 */
 
 class CalValsCorrTool : public AlgTool, virtual public ICalEnergyCorr
@@ -415,6 +415,7 @@ void CalValsCorrTool::calculate(Point x0, Vector t0, double t_tracker, double tk
   
   // Construct Event Axis along which the shower will be evaluated 
   Ray axis(x0, t0); 
+  if(t0.z()==0) return;
   double arc_len = (x0.z()- m_calZTop)/t0.z(); 
   m_cal_top = axis.position(-arc_len);   // Event axis entry point to top of Cal Stack 
   axis      = Ray(m_cal_top, t0); 
