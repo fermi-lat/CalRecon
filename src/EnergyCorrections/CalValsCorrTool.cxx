@@ -1,7 +1,7 @@
 /** @file CalValsCorrTool.cxx
 @brief implementation of the class CalValsCorrTool
 
-$Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/CalValsCorrTool.cxx,v 1.22 2012/12/08 10:44:53 bruel Exp $
+$Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/CalValsCorrTool.cxx,v 1.23 2013/01/10 17:41:48 bruel Exp $
 
 */
 
@@ -40,7 +40,7 @@ $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/CalValsCorr
 *
 * Copied by THB from AnalysisNtuple::CalValsTool.cxx revision 1.43
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/CalValsCorrTool.cxx,v 1.22 2012/12/08 10:44:53 bruel Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/CalValsCorrTool.cxx,v 1.23 2013/01/10 17:41:48 bruel Exp $
 */
 
 class CalValsCorrTool : public AlgTool, virtual public ICalEnergyCorr
@@ -282,6 +282,10 @@ Event::CalCorToolResult* CalValsCorrTool::doEnergyCorr(Event::CalCluster* cluste
   //Make sure we have valid cluster data
   if (!m_cluster) return corResult;
   
+  // Ph.Bruel: avoiding the cases where m_corr_energy even when m_raw_energy>0
+  m_raw_energy   = m_cluster->getXtalsParams().getXtalCorrEneSum();
+  m_corr_energy = m_raw_energy;
+
   // Put here a place holder for Event Axis Calculation!!!!!!!!!!!!!
   if(!m_cluster->checkStatusBit(Event::CalCluster::CENTROID)) return corResult;
   
@@ -369,8 +373,10 @@ Event::CalCorToolResult* CalValsCorrTool::doEnergyCorr(Event::CalCluster* cluste
   
   // Now do the energy correction and calculation of several vars. used in bkg. rejection
   calculate(x0, t0, tkr_RLn, tkr_Energy);
-  
-  if (m_status_bits != Event::CalCorToolResult::ZERO) corResult = loadResults();
+
+  // Ph.Bruel: avoiding the cases where m_corr_energy even when m_raw_energy>0  
+  //  if (m_status_bits != Event::CalCorToolResult::ZERO)
+  corResult = loadResults();
   
   return corResult;
 }
