@@ -20,7 +20,7 @@
 * @brief An algorithm for controlling and applying the various energy correction tools
 *        used to determine the final event energy for GLAST
 * 
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalEventEnergyAlg.cxx,v 1.31 2012/06/19 10:09:31 bruel Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/CalEventEnergyAlg.cxx,v 1.32 2012/06/29 17:36:32 usher Exp $
 */
 
 
@@ -87,9 +87,9 @@ CalEventEnergyAlg::CalEventEnergyAlg( const std::string & name, ISvcLocator * pS
     else
     {
       corrToolVec.push_back("CalValsCorrTool");
-      corrToolVec.push_back("CalFullProfileTool");
+      //      corrToolVec.push_back("CalFullProfileTool");
       corrToolVec.push_back("NewCalFullProfileTool");
-      corrToolVec.push_back("CalLikelihoodManagerTool"); //POL
+      //      corrToolVec.push_back("CalLikelihoodManagerTool"); //POL
 
       energySelectionToolName = "CalEnergyClassificationTool";
     }
