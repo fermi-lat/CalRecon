@@ -11,6 +11,10 @@
 #include "CalMomentsAnalysis.h"
 
 #include "CalXtalResponse/ICalCalibSvc.h"
+#include "GlastSvc/GlastDetSvc/IGlastDetSvc.h"
+#include "idents/CalXtalId.h"
+#include "idents/VolumeIdentifier.h"
+#include "CLHEP/Geometry/Transform3D.h"
 
 #include "TMath.h"
 #include "TMinuit.h"
@@ -30,9 +34,9 @@
 
    @author Tracy Usher, Philippe Bruel, Luca Baldini (luca.baldini@pi.infn.it)
 
-   $Revision: 1.17 $
-   $Date: 2012/11/27 14:29:37 $
-   $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/Clustering/MomentsClusterInfo.h,v 1.17 2012/11/27 14:29:37 lbaldini Exp $
+   $Revision: 1.18 $
+   $Date: 2012/12/03 18:19:54 $
+   $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/Clustering/MomentsClusterInfo.h,v 1.18 2012/12/03 18:19:54 bruel Exp $
 */
 
 
@@ -41,7 +45,7 @@ class MomentsClusterInfo : virtual public ICalClusterFiller
  public:
   
   /// Constructor.
-  MomentsClusterInfo(ICalReconSvc* calReconSvc, ICalCalibSvc *calCalibSvc=NULL);
+  MomentsClusterInfo(ICalReconSvc* calReconSvc, ICalCalibSvc *calCalibSvc=NULL, IGlastDetSvc *detSvc=NULL);
 
   /// Destructor.
   virtual ~MomentsClusterInfo() {};
@@ -72,11 +76,17 @@ private:
 
   double SetXtalEnergyFromPosition(Event::CalXtalRecData* recData, double xtalposition);
 
+  float  point2Pos(const idents::CalXtalId xtalId, const Point pXtal) const;
+
+
   /// package service
   ICalReconSvc* m_calReconSvc;
   
   /// pointer to CalCalibSvc object.
   ICalCalibSvc *m_calCalibSvc;  
+
+  /// pointer to GlastDetSvc
+  IGlastDetSvc *m_detSvc;
 
   Point               m_p0;
   int                 m_calnLayers;
