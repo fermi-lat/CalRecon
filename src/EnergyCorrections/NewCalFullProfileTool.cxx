@@ -49,7 +49,7 @@
 * shower profile using a full (= longitudinal AND radial) description of the shower development in the calorimeter.
 *
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/NewCalFullProfileTool.cxx,v 1.15 2013/06/12 16:05:48 usher Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/NewCalFullProfileTool.cxx,v 1.18 2013/06/26 22:08:17 bruel Exp $
 */
 
 
@@ -644,7 +644,7 @@ Event::CalCorToolResult* NewCalFullProfileTool::doEnergyCorr(Event::CalCluster* 
 //   double mycaltransrms = cluster->getMomParams().getTransRms();
 //   if(mycaltransrms<=0) mycaltransrms = 1e-5;
   //  if(nm_eTotal<100000. && log10(mycaltransrms)>1.7) runcalfit = 0;
-  if(nm_eTotal<100000. && vv[2]>-0.1) runcalfit = 0;
+  //  if(nm_eTotal<100000. && vv[2]>-0.1) runcalfit = 0;
 
   if(runcalfit)
     {
