@@ -49,7 +49,7 @@
 * shower profile using a full (= longitudinal AND radial) description of the shower development in the calorimeter.
 *
 *
-* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/NewCalFullProfileTool.cxx,v 1.18 2013/06/26 22:08:17 bruel Exp $
+* $Header: /nfs/slac/g/glast/ground/cvs/CalRecon/src/EnergyCorrections/NewCalFullProfileTool.cxx,v 1.19 2013/06/27 16:07:21 bruel Exp $
 */
 
 
@@ -219,6 +219,11 @@ double NewCalFullProfileTool::compute_deposited_energy(double *par, double z0, d
 double NewCalFullProfileTool::compute_chi2(double *par)
 {
   nm_totchisq = 1e10;
+
+  if(std::isnan(par[0])||std::isnan(par[1])||std::isnan(par[2]))
+    return nm_totchisq;
+
+  nm_totchisq = 1e10+fabs(par[0])+fabs(par[1])+fabs(par[2]);
 
   if(!nm_fsppm->Fill(par)) return nm_totchisq;
 
